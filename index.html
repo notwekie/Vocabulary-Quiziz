@@ -155,20 +155,18 @@
     </main>
 
     <script>
-        const SCRIPT_URL = ""; 
-        const ADMIN_PASSWORD = "sensei123";
-
-        let allVocabulary = [
-            {no: 1, kanji: "先生", hiragana: "せんせい", arti: "Guru / Dosen", level: "Minna 1"},
-            {no: 2, kanji: "教師", hiragana: "きょうし", arti: "Guru (Profesi)", level: "Minna 1"},
-            {no: 3, kanji: "学生", hiragana: "がくせい", arti: "Siswa", level: "Minna 1"},
-            {no: 4, kanji: "会社員", hiragana: "かいしゃいん", arti: "Karyawan Perusahaan", level: "Minna 1"},
-            {no: 5, kanji: "銀行員", hiragana: "ぎんこういん", arti: "Karyawan Bank", level: "Minna 1"},
-            {no: 20, kanji: "見ます", hiragana: "みます", arti: "Melihat / Memeriksa", level: "Minna 2"},
-            {no: 21, kanji: "探します", hiragana: "さがします", arti: "Mencari", level: "Minna 2"}
-        ];
-
-        let currentCategory = "M1";
+        const DATABASE_URL = './kotoba_database.json';
+        const QUESTIONS_PER_QUIZ = 50;
+        let allVocabulary = [];
+        let quizListConfig = [];
+        let currentCategory = 'M1';
+        let currentQuizMeta = null;
+        let currentQuestions = [];
+        let currentIndex = 0;
+        let score = 0;
+        let timerInterval = null;
+        let secondsElapsed = 0;
+        let questionAnswered = false;
 
         const japaneseQuotes = [
             { jp: "七転び八起き (Nanakorobi Yaoki)", id: "Jatuh 7 kali, bangkit 8 kali! Pantang menyerah!" },
@@ -176,13 +174,73 @@
             { jp: "塵も積もれば山となる (Chiri mo tsumoreba yama to naru)", id: "Sedikit demi sedikit, lama-lama menjadi bukit." }
         ];
 
-        const quizListConfig = [
-            { id: 1, category: "M1", title: "Minna 1 - Quiz 1 (Kotoba Dasar)", start: 1, end: 50 },
-            { id: 2, category: "M1", title: "Minna 1 - Quiz 2 (Kotoba Tempat & Benda)", start: 51, end: 100 },
-            { id: 3, category: "M1", title: "Minna 1 - Recall Form 1 (Evaluasi 1-100)", start: 1, end: 100, isRecall: true },
-            { id: 20, category: "M2", title: "Minna 2 - Quiz 1 (Minna 2 Awal)", start: 1, end: 50 },
-            { id: 21, category: "M2", title: "Minna 2 - Quiz 2 (Minna 2 Lanjutan)", start: 51, end: 100 }
-        ];
+        function shuffle(items) {
+            const copy = [...items];
+            for (let i = copy.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [copy[i], copy[j]] = [copy[j], copy[i]];
+            }
+            return copy;
+        }
+
+        function escapeHTML(value) {
+            return String(value ?? '').replace(/[&<>"']/g, ch => ({
+                '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+            })[ch]);
+        }
+
+        function levelWords(category) {
+            const level = category === 'M1' ? 'minna_1' : 'minna_2';
+            return allVocabulary
+                .filter(v => v.level === level && (v.meaning_id || v.hiragana || v.kanji))
+                .sort((a, b) => a.source_no - b.source_no);
+        }
+
+        function makeBatches(words) {
+            const batches = [];
+            for (let i = 0; i < words.length; i += QUESTIONS_PER_QUIZ) {
+                batches.push(words.slice(i, i + QUESTIONS_PER_QUIZ));
+            }
+            // Avoid a one-word final quiz: merge it into the previous batch.
+            if (batches.length > 1 && batches[batches.length - 1].length < 30) {
+                batches[batches.length - 2].push(...batches.pop());
+            }
+            return batches;
+        }
+
+        function buildQuizConfig() {
+            quizListConfig = [];
+            ['M1', 'M2'].forEach(category => {
+                const label = category === 'M1' ? 'Minna 1' : 'Minna 2';
+                const batches = makeBatches(levelWords(category));
+                let learningCount = 0;
+                let id = category === 'M1' ? 1 : 1001;
+                const covered = [];
+
+                batches.forEach((batch, index) => {
+                    learningCount++;
+                    covered.push(...batch);
+                    quizListConfig.push({
+                        id: id++,
+                        category,
+                        title: `${label} - Quiz ${learningCount} (Kosakata ${index * QUESTIONS_PER_QUIZ + 1}–${index * QUESTIONS_PER_QUIZ + batch.length})`,
+                        words: batch,
+                        isRecall: false
+                    });
+
+                    // Every fourth item is a recall quiz, after three learning quizzes.
+                    if (learningCount % 3 === 0 && index < batches.length - 1) {
+                        quizListConfig.push({
+                            id: id++,
+                            category,
+                            title: `${label} - Recall Form ${Math.floor(learningCount / 3)} (Ulangan Kumulatif)`,
+                            words: [...covered],
+                            isRecall: true
+                        });
+                    }
+                });
+            });
+        }
 
         function filterQuizCategory(cat) {
             currentCategory = cat;
@@ -194,61 +252,119 @@
         function renderQuizCards() {
             const quizListEl = document.getElementById('quiz-list');
             if (!quizListEl) return;
-            
             quizListEl.innerHTML = '';
+
             const filtered = quizListConfig.filter(q => q.category === currentCategory);
-            
+            if (!filtered.length) {
+                quizListEl.innerHTML = '<div class="card">Belum ada kosakata untuk kategori ini.</div>';
+                return;
+            }
+
             filtered.forEach(q => {
-                quizListEl.innerHTML += `
-                    <div class="quiz-card" onclick="startQuiz(${q.id})">
-                        <div>
-                            ${q.isRecall ? '<span class="badge-recall">⚔️ RECALL FORM (ULANGAN)</span>' : ''}
-                            <h3>${q.title}</h3>
-                            <p style="font-size: 0.9rem; margin-bottom: 15px;">Uji kosakata interaktif dengan timer.</p>
-                        </div>
-                        <button style="width: 100%; font-size: 0.9rem; padding: 10px;">Mulai Kuis 🚀</button>
+                const card = document.createElement('div');
+                card.className = 'quiz-card';
+                const badge = q.isRecall ? '<span class="badge-recall">⚔️ RECALL FORM (ULANGAN)</span>' : '';
+                const description = q.isRecall
+                    ? `Ulangan kumulatif dari ${q.words.length} kosakata yang telah dipelajari.`
+                    : `Latihan ${q.words.length} kosakata. Soal dan pilihan jawaban diacak.`;
+                card.innerHTML = `
+                    <div>
+                        ${badge}
+                        <h3>${escapeHTML(q.title)}</h3>
+                        <p style="font-size: 0.9rem; margin-bottom: 15px;">${description}</p>
                     </div>
+                    <button type="button" style="width: 100%; font-size: 0.9rem; padding: 10px;">Mulai Kuis 🚀</button>
                 `;
+                card.querySelector('button').addEventListener('click', () => startQuiz(q.id));
+                quizListEl.appendChild(card);
             });
         }
 
         function promptAdminLogin() {
-            const pwd = prompt("Masukkan kata sandi Admin/Pengajar (default: sensei123):");
-            if(pwd === ADMIN_PASSWORD) {
-                switchView('admin');
-            } else if(pwd !== null) {
-                alert("Kata sandi salah!");
-            }
+            alert('Panel Admin akan diaktifkan setelah autentikasi aman dan database admin selesai dipasang. Untuk sementara, panel ini belum tersedia.');
         }
 
         function changeTheme(themeName) {
             document.body.setAttribute('data-theme', themeName);
+            localStorage.setItem('kotoba-theme', themeName);
         }
 
-        let currentQuizMeta = null;
-        let currentQuestions = [];
-        let currentIndex = 0;
-        let score = 0;
-        let timerInterval = null;
-        let secondsElapsed = 0;
+        function makeQuestion(word, pool) {
+            const hasKanji = Boolean(word.kanji);
+            const hasHiragana = Boolean(word.hiragana);
+            const hasMeaning = Boolean(word.meaning_id);
+            if (!hasMeaning || (!hasKanji && !hasHiragana)) return null;
+
+            const types = [];
+            if (hasMeaning) types.push('jp_to_id');
+            if (hasMeaning && (hasKanji || hasHiragana)) types.push('id_to_jp');
+            if (hasKanji && hasHiragana) types.push('kanji_to_reading');
+
+            const type = types[Math.floor(Math.random() * types.length)];
+            let promptHTML = '';
+            let correct = '';
+            let answerField = '';
+
+            if (type === 'jp_to_id') {
+                const japanese = hasKanji ? word.kanji : word.hiragana;
+                const reading = hasKanji && hasHiragana
+                    ? `<ruby>${escapeHTML(word.kanji)}<rt style="font-size:0.75rem;">${escapeHTML(word.hiragana)}</rt></ruby>`
+                    : escapeHTML(japanese);
+                promptHTML = `Apa arti dari<br><span style="color:var(--secondary);font-size:2.2rem;">${reading}</span>?`;
+                correct = word.meaning_id;
+                answerField = 'meaning_id';
+            } else if (type === 'id_to_jp') {
+                promptHTML = `Apa kosakata bahasa Jepangnya?<br><span style="color:var(--secondary);font-size:1.6rem;">${escapeHTML(word.meaning_id)}</span>`;
+                correct = hasKanji ? word.kanji : word.hiragana;
+                answerField = hasKanji ? 'kanji' : 'hiragana';
+            } else {
+                promptHTML = `Apa cara baca kanji berikut?<br><span style="color:var(--secondary);font-size:2.2rem;">${escapeHTML(word.kanji)}</span>`;
+                correct = word.hiragana;
+                answerField = 'hiragana';
+            }
+
+            const distractors = shuffle(pool
+                .filter(v => v.id !== word.id && v[answerField] && v[answerField] !== correct)
+                .map(v => v[answerField])
+                .filter((value, index, arr) => arr.indexOf(value) === index))
+                .slice(0, 3);
+
+            if (distractors.length < 3) return null;
+            return { promptHTML, correct, options: shuffle([correct, ...distractors]) };
+        }
+
+        function createQuestions(words) {
+            const pool = words.filter(v => v.meaning_id || v.hiragana || v.kanji);
+            const candidates = shuffle(pool);
+            const questions = [];
+            candidates.forEach(word => {
+                if (questions.length >= QUESTIONS_PER_QUIZ) return;
+                const question = makeQuestion(word, pool);
+                if (question) questions.push(question);
+            });
+            return questions;
+        }
 
         function startQuiz(quizId) {
             const studentName = document.getElementById('student-name-input').value.trim();
-            if(!studentName) {
-                alert("Silakan masukkan nama Anda terlebih dahulu!");
+            if (!studentName || studentName.toLowerCase() === 'siswa') {
+                alert('Silakan masukkan nama lengkap Anda terlebih dahulu!');
+                document.getElementById('student-name-input').focus();
                 return;
             }
 
             currentQuizMeta = quizListConfig.find(q => q.id === quizId);
             if (!currentQuizMeta) return;
-            
-            let pool = allVocabulary.filter(v => v.level === (currentCategory === 'M1' ? 'Minna 1' : 'Minna 2'));
-            if(pool.length === 0) pool = allVocabulary;
-            
-            pool.sort(() => Math.random() - 0.5);
-            currentQuestions = pool.slice(0, Math.min(5, pool.length));
 
-            currentIndex = 0; score = 0; secondsElapsed = 0;
+            currentQuestions = createQuestions(currentQuizMeta.words);
+            if (currentQuestions.length < 30) {
+                alert(`Soal yang dapat dibuat untuk kuis ini hanya ${currentQuestions.length}. Minimal 30 soal diperlukan. Periksa kelengkapan kosakata.`);
+                return;
+            }
+
+            currentIndex = 0;
+            score = 0;
+            secondsElapsed = 0;
             document.getElementById('quiz-title-header').textContent = currentQuizMeta.title;
             switchView('quiz');
             startTimer();
@@ -259,88 +375,128 @@
             clearInterval(timerInterval);
             timerInterval = setInterval(() => {
                 secondsElapsed++;
-                let min = Math.floor(secondsElapsed / 60);
-                let sec = secondsElapsed % 60;
-                document.getElementById('timer-display').textContent = `⏱️ ${String(min).padStart(2,'0')}:${String(sec).padStart(2,'0')}`;
+                const min = Math.floor(secondsElapsed / 60);
+                const sec = secondsElapsed % 60;
+                document.getElementById('timer-display').textContent =
+                    `⏱️ ${String(min).padStart(2, '0')}:${String(sec).padStart(2, '0')}`;
             }, 1000);
         }
 
         function loadQuestion() {
-            if(currentIndex >= currentQuestions.length) {
-                endQuiz(); return;
+            if (currentIndex >= currentQuestions.length) {
+                endQuiz();
+                return;
             }
+            questionAnswered = false;
             const q = currentQuestions[currentIndex];
-            document.getElementById('question-progress').textContent = `Soal ${currentIndex + 1} dari ${currentQuestions.length}`;
-            document.getElementById('question-text').innerHTML = `Apa arti dari <br><span style="color:var(--secondary); font-size:2.2rem;">${q.kanji}</span> (${q.hiragana})?`;
+            document.getElementById('question-progress').textContent =
+                `Soal ${currentIndex + 1} dari ${currentQuestions.length}`;
+            document.getElementById('question-text').innerHTML = q.promptHTML;
 
-            let options = [q.arti, "Mobil", "Sekolah", "Kantin"].sort(() => Math.random() - 0.5);
             const optContainer = document.getElementById('options-container');
             optContainer.innerHTML = '';
-            options.forEach(opt => {
+            q.options.forEach(option => {
                 const btn = document.createElement('button');
                 btn.className = 'option-btn';
-                btn.textContent = opt;
-                btn.onclick = () => selectAnswer(btn, opt, q.arti);
+                btn.textContent = option;
+                btn.addEventListener('click', () => selectAnswer(btn, option, q.correct));
                 optContainer.appendChild(btn);
             });
             document.getElementById('next-btn').classList.add('hidden');
         }
 
         function selectAnswer(btn, selected, correct) {
-            document.querySelectorAll('.option-btn').forEach(b => {
-                b.style.pointerEvents = 'none';
-                if(b.textContent === correct) b.classList.add('correct');
+            if (questionAnswered) return;
+            questionAnswered = true;
+            document.querySelectorAll('.option-btn').forEach(button => {
+                button.disabled = true;
+                if (button.textContent === correct) button.classList.add('correct');
             });
-            if(selected === correct) score++;
+            if (selected === correct) score++;
             else btn.classList.add('incorrect');
             document.getElementById('next-btn').classList.remove('hidden');
         }
 
-        function nextQuestion() { currentIndex++; loadQuestion(); }
+        function nextQuestion() {
+            currentIndex++;
+            loadQuestion();
+        }
 
         function endQuiz() {
             clearInterval(timerInterval);
+            timerInterval = null;
             switchView('result');
 
-            let min = Math.floor(secondsElapsed / 60);
-            let sec = secondsElapsed % 60;
-            let timeString = `${min} Menit ${sec} Detik`;
-            let nowStr = new Date().toLocaleString('id-ID');
-
-            document.getElementById('score-display').textContent = `Skor: ${score} / ${currentQuestions.length}`;
+            const min = Math.floor(secondsElapsed / 60);
+            const sec = secondsElapsed % 60;
+            const timeString = `${min} Menit ${sec} Detik`;
+            document.getElementById('score-display').textContent =
+                `Skor: ${score} / ${currentQuestions.length}`;
 
             const randomQuote = japaneseQuotes[Math.floor(Math.random() * japaneseQuotes.length)];
             document.getElementById('quote-jp').textContent = randomQuote.jp;
             document.getElementById('quote-id').textContent = `"${randomQuote.id}"`;
 
-            if(SCRIPT_URL !== "") {
-                fetch(SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        timestamp: nowStr,
-                        nama: document.getElementById('student-name-input').value,
-                        quizTitle: currentQuizMeta.title,
-                        score: `${score} / ${currentQuestions.length}`,
-                        time: timeString
-                    })
-                }).catch(err => console.log(err));
-            }
+            // Results are not stored online yet. This will be connected after the secure backend is set up.
+            console.log('Quiz result (local only):', {
+                timestamp: new Date().toISOString(),
+                student: document.getElementById('student-name-input').value.trim(),
+                quiz: currentQuizMeta.title,
+                score: `${score}/${currentQuestions.length}`,
+                duration: timeString
+            });
         }
 
         function switchView(view) {
-            document.getElementById('student-view').classList.add('hidden');
-            document.getElementById('quiz-room').classList.add('hidden');
-            document.getElementById('result-view').classList.add('hidden');
-            document.getElementById('admin-view').classList.add('hidden');
-            document.getElementById(view + '-view').classList.remove('hidden');
+            const views = {
+                student: 'student-view',
+                quiz: 'quiz-room',
+                result: 'result-view',
+                admin: 'admin-view'
+            };
+            const targetId = views[view];
+            if (!targetId) return;
+
+            Object.values(views).forEach(id => document.getElementById(id).classList.add('hidden'));
+            document.getElementById(targetId).classList.remove('hidden');
+
+            if (view !== 'quiz' && timerInterval) {
+                clearInterval(timerInterval);
+                timerInterval = null;
+            }
         }
 
-        // Jalankan render kuis langsung
-        document.addEventListener("DOMContentLoaded", function() {
-            renderQuizCards();
-        });
+        async function initializeApp() {
+            const list = document.getElementById('quiz-list');
+            list.innerHTML = '<div class="card">Memuat database kosakata...</div>';
+            try {
+                const response = await fetch(DATABASE_URL, { cache: 'no-store' });
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                const database = await response.json();
+                if (!Array.isArray(database.vocabulary)) throw new Error('Format database tidak valid.');
+
+                allVocabulary = database.vocabulary;
+                buildQuizConfig();
+                renderQuizCards();
+
+                const savedTheme = localStorage.getItem('kotoba-theme');
+                if (savedTheme && ['shiro', 'sakura', 'matcha'].includes(savedTheme)) {
+                    document.body.setAttribute('data-theme', savedTheme);
+                    const selector = document.getElementById('theme-selector');
+                    if (selector) selector.value = savedTheme;
+                }
+            } catch (error) {
+                console.error('Gagal memuat database:', error);
+                list.innerHTML = `
+                    <div class="card">
+                        <h3>Database kosakata belum dapat dimuat.</h3>
+                        <p>Pastikan file <strong>kotoba_database.json</strong> berada satu folder dengan index.html di GitHub, lalu muat ulang halaman.</p>
+                        <p style="font-size:0.85rem;">Detail: ${escapeHTML(error.message)}</p>
+                    </div>`;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', initializeApp);
     </script>
 </body>
 </html>
