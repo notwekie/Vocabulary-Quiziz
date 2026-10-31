@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kotoba Quiz Master - Cultural Japanese Edition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=M+PLUS+Rounded+1c:wght@500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #1a181b; --card-bg: #28242a; --primary: #c84b31; --primary-hover: #a93820;
+            --secondary: #d9b44a; --text: #f4f4f2; --text-light: #b0a8b9; --border: #4a424d;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.5); --radius: 14px;
+        }
+
+        /* 10 JAPANESE CULTURAL THEMES */
+        [data-theme="shiro"] { --bg-color: #1a181b; --card-bg: #28242a; --primary: #c84b31; --secondary: #d9b44a; --text: #f4f4f2; --border: #4a424d; }
+        [data-theme="sakura"] { --bg-color: #fdf0f2; --card-bg: #ffffff; --primary: #e85d75; --secondary: #ffb703; --text: #2b2d42; --border: #f1d3d6; }
+        [data-theme="matcha"] { --bg-color: #f2f5f1; --card-bg: #ffffff; --primary: #588157; --secondary: #dda15e; --text: #293241; --border: #d8e2dc; }
+        [data-theme="tanabata"] { --bg-color: #0d1b2a; --card-bg: #1b263b; --primary: #e0e1dd; --secondary: #778da9; --text: #f0f4f8; --border: #415a77; }
+        [data-theme="momiji"] { --bg-color: #2b1e1a; --card-bg: #3d2b25; --primary: #d62828; --secondary: #f77f00; --text: #fdf0d5; --border: #664438; }
+        [data-theme="fuji"] { --bg-color: #edf2f4; --card-bg: #ffffff; --primary: #2b2d42; --secondary: #8d99ae; --text: #1d2d44; --border: #8d99ae; }
+        [data-theme="torii"] { --bg-color: #1c1917; --card-bg: #292524; --primary: #ea580c; --secondary: #f59e0b; --text: #fafaf9; --border: #44403c; }
+        [data-theme="matsuri"] { --bg-color: #18002e; --card-bg: #2a004f; --primary: #ff007f; --secondary: #00f0ff; --text: #ffffff; --border: #520099; }
+        [data-theme="kimono"] { --bg-color: #240046; --card-bg: #3c096c; --primary: #9d4edd; --secondary: #ff9e00; --text: #f72585; --border: #5a189a; }
+        [data-theme="ukiyoe"] { --bg-color: #03045e; --card-bg: #0077b6; --primary: #caf0f8; --secondary: #90e0ef; --text: #ffffff; --border: #0096c7; }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; transition: all 0.3s ease; }
+        
+        header { background: var(--card-bg); padding: 1.2rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid var(--primary); box-shadow: var(--shadow); }
+        .logo { font-family: 'M PLUS Rounded 1c', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--secondary); display: flex; align-items: center; gap: 10px; }
+        .nav-btns { display: flex; gap: 12px; }
+        
+        button { background: var(--primary); color: #ffffff; border: 1px solid var(--secondary); padding: 10px 20px; border-radius: var(--radius); font-weight: 700; cursor: pointer; transition: all 0.25s; }
+        button:hover { opacity: 0.9; transform: translateY(-2px); }
+        button.secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
+
+        main { flex: 1; max-width: 1000px; width: 100%; margin: 2rem auto; padding: 0 1.5rem; }
+        .card { background: var(--card-bg); border-radius: var(--radius); padding: 2.5rem; box-shadow: var(--shadow); border: 2px solid var(--border); margin-bottom: 2rem; position: relative; }
+
+        .timer-badge { position: absolute; top: 20px; right: 20px; background: var(--bg-color); border: 2px solid var(--secondary); padding: 8px 18px; border-radius: 30px; font-weight: 700; color: var(--secondary); }
+        
+        h1, h2, h3 { font-family: 'M PLUS Rounded 1c', sans-serif; margin-bottom: 1rem; }
+        p { line-height: 1.6; margin-bottom: 1.5rem; color: var(--text); opacity: 0.9; }
+
+        .tab-menu { display: flex; gap: 10px; margin-bottom: 1.5rem; }
+        .tab-btn { background: var(--bg-color); color: var(--text); border: 1px solid var(--border); padding: 8px 16px; border-radius: 8px; cursor: pointer; }
+        .tab-btn.active { background: var(--primary); color: white; border-color: var(--secondary); }
+
+        .quiz-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+        .quiz-card { background: var(--bg-color); border: 2px solid var(--border); border-radius: var(--radius); padding: 1.5rem; cursor: pointer; transition: all 0.25s; }
+        .quiz-card:hover { border-color: var(--secondary); transform: translateY(-4px); }
+        .badge-recall { background: var(--primary); color: #fff; font-size: 0.75rem; padding: 4px 10px; border-radius: 6px; font-weight: 700; display: inline-block; margin-bottom: 10px; }
+
+        .question-box { font-size: 1.8rem; font-weight: 800; text-align: center; margin: 2rem 0; background: var(--bg-color); padding: 2.5rem; border-radius: var(--radius); border: 2px dashed var(--border); }
+        .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-bottom: 2rem; }
+        .option-btn { background: var(--bg-color); color: var(--text); border: 2px solid var(--border); padding: 1.2rem; border-radius: var(--radius); font-size: 1.05rem; font-weight: 600; text-align: left; cursor: pointer; }
+        .option-btn.correct { background: #1e4620 !important; border-color: #4caf50 !important; color: #a5d6a7 !important; }
+        .option-btn.incorrect { background: #4a151b !important; border-color: #f44336 !important; color: #ef9a9a !important; }
+
+        .settings-group { margin-bottom: 1.5rem; }
+        .settings-group label { display: block; font-weight: 600; margin-bottom: 0.5rem; }
+        .settings-group select, .settings-group input { width: 100%; padding: 12px; border-radius: var(--radius); border: 1px solid var(--border); background: var(--bg-color); color: var(--text); font-size: 1rem; }
+
+        table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid var(--border); }
+        th { font-weight: 700; color: var(--secondary); }
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body data-theme="shiro">
+
+    <header>
+        <div class="logo"><span>🌸</span> Kotoba Quiz Master</div>
+        <div class="nav-btns">
+            <button class="secondary" onclick="switchView('student')">Mode Siswa</button>
+            <button onclick="promptAdminLogin()">🔒 Panel Admin</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- STUDENT VIEW -->
+        <div id="student-view">
+            <div class="card">
+                <h2>🌸 Portal Kuis Kosakata Bahasa Jepang (語彙クイズ)</h2>
+                <p>Pilih kategori level di bawah ini (*Minna no Nihongo 1* atau *Minna no Nihongo 2*). Setiap kuis menyajikan soal acak yang variatif.</p>
+                
+                <div class="settings-group" style="max-width: 400px; margin-bottom: 1.5rem;">
+                    <label>Nama Lengkap Siswa:</label>
+                    <input type="text" id="student-name-input" placeholder="Masukkan nama Anda..." value="Siswa">
+                </div>
+
+                <div class="tab-menu">
+                    <button class="tab-btn active" onclick="filterQuizCategory('M1', this)">Minna no Nihongo 1 (Bab 1–25)</button>
+                    <button class="tab-btn" onclick="filterQuizCategory('M2', this)">Minna no Nihongo 2 (Bab 26–50)</button>
+                </div>
+
+                <div id="quiz-list" class="quiz-grid"></div>
+            </div>
+        </div>
+
+        <!-- QUIZ ROOM -->
+        <div id="quiz-room" class="card hidden">
+            <div class="timer-badge" id="timer-display">⏱️ 00:00</div>
+            <h3 id="quiz-title-header">Kuis Kosakata</h3>
+            <p id="question-progress" style="font-weight: 700; color: var(--secondary);">Soal 1 dari 35</p>
+            
+            <div class="question-box" id="question-text">Memuat soal...</div>
+            <div class="options-grid" id="options-container"></div>
+
+            <div style="display: flex; justify-content: flex-end;">
+                <button id="next-btn" class="hidden" onclick="nextQuestion()">Soal Berikutnya ➡️</button>
+            </div>
+        </div>
+
+        <!-- RESULT VIEW -->
+        <div id="result-view" class="card hidden" style="text-align: center;">
+            <h2>🎉 Ujian Selesai! (お疲れ様でした)</h2>
+            <div id="score-display" style="font-size: 2.8rem; font-weight: 800; color: var(--secondary); margin: 1.5rem 0;">Skor: 0 / 0</div>
+            
+            <div id="quote-box" style="background: var(--bg-color); padding: 1.8rem; border-radius: var(--radius); margin-bottom: 2rem; border: 2px solid var(--border);">
+                <p id="quote-jp" style="font-size: 1.2rem; font-weight: 800; color: var(--secondary); margin-bottom: 8px;"></p>
+                <p id="quote-id" style="font-size: 1rem; margin-bottom: 0;"></p>
+            </div>
+            <button onclick="switchView('student')">Coba Lagi / Pilih Kuis Lain</button>
+        </div>
+
+        <!-- ADMIN PANEL (PROTECTED) -->
+        <div id="admin-view" class="card hidden">
+            <h2>🔒 Panel Kontrol Admin (Pengajar)</h2>
+            <p>Kelola tema tampilan budaya Jepang, pantau nilai siswa, dan tambahkan kosakata baru.</p>
+
+            <div class="settings-group">
+                <label>🎨 Ubah Tema Kebudayaan Jepang (10 Option Themes):</label>
+                <select id="theme-selector" onchange="changeTheme(this.value)">
+                    <option value="shiro">🏯 1. Shiro (Istana Jepang Klasik)</option>
+                    <option value="sakura">🌸 2. Sakura (Bunga Sakura Pink)</option>
+                    <option value="matcha">🍵 3. Matcha (Hijau Teh Tradisional)</option>
+                    <option value="tanabata">🎋 4. Tanabata (Bambu Night)</option>
+                    <option value="momiji">🍁 5. Momiji (Musim Gugur Red)</option>
+                    <option value="fuji">🗻 6. Fuji (Gunung Fuji Blue)</option>
+                    <option value="torii">⛩️ 7. Torii (Kuil Fushimi Orange)</option>
+                    <option value="matsuri">🏮 8. Matsuri (Festival Neon)</option>
+                    <option value="kimono">👘 9. Kimono (Imperial Violet)</option>
+                    <option value="ukiyoe">🌊 10. Ukiyo-e (Great Wave Blue)</option>
+                </select>
+            </div>
+
+            <div class="card" style="border: 1px dashed var(--border); margin: 2rem 0;">
+                <h3>➕ Tambah Kosakata Baru (Tanpa Ubah File)</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <input type="text" id="new-kanji" placeholder="Kanji (contoh: 桜)">
+                    <input type="text" id="new-hiragana" placeholder="Hiragana (contoh: さくら)">
+                    <input type="text" id="new-arti" placeholder="Arti (contoh: Bunga Sakura)">
+                    <select id="new-level">
+                        <option value="Minna 1">Minna 1</option>
+                        <option value="Minna 2">Minna 2</option>
+                    </select>
+                </div>
+                <button onclick="addNewVocab()" style="margin-top: 10px; width: 100%;">Simpan Kosakata Baru 💾</button>
+            </div>
+
+            <h3>📊 Monitoring Hasil Siswa (Lengkap dengan Tanggal & Jam)</h3>
+            <button onclick="fetchSheetResults()" style="margin-bottom: 1rem;">🔄 Refresh Data</button>
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tanggal & Jam</th>
+                            <th>Nama Siswa</th>
+                            <th>Paket Kuis</th>
+                            <th>Skor</th>
+                            <th>Durasi Pengerjaan</th>
+                        </tr>
+                    </thead>
+                    <tbody id="monitoring-table-body">
+                        <tr><td colspan="5" style="text-align:center;">Klik Refresh Data untuk memuat hasil dari Google Sheets...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const SCRIPT_URL = ""; // Masukkan URL Google Apps Script Anda di sini jika ingin menghubungkan ke Google Sheets
+        const ADMIN_PASSWORD = "sensei123";
+
+        let allVocabulary = [
+            {no: 1, kanji: "先生", hiragana: "せんせい", arti: "Guru / Dosen", level: "Minna 1"},
+            {no: 2, kanji: "教師", hiragana: "きょうし", arti: "Guru (Profesi)", level: "Minna 1"},
+            {no: 3, kanji: "学生", hiragana: "がくせい", arti: "Siswa", level: "Minna 1"},
+            {no: 4, kanji: "会社員", hiragana: "かいしゃいん", arti: "Karyawan Perusahaan", level: "Minna 1"},
+            {no: 5, kanji: "銀行員", hiragana: "ぎんこういん", arti: "Karyawan Bank", level: "Minna 1"},
+            {no: 6, kanji: "医者", hiragana: "いしゃ", arti: "Dokter", level: "Minna 1"},
+            {no: 7, kanji: "研究者", hiragana: "けんきゅうしゃ", arti: "Peneliti", level: "Minna 1"},
+            {no: 8, kanji: "大学", hiragana: "だいがく", arti: "Universitas", level: "Minna 1"},
+            {no: 9, kanji: "病院", hiragana: "びょういん", arti: "Rumah Sakit", level: "Minna 1"},
+            {no: 10, kanji: "本", hiragana: "ほん", arti: "Buku", level: "Minna 1"},
+            {no: 51, kanji: "ここ", hiragana: "ここ", arti: "Di sini", level: "Minna 1"},
+            {no: 52, kanji: "そこ", hiragana: "そこ", arti: "Di situ", level: "Minna 1"},
+            {no: 53, kanji: "あそこ", hiragana: "あそこ", arti: "Di sana", level: "Minna 1"},
+            {no: 54, kanji: "どこ", hiragana: "どこ", arti: "Di mana", level: "Minna 1"}
+        ];
+
+        let currentCategory = "M1";
+
+        const japaneseQuotes = [
+            { jp: "七転び八起き (Nanakorobi Yaoki)", id: "Jatuh 7 kali, bangkit 8 kali! Pantang menyerah!" },
+            { jp: "継続は力なり (Keizoku wa Chikara nari)", id: "Konsistensi dan ketekunan adalah kunci kekuatan utama." },
+            { jp: "塵も積もれば山となる (Chiri mo tsumoreba yama to naru)", id: "Sedikit demi sedikit, lama-lama menjadi bukit." },
+            { jp: "千里の道も一歩から (Senri no michi mo ippo kara)", id: "Perjalanan seribu mil dimulai dari satu langkah kecil." },
+            { jp: "一期一会 (Ichigo Ichie)", id: "Hargai setiap kesempatan belajar seolah ini adalah kesempatan berharga." }
+        ];
+
+        const quizListConfig = [
+            { id: 1, category: "M1", title: "Minna 1 - Quiz 1 (Kotoba Dasar)", start: 1, end: 50 },
+            { id: 2, category: "M1", title: "Minna 2 - Quiz 2 (Kotoba Tempat)", start: 51, end: 100 },
+            { id: 3, category: "M1", title: "Minna 1 - Recall Form 1 (Evaluasi 1-100)", start: 1, end: 100, isRecall: true },
+            { id: 20, category: "M2", title: "Minna 2 - Quiz 1 (Minna 2 Awal)", start: 1,
