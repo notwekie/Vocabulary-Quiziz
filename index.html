@@ -27,23 +27,23 @@
         button:hover { opacity: 0.9; transform: translateY(-2px); }
         button.secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
 
-        main { flex: 1; max-width: 1000px; width: 100%; margin: 2rem auto; padding: 0 1.5rem; }
-        .card { background: var(--card-bg); border-radius: var(--radius); padding: 2.5rem; box-shadow: var(--shadow); border: 2px solid var(--border); margin-bottom: 2rem; position: relative; }
+        main { flex: 1; max-width: 1100px; width: 100%; margin: 2rem auto; padding: 0 1.5rem; }
+        .card { background: var(--card-bg); border-radius: var(--radius); padding: 2rem; box-shadow: var(--shadow); border: 2px solid var(--border); margin-bottom: 2rem; position: relative; }
 
         .timer-badge { position: absolute; top: 20px; right: 20px; background: var(--bg-color); border: 2px solid var(--secondary); padding: 8px 18px; border-radius: 30px; font-weight: 700; color: var(--secondary); }
         
         h1, h2, h3 { font-family: 'M PLUS Rounded 1c', sans-serif; margin-bottom: 1rem; }
         p { line-height: 1.6; margin-bottom: 1.5rem; color: var(--text); opacity: 0.9; }
 
-        .tab-menu { display: flex; gap: 10px; margin-bottom: 1.5rem; }
-        .tab-btn { background: var(--bg-color); color: var(--text); border: 1px solid var(--border); padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: 600; }
-        .tab-btn.active { background: var(--primary); color: white; border-color: var(--secondary); }
+        .tab-menu { display: flex; gap: 12px; margin-top: 1rem; }
+        .tab-btn { background: var(--bg-color); color: var(--text); border: 1px solid var(--border); padding: 12px 24px; border-radius: 8px; cursor: pointer; font-weight: 700; transition: all 0.2s; }
+        .tab-btn.active { background: var(--primary); color: white; border-color: var(--secondary); box-shadow: 0 4px 12px rgba(200, 75, 49, 0.4); }
 
-        /* DIPERBAIKI AGAR KARTU KUIS MUNCUL DENGAN JELAS */
-        .quiz-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; min-height: 150px; }
-        .quiz-card { background: var(--bg-color); border: 2px solid var(--border); border-radius: var(--radius); padding: 1.5rem; cursor: pointer; transition: all 0.25s; }
-        .quiz-card:hover { border-color: var(--secondary); transform: translateY(-4px); }
-        .badge-recall { background: var(--primary); color: #fff; font-size: 0.75rem; padding: 4px 10px; border-radius: 6px; font-weight: 700; display: inline-block; margin-bottom: 10px; }
+        /* GRID DAFTAR KUIS */
+        .quiz-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+        .quiz-card { background: var(--card-bg); border: 2px solid var(--border); border-radius: var(--radius); padding: 1.5rem; cursor: pointer; transition: all 0.25s; display: flex; flex-direction: column; justify-content: space-between; }
+        .quiz-card:hover { border-color: var(--secondary); transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.4); }
+        .badge-recall { background: var(--primary); color: #fff; font-size: 0.75rem; padding: 4px 10px; border-radius: 6px; font-weight: 700; display: inline-block; margin-bottom: 10px; width: fit-content; }
 
         .question-box { font-size: 1.8rem; font-weight: 800; text-align: center; margin: 2rem 0; background: var(--bg-color); padding: 2.5rem; border-radius: var(--radius); border: 2px dashed var(--border); }
         .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-bottom: 2rem; }
@@ -78,18 +78,19 @@
                 <h2>🌸 Portal Kuis Kosakata Bahasa Jepang (語彙クイズ)</h2>
                 <p>Pilih kategori level di bawah ini (*Minna no Nihongo 1* atau *Minna no Nihongo 2*). Setiap kuis menyajikan soal acak yang variatif.</p>
                 
-                <div class="settings-group" style="max-width: 400px; margin-bottom: 1.5rem;">
+                <div class="settings-group" style="max-width: 400px; margin-bottom: 1rem;">
                     <label>Nama Lengkap Siswa:</label>
                     <input type="text" id="student-name-input" placeholder="Masukkan nama Anda..." value="Siswa">
                 </div>
 
                 <div class="tab-menu">
-                    <button class="tab-btn active" onclick="filterQuizCategory('M1', this)">Minna no Nihongo 1 (Bab 1–25)</button>
-                    <button class="tab-btn" onclick="filterQuizCategory('M2', this)">Minna no Nihongo 2 (Bab 26–50)</button>
+                    <button class="tab-btn active" id="btn-m1" onclick="filterQuizCategory('M1')">Minna no Nihongo 1 (Bab 1–25)</button>
+                    <button class="tab-btn" id="btn-m2" onclick="filterQuizCategory('M2')">Minna no Nihongo 2 (Bab 26–50)</button>
                 </div>
-
-                <div id="quiz-list" class="quiz-grid"></div>
             </div>
+
+            <!-- CONTAINER DAFTAR KUIS DIPINDAHKAN KE LUAR CARD AGAR TAMPIL LUAS -->
+            <div id="quiz-list" class="quiz-grid"></div>
         </div>
 
         <!-- QUIZ ROOM -->
@@ -183,14 +184,10 @@
             { id: 21, category: "M2", title: "Minna 2 - Quiz 2 (Minna 2 Lanjutan)", start: 51, end: 100 }
         ];
 
-        window.onload = function() {
-            renderQuizCards();
-        };
-
-        function filterQuizCategory(cat, btn) {
+        function filterQuizCategory(cat) {
             currentCategory = cat;
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+            document.getElementById('btn-m1').classList.toggle('active', cat === 'M1');
+            document.getElementById('btn-m2').classList.toggle('active', cat === 'M2');
             renderQuizCards();
         }
 
@@ -201,18 +198,15 @@
             quizListEl.innerHTML = '';
             const filtered = quizListConfig.filter(q => q.category === currentCategory);
             
-            if (filtered.length === 0) {
-                quizListEl.innerHTML = `<p style="grid-column: 1/-1; text-align:center; color:var(--text);">Belum ada kuis untuk kategori ini.</p>`;
-                return;
-            }
-
             filtered.forEach(q => {
                 quizListEl.innerHTML += `
                     <div class="quiz-card" onclick="startQuiz(${q.id})">
-                        ${q.isRecall ? '<span class="badge-recall">⚔️ RECALL FORM (ULANGAN)</span>' : ''}
-                        <h3>${q.title}</h3>
-                        <p style="font-size: 0.9rem; margin-bottom: 12px;">Uji kosakata interaktif dengan timer.</p>
-                        <button style="width: 100%; font-size: 0.9rem; padding: 8px;">Mulai Kuis 🚀</button>
+                        <div>
+                            ${q.isRecall ? '<span class="badge-recall">⚔️ RECALL FORM (ULANGAN)</span>' : ''}
+                            <h3>${q.title}</h3>
+                            <p style="font-size: 0.9rem; margin-bottom: 15px;">Uji kosakata interaktif dengan timer.</p>
+                        </div>
+                        <button style="width: 100%; font-size: 0.9rem; padding: 10px;">Mulai Kuis 🚀</button>
                     </div>
                 `;
             });
@@ -342,6 +336,11 @@
             document.getElementById('admin-view').classList.add('hidden');
             document.getElementById(view + '-view').classList.remove('hidden');
         }
+
+        // Jalankan render kuis langsung
+        document.addEventListener("DOMContentLoaded", function() {
+            renderQuizCards();
+        });
     </script>
 </body>
 </html>
