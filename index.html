@@ -119,6 +119,8 @@
                 <p id="quote-jp" style="font-size: 1.2rem; font-weight: 800; color: var(--secondary); margin-bottom: 8px;"></p>
                 <p id="quote-id" style="font-size: 1rem; margin-bottom: 0;"></p>
             </div>
+            <p id="result-save-status" role="status" aria-live="polite" style="font-weight:700;"></p>
+            <button id="retry-save-button" class="secondary hidden" onclick="saveQuizResult()" style="margin-bottom:1rem;">Coba Simpan Lagi</button>
             <button onclick="switchView('student')">Coba Lagi / Pilih Kuis Lain</button>
         </div>
 
@@ -192,6 +194,9 @@
         let timerInterval = null;
         let secondsElapsed = 0;
         let questionAnswered = false;
+        let pendingQuizResult = null;
+        let resultSaveInProgress = false;
+        let resultSaved = false;
 
         const japaneseQuotes = [
             { jp: "七転び八起き (Nanakorobi Yaoki)", id: "Jatuh 7 kali, bangkit 8 kali! Pantang menyerah!" },
@@ -480,6 +485,9 @@
             currentIndex = 0;
             score = 0;
             secondsElapsed = 0;
+            pendingQuizResult = null;
+            resultSaved = false;
+            resultSaveInProgress = false;
             document.getElementById('quiz-title-header').textContent = currentQuizMeta.title;
             switchView('quiz');
             startTimer();
@@ -537,14 +545,42 @@
             loadQuestion();
         }
 
+        async function saveQuizResult() {
+            if (!pendingQuizResult || resultSaved || resultSaveInProgress) return;
+            resultSaveInProgress = true;
+            const status = document.getElementById('result-save-status');
+            const retry = document.getElementById('retry-save-button');
+            status.textContent = '⏳ Menyimpan hasil ke database...';
+            retry.classList.add('hidden');
+            try {
+                const response = await fetch(`${SUPABASE_URL}/functions/v1/submit-quiz-result`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'apikey': SUPABASE_PUBLISHABLE_KEY
+                    },
+                    body: JSON.stringify(pendingQuizResult)
+                });
+                const data = await response.json().catch(() => ({}));
+                if (!response.ok || data.success !== true) {
+                    throw new Error(data.error || `HTTP ${response.status}`);
+                }
+                resultSaved = true;
+                status.textContent = '✅ Hasil kuis berhasil disimpan!';
+            } catch (error) {
+                console.error('Gagal menyimpan hasil kuis:', error);
+                status.textContent = '⚠️ Hasil belum tersimpan. Periksa koneksi lalu coba lagi.';
+                retry.classList.remove('hidden');
+            } finally {
+                resultSaveInProgress = false;
+            }
+        }
+
         function endQuiz() {
             clearInterval(timerInterval);
             timerInterval = null;
             switchView('result');
 
-            const min = Math.floor(secondsElapsed / 60);
-            const sec = secondsElapsed % 60;
-            const timeString = `${min} Menit ${sec} Detik`;
             document.getElementById('score-display').textContent =
                 `Skor: ${score} / ${currentQuestions.length}`;
 
@@ -552,14 +588,18 @@
             document.getElementById('quote-jp').textContent = randomQuote.jp;
             document.getElementById('quote-id').textContent = `"${randomQuote.id}"`;
 
-            // Results are not stored online yet. This will be connected after the secure backend is set up.
-            console.log('Quiz result (local only):', {
-                timestamp: new Date().toISOString(),
-                student: document.getElementById('student-name-input').value.trim(),
-                quiz: currentQuizMeta.title,
-                score: `${score}/${currentQuestions.length}`,
-                duration: timeString
-            });
+            pendingQuizResult = {
+                student_name: document.getElementById('student-name-input').value.trim(),
+                quiz_id: String(currentQuizMeta.id),
+                quiz_title: currentQuizMeta.title,
+                level: currentQuizMeta.category === 'M1' ? 'Minna 1' : 'Minna 2',
+                score: score,
+                total_questions: currentQuestions.length,
+                duration_seconds: secondsElapsed,
+                answers: []
+            };
+            resultSaved = false;
+            saveQuizResult();
         }
 
         function switchView(view) {
