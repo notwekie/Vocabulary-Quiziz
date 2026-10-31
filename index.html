@@ -157,6 +157,8 @@
 
             <h3 style="margin-top: 2rem;">📊 Monitoring Hasil Siswa</h3>
             <button onclick="fetchSheetResults()" style="margin-bottom: 1rem;">🔄 Refresh Data</button>
+             <button id="export-excel-button" onclick="exportQuizResultsExcel()" style="margin-bottom: 1rem; margin-left: 8px;">📥 Download Excel</button>
+             <p id="export-excel-status" role="status" aria-live="polite" style="font-size:0.9rem;"></p>
             <div style="overflow-x: auto;">
                 <table>
                     <thead>
@@ -177,6 +179,7 @@
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
     <script>
         const SUPABASE_URL = 'https://hrvhoplwsxsxncpghqog.supabase.co';
         const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_herpo750W68fnwkXU2NWrA_kjm1fymz';
@@ -401,6 +404,71 @@
                 <td>${escapeHTML(r.duration_seconds)} detik</td>
             </tr>`).join('');
         }
+
+         async function exportQuizResultsExcel() {
+             const button = document.getElementById('export-excel-button');
+             const status = document.getElementById('export-excel-status');
+             if (button.disabled) return;
+             button.disabled = true;
+             status.textContent = '⏳ Menyiapkan file Excel...';
+             try {
+                 if (!adminSessionVerified || !await checkAdmin()) {
+                     adminSessionVerified = false;
+                     switchView('adminLogin');
+                     throw new Error('Silakan login kembali sebagai admin.');
+                 }
+                 if (!window.XLSX) throw new Error('Library Excel belum dimuat. Periksa koneksi internet lalu refresh.');
+
+                 const results = [];
+                 const pageSize = 1000;
+                 for (let start = 0; ; start += pageSize) {
+                     const { data, error } = await supabaseClient
+                         .from('quiz_results')
+                         .select('completed_at,student_name,quiz_title,level,score,total_questions,duration_seconds')
+                         .order('completed_at', { ascending: false })
+                         .range(start, start + pageSize - 1);
+                     if (error) throw error;
+                     results.push(...data);
+                     if (data.length < pageSize) break;
+                 }
+                 if (!results.length) {
+                     status.textContent = 'Belum ada hasil siswa untuk diekspor.';
+                     return;
+                 }
+
+                 // Treat all student-provided text as literal strings, not spreadsheet formulas.
+                 const safeText = value => {
+                     const text = String(value ?? '');
+                     return /^[\s]*[=+@\-]/.test(text) ? "'" + text : text;
+                 };
+                 const rows = results.map(r => ({
+                     'Tanggal & Jam': r.completed_at ? new Date(r.completed_at).toLocaleString('id-ID') : '',
+                     'Nama Siswa': safeText(r.student_name),
+                     'Paket Kuis': safeText(r.quiz_title),
+                     'Level': safeText(r.level),
+                     'Skor': Number(r.score),
+                     'Total Soal': Number(r.total_questions),
+                     'Persentase (%)': Number(r.total_questions) > 0 ? Math.round(Number(r.score) / Number(r.total_questions) * 10000) / 100 : 0,
+                     'Durasi (detik)': Number(r.duration_seconds)
+                 }));
+                 const worksheet = XLSX.utils.json_to_sheet(rows);
+                 worksheet['!cols'] = [
+                     { wch: 23 }, { wch: 28 }, { wch: 55 }, { wch: 14 },
+                     { wch: 10 }, { wch: 13 }, { wch: 18 }, { wch: 18 }
+                 ];
+                 const workbook = XLSX.utils.book_new();
+                 XLSX.utils.book_append_sheet(workbook, worksheet, 'Hasil Siswa');
+                 const today = new Date();
+                 const dateStamp = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+                 XLSX.writeFile(workbook, `Kotoba_Quiz_Results_${dateStamp}.xlsx`);
+                 status.textContent = `✅ File Excel berisi ${results.length} hasil berhasil dibuat.`;
+             } catch (error) {
+                 console.error('Gagal mengekspor Excel:', error);
+                 status.textContent = `⚠️ Gagal mengekspor Excel: ${error.message || 'Coba lagi.'}`;
+             } finally {
+                 button.disabled = false;
+             }
+         }
 
         document.getElementById('admin-login-form').addEventListener('submit', adminLogin);
 
