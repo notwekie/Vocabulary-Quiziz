@@ -59,6 +59,10 @@
         th, td { padding: 12px; text-align: left; border-bottom: 1px solid var(--border); }
         th { font-weight: 700; color: var(--secondary); }
         .hidden { display: none !important; }
+        .review-item { text-align:left; background:var(--bg-color); border:1px solid var(--border); border-radius:var(--radius); padding:1.2rem; margin:1rem 0; overflow-wrap:anywhere; }
+        .review-item p { margin:0.6rem 0; }
+        .review-wrong { color:#e57373; font-weight:700; }
+        .review-correct { color:#66bb6a; font-weight:700; }
         .admin-login-form { max-width: 430px; margin: 0 auto; }
         .admin-login-form input { width:100%; padding:12px; border-radius:var(--radius); border:1px solid var(--border); background:var(--bg-color); color:var(--text); margin:8px 0 16px; }
         .admin-login-form label { display:block; font-weight:700; }
@@ -121,6 +125,11 @@
             </div>
             <p id="result-save-status" role="status" aria-live="polite" style="font-weight:700;"></p>
             <button id="retry-save-button" class="secondary hidden" onclick="saveQuizResult()" style="margin-bottom:1rem;">Coba Simpan Lagi</button>
+            <button id="review-incorrect-button" class="secondary hidden" onclick="toggleIncorrectReview()" aria-expanded="false" aria-controls="incorrect-review" style="margin-bottom:1rem;">📖 Lihat Jawaban Salah</button>
+            <section id="incorrect-review" class="hidden" aria-label="Review jawaban salah" style="margin:1.5rem 0;">
+                <h3>📖 Review Jawaban Salah</h3>
+                <div id="incorrect-review-list"></div>
+            </section>
             <button onclick="switchView('student')">Coba Lagi / Pilih Kuis Lain</button>
         </div>
 
@@ -197,6 +206,7 @@
         let timerInterval = null;
         let secondsElapsed = 0;
         let questionAnswered = false;
+        let incorrectAnswers = [];
         let pendingQuizResult = null;
         let resultSaveInProgress = false;
         let resultSaved = false;
@@ -553,6 +563,7 @@
             currentIndex = 0;
             score = 0;
             secondsElapsed = 0;
+            incorrectAnswers = [];
             pendingQuizResult = null;
             resultSaved = false;
             resultSaveInProgress = false;
@@ -604,7 +615,15 @@
                 if (button.textContent === correct) button.classList.add('correct');
             });
             if (selected === correct) score++;
-            else btn.classList.add('incorrect');
+            else {
+                btn.classList.add('incorrect');
+                incorrectAnswers.push({
+                    number: currentIndex + 1,
+                    promptHTML: currentQuestions[currentIndex].promptHTML,
+                    selected: selected,
+                    correct: correct
+                });
+            }
             document.getElementById('next-btn').classList.remove('hidden');
         }
 
@@ -644,6 +663,37 @@
             }
         }
 
+        function toggleIncorrectReview() {
+            const section = document.getElementById('incorrect-review');
+            const button = document.getElementById('review-incorrect-button');
+            const isOpening = section.classList.contains('hidden');
+            section.classList.toggle('hidden', !isOpening);
+            button.setAttribute('aria-expanded', String(isOpening));
+            button.textContent = isOpening ? '📕 Tutup Review' : '📖 Lihat Jawaban Salah';
+            if (isOpening) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function renderIncorrectReview() {
+            const button = document.getElementById('review-incorrect-button');
+            const section = document.getElementById('incorrect-review');
+            const list = document.getElementById('incorrect-review-list');
+            section.classList.add('hidden');
+            button.setAttribute('aria-expanded', 'false');
+            button.textContent = '📖 Lihat Jawaban Salah';
+            button.classList.toggle('hidden', incorrectAnswers.length === 0);
+            list.innerHTML = incorrectAnswers.map(item => `
+                <div class="review-item">
+                    <strong>Soal ${item.number}</strong>
+                    <div style="margin:0.8rem 0;">${item.promptHTML}</div>
+                    <p class="review-wrong">✗ Jawaban kamu: ${escapeHTML(item.selected)}</p>
+                    <p class="review-correct">✓ Jawaban benar: ${escapeHTML(item.correct)}</p>
+                </div>
+            `).join('');
+            if (!incorrectAnswers.length) {
+                list.textContent = 'Semua jawaban benar. Hebat!';
+            }
+        }
+
         function endQuiz() {
             clearInterval(timerInterval);
             timerInterval = null;
@@ -651,6 +701,7 @@
 
             document.getElementById('score-display').textContent =
                 `Skor: ${score} / ${currentQuestions.length}`;
+            renderIncorrectReview();
 
             const randomQuote = japaneseQuotes[Math.floor(Math.random() * japaneseQuotes.length)];
             document.getElementById('quote-jp').textContent = randomQuote.jp;
