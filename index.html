@@ -170,6 +170,12 @@
             <button onclick="fetchSheetResults()" style="margin-bottom: 1rem;">🔄 Refresh Data</button>
              <button id="export-excel-button" onclick="exportQuizResultsExcel()" style="margin-bottom: 1rem; margin-left: 8px;">📥 Download Excel</button>
              <p id="export-excel-status" role="status" aria-live="polite" style="font-size:0.9rem;"></p>
+             <div style="border:1px solid #c44; border-radius:12px; padding:1rem; margin:1rem 0 1.5rem;">
+                 <h3 style="color:#e57373;">⚠️ Zona Berbahaya</h3>
+                 <p>Hapus semua hasil siswa secara permanen dari Supabase. Unduh Excel terlebih dahulu sebagai cadangan.</p>
+                 <button type="button" id="delete-all-results-button" onclick="deleteAllQuizResults()" style="background:#a51d2d; border-color:#e57373;">🗑️ Hapus Semua Hasil Siswa</button>
+                 <p id="delete-all-results-status" role="status" aria-live="polite" style="margin-top:12px;margin-bottom:0;"></p>
+             </div>
             <div style="overflow-x: auto;">
                 <table>
                     <thead>
@@ -479,6 +485,45 @@
              } catch (error) {
                  console.error('Gagal mengekspor Excel:', error);
                  status.textContent = `⚠️ Gagal mengekspor Excel: ${error.message || 'Coba lagi.'}`;
+             } finally {
+                 button.disabled = false;
+             }
+         }
+
+         async function deleteAllQuizResults() {
+             const button = document.getElementById('delete-all-results-button');
+             const status = document.getElementById('delete-all-results-status');
+             if (button.disabled) return;
+
+             const confirmation = window.prompt(
+                 'PERINGATAN: Semua hasil kuis siswa akan dihapus PERMANEN dari Supabase.\n' +
+                 'Unduh Excel sebagai cadangan sebelum melanjutkan.\n\n' +
+                 'Ketik DELETE ALL untuk mengonfirmasi:'
+             );
+             if (confirmation !== 'DELETE ALL') {
+                 status.textContent = confirmation === null ? 'Penghapusan dibatalkan.' : 'Penghapusan dibatalkan: konfirmasi tidak cocok.';
+                 return;
+             }
+             if (!window.confirm('Konfirmasi terakhir: HAPUS SEMUA hasil siswa secara permanen? Tindakan ini tidak dapat dibatalkan.')) {
+                 status.textContent = 'Penghapusan dibatalkan.';
+                 return;
+             }
+
+             button.disabled = true;
+             status.textContent = '⏳ Memeriksa izin admin dan menghapus hasil...';
+             try {
+                 if (!adminSessionVerified || !await checkAdmin()) {
+                     adminSessionVerified = false;
+                     switchView('adminLogin');
+                     throw new Error('Sesi admin tidak valid. Silakan login kembali.');
+                 }
+                 const { data, error } = await supabaseClient.rpc('delete_all_quiz_results');
+                 if (error) throw error;
+                 status.textContent = `✅ ${Number(data) || 0} hasil siswa berhasil dihapus.`;
+                 await fetchSheetResults();
+             } catch (error) {
+                 console.error('Gagal menghapus hasil siswa:', error);
+                 status.textContent = `⚠️ Gagal menghapus hasil: ${error.message || 'Coba lagi.'}`;
              } finally {
                  button.disabled = false;
              }
