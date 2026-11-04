@@ -149,6 +149,20 @@
             </form>
         </div>
 
+        <!-- PASSWORD RECOVERY -->
+        <div id="password-reset-view" class="card hidden">
+            <h2>🔑 Atur Password Admin Baru</h2>
+            <p>Masukkan password baru untuk akun admin yang membuka tautan pemulihan email.</p>
+            <form class="admin-login-form" id="password-reset-form">
+                <label for="new-admin-password">Password baru (minimal 8 karakter)</label>
+                <input type="password" id="new-admin-password" autocomplete="new-password" minlength="8" required>
+                <label for="confirm-admin-password">Ulangi password baru</label>
+                <input type="password" id="confirm-admin-password" autocomplete="new-password" minlength="8" required>
+                <button type="submit" id="password-reset-button">🔑 Simpan Password Baru</button>
+                <p id="password-reset-message" role="status" aria-live="polite" style="margin-top:12px;"></p>
+            </form>
+        </div>
+
         <!-- ADMIN PANEL (PROTECTED) -->
         <div id="admin-view" class="card hidden">
             <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;">
@@ -332,6 +346,86 @@
                 quizListEl.appendChild(card);
             });
         }
+
+        // Recovery links may contain a #access_token...&type=recovery fragment,
+        // or a ?code=... query for the PKCE flow. Never display the admin panel
+        // automatically while a password recovery flow is active.
+        let passwordRecoveryActive = false;
+        const recoveryParams = new URLSearchParams(window.location.hash.replace(/^#/, ''));
+        const recoveryQuery = new URLSearchParams(window.location.search);
+        const recoveryLinkDetected = recoveryParams.get('type') === 'recovery' ||
+            recoveryQuery.get('type') === 'recovery' || recoveryQuery.has('code');
+
+        function showPasswordReset() {
+            passwordRecoveryActive = true;
+            adminSessionVerified = false;
+            switchView('passwordReset');
+        }
+
+        supabaseClient.auth.onAuthStateChange((event) => {
+            if (event === 'PASSWORD_RECOVERY') {
+                showPasswordReset();
+            }
+        });
+
+        async function initializePasswordRecovery() {
+            if (!recoveryLinkDetected) return;
+            showPasswordReset();
+            const message = document.getElementById('password-reset-message');
+            message.textContent = '⏳ Memverifikasi tautan pemulihan...';
+            try {
+                if (recoveryQuery.has('code')) {
+                    const { error } = await supabaseClient.auth.exchangeCodeForSession(recoveryQuery.get('code'));
+                    if (error) throw error;
+                }
+                const { data: { session }, error } = await supabaseClient.auth.getSession();
+                if (error) throw error;
+                if (!session) throw new Error('Tautan belum menghasilkan sesi login. Minta email pemulihan baru.');
+                message.textContent = '✅ Tautan diterima. Silakan buat password baru.';
+                // Remove recovery credentials from the address bar after session established.
+                window.history.replaceState({}, document.title, window.location.pathname);
+            } catch (error) {
+                message.textContent = `⚠️ ${error.message || 'Tautan tidak valid atau kedaluwarsa.'}`;
+            }
+        }
+
+        async function updateRecoveredPassword(event) {
+            event.preventDefault();
+            const button = document.getElementById('password-reset-button');
+            const message = document.getElementById('password-reset-message');
+            const password = document.getElementById('new-admin-password').value;
+            const confirmation = document.getElementById('confirm-admin-password').value;
+            if (password.length < 8) {
+                message.textContent = 'Password harus minimal 8 karakter.';
+                return;
+            }
+            if (password !== confirmation) {
+                message.textContent = 'Kedua password tidak sama.';
+                return;
+            }
+            button.disabled = true;
+            message.textContent = '⏳ Memperbarui password...';
+            try {
+                const { data: { user }, error: userError } = await supabaseClient.auth.getUser();
+                if (userError || !user) throw userError || new Error('Sesi tidak tersedia. Minta tautan pemulihan baru.');
+                if (!await checkAdmin()) throw new Error('Akun ini tidak memiliki izin admin.');
+                const { error } = await supabaseClient.auth.updateUser({ password });
+                if (error) throw error;
+                document.getElementById('password-reset-form').reset();
+                message.textContent = '✅ Password berhasil diubah! Silakan masuk menggunakan password baru.';
+                passwordRecoveryActive = false;
+                await supabaseClient.auth.signOut();
+                // Keep the success message visible until the user navigates.
+            } catch (error) {
+                message.textContent = `⚠️ ${error.message || 'Gagal mengubah password.'}`;
+            } finally {
+                button.disabled = false;
+            }
+        }
+
+        document.getElementById('password-reset-form').addEventListener('submit', updateRecoveredPassword);
+        // Recovery links are handled as soon as the page is loaded.
+        initializePasswordRecovery();
 
         async function promptAdminLogin() {
             try {
@@ -804,9 +898,11 @@
                 quiz: 'quiz-room',
                 result: 'result-view',
                 admin: 'admin-view',
-                adminLogin: 'admin-login-view'
+                adminLogin: 'admin-login-view',
+                passwordReset: 'password-reset-view'
             };
             if (view === 'admin' && !adminSessionVerified) return;
+            if (passwordRecoveryActive && view !== 'passwordReset') return;
             const targetId = views[view];
             if (!targetId) return;
 
