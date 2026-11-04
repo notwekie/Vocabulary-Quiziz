@@ -109,7 +109,8 @@
             <div class="question-box" id="question-text">Memuat soal...</div>
             <div class="options-grid" id="options-container"></div>
 
-            <div style="display: flex; justify-content: flex-end;">
+            <div style="display: flex; justify-content: space-between; align-items:center; gap:12px; flex-wrap:wrap;">
+                <button type="button" class="secondary" onclick="finishQuizEarly()">🏁 Selesaikan Kuis Sekarang</button>
                 <button id="next-btn" class="hidden" onclick="nextQuestion()">Soal Berikutnya ➡️</button>
             </div>
         </div>
@@ -118,6 +119,7 @@
         <div id="result-view" class="card hidden" style="text-align: center;">
             <h2>🎉 Ujian Selesai! (お疲れ様でした)</h2>
             <div id="score-display" style="font-size: 2.8rem; font-weight: 800; color: var(--secondary); margin: 1.5rem 0;">Skor: 0 / 0</div>
+            <p id="early-finish-note" class="hidden" style="font-weight:600;"></p>
             
             <div id="quote-box" style="background: var(--bg-color); padding: 1.8rem; border-radius: var(--radius); margin-bottom: 2rem; border: 2px solid var(--border);">
                 <p id="quote-jp" style="font-size: 1.2rem; font-weight: 800; color: var(--secondary); margin-bottom: 8px;"></p>
@@ -207,6 +209,8 @@
         let secondsElapsed = 0;
         let questionAnswered = false;
         let incorrectAnswers = [];
+        let finishedEarly = false;
+        let answeredCount = 0;
         let pendingQuizResult = null;
         let resultSaveInProgress = false;
         let resultSaved = false;
@@ -564,6 +568,8 @@
             score = 0;
             secondsElapsed = 0;
             incorrectAnswers = [];
+            finishedEarly = false;
+            answeredCount = 0;
             pendingQuizResult = null;
             resultSaved = false;
             resultSaveInProgress = false;
@@ -610,6 +616,7 @@
         function selectAnswer(btn, selected, correct) {
             if (questionAnswered) return;
             questionAnswered = true;
+            answeredCount++;
             document.querySelectorAll('.option-btn').forEach(button => {
                 button.disabled = true;
                 if (button.textContent === correct) button.classList.add('correct');
@@ -630,6 +637,26 @@
         function nextQuestion() {
             currentIndex++;
             loadQuestion();
+        }
+
+        function finishQuizEarly() {
+            if (!currentQuizMeta || !currentQuestions.length ||
+                document.getElementById('quiz-room').classList.contains('hidden')) return;
+            const remaining = currentQuestions.length - answeredCount;
+            if (!window.confirm(`Selesaikan kuis sekarang?\n\n${answeredCount} dari ${currentQuestions.length} soal sudah dijawab.\n${remaining} soal yang belum dijawab akan dihitung salah.\n\nHasil akan langsung disimpan dan kuis tidak bisa dilanjutkan.`)) return;
+            finishedEarly = true;
+            // Every question not yet answered (including the current one) counts as incorrect.
+            for (let i = 0; i < currentQuestions.length; i++) {
+                if (i > currentIndex || (i === currentIndex && !questionAnswered)) {
+                    incorrectAnswers.push({
+                        number: i + 1,
+                        promptHTML: currentQuestions[i].promptHTML,
+                        selected: 'Tidak dijawab',
+                        correct: currentQuestions[i].correct
+                    });
+                }
+            }
+            endQuiz();
         }
 
         async function saveQuizResult() {
@@ -701,6 +728,11 @@
 
             document.getElementById('score-display').textContent =
                 `Skor: ${score} / ${currentQuestions.length}`;
+            const earlyNote = document.getElementById('early-finish-note');
+            earlyNote.classList.toggle('hidden', !finishedEarly);
+            earlyNote.textContent = finishedEarly
+                ? `Kuis diselesaikan lebih awal: ${answeredCount} dari ${currentQuestions.length} soal dijawab. Soal yang belum dijawab dihitung salah.`
+                : '';
             renderIncorrectReview();
 
             const randomQuote = japaneseQuotes[Math.floor(Math.random() * japaneseQuotes.length)];
