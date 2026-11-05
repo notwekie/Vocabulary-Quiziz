@@ -467,6 +467,876 @@
         "id": "Periksa penggunaan pola dan kelancaran secara manual.",
         "en": "Manually review pattern usage and naturalness."
       }
+    },
+    {
+      "id": "n5exp001",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "わたしは 学校（　）行きます。",
+      "options": [
+        "を",
+        "が",
+        "で",
+        "へ"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "へ menunjukkan arah tujuan.",
+        "en": "へ indicates direction toward a destination."
+      }
+    },
+    {
+      "id": "n5exp002",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "これは わたし（　）本です。",
+      "options": [
+        "に",
+        "で",
+        "の",
+        "を"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "の menunjukkan kepemilikan.",
+        "en": "の indicates possession."
+      }
+    },
+    {
+      "id": "n5exp003",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "毎日 日本語（　）勉強します。",
+      "options": [
+        "へ",
+        "を",
+        "に",
+        "が"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "を menandai objek kata kerja.",
+        "en": "を marks the direct object."
+      }
+    },
+    {
+      "id": "n5exp004",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "公園（　）サッカーをします。",
+      "options": [
+        "で",
+        "に",
+        "を",
+        "が"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "で menandai tempat kegiatan berlangsung.",
+        "en": "で marks the location of an action."
+      }
+    },
+    {
+      "id": "n5exp005",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "机の 上（　）ねこが います。",
+      "options": [
+        "で",
+        "を",
+        "へ",
+        "に"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "に menunjukkan lokasi keberadaan.",
+        "en": "に marks the location of existence."
+      }
+    },
+    {
+      "id": "n5exp006",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "この りんごは 三つ（　）百円です。",
+      "options": [
+        "が",
+        "を",
+        "で",
+        "に"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "で dapat menunjukkan jumlah untuk suatu harga.",
+        "en": "で can indicate the quantity covered by a price."
+      }
+    },
+    {
+      "id": "n5exp007",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "田中さん（　）先生です。",
+      "options": [
+        "に",
+        "は",
+        "を",
+        "で"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "は menandai topik kalimat.",
+        "en": "は marks the sentence topic."
+      }
+    },
+    {
+      "id": "n5exp008",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "だれ（　）来ましたか。",
+      "options": [
+        "が",
+        "を",
+        "で",
+        "へ"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "が menandai subjek yang ditanyakan.",
+        "en": "が marks the subject being asked about."
+      }
+    },
+    {
+      "id": "n5exp009",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "七時（　）九時まで 勉強します。",
+      "options": [
+        "まで",
+        "を",
+        "へ",
+        "から"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "から berarti mulai dari.",
+        "en": "から indicates the starting point."
+      }
+    },
+    {
+      "id": "n5exp010",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "日本語は 英語（　）むずかしいです。",
+      "options": [
+        "から",
+        "で",
+        "より",
+        "まで"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "より digunakan untuk perbandingan.",
+        "en": "より marks the point of comparison."
+      }
+    },
+    {
+      "id": "n5exp011",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "きのうは とても（　）。",
+      "options": [
+        "寒いでした",
+        "寒かったです",
+        "寒いです",
+        "寒くないです"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Bentuk lampau dari 寒い adalah 寒かった.",
+        "en": "The past form of 寒い is 寒かった."
+      }
+    },
+    {
+      "id": "n5exp012",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "この 部屋は（　）ありません。",
+      "options": [
+        "広く",
+        "広い",
+        "広かった",
+        "広くて"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Bentuk negatif kata sifat-i memakai くありません.",
+        "en": "The negative of an i-adjective uses くありません."
+      }
+    },
+    {
+      "id": "n5exp013",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "あの 人は とても（　）です。",
+      "options": [
+        "親切な",
+        "親切に",
+        "親切で",
+        "親切"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "Kata sifat-na sebelum です tidak memerlukan な.",
+        "en": "A na-adjective before です does not take な."
+      }
+    },
+    {
+      "id": "n5exp014",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "きのう 映画を（　）。",
+      "options": [
+        "見ません",
+        "見るです",
+        "見ました",
+        "見ます"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "見ました adalah bentuk sopan lampau.",
+        "en": "見ました is the polite past tense."
+      }
+    },
+    {
+      "id": "n5exp015",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "あした 友だちに（　）。",
+      "options": [
+        "会っていました",
+        "会います",
+        "会いました",
+        "会いませんでした"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "あした menunjukkan waktu mendatang.",
+        "en": "あした indicates a future action."
+      }
+    },
+    {
+      "id": "n5exp016",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "ここで 写真を（　）も いいですか。",
+      "options": [
+        "撮って",
+        "撮る",
+        "撮り",
+        "撮った"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "〜てもいいですか meminta izin.",
+        "en": "〜てもいいですか asks permission."
+      }
+    },
+    {
+      "id": "n5exp017",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "ここで たばこを（　）は いけません。",
+      "options": [
+        "吸う",
+        "吸い",
+        "吸った",
+        "吸って"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "〜てはいけません menyatakan larangan.",
+        "en": "〜てはいけません expresses prohibition."
+      }
+    },
+    {
+      "id": "n5exp018",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "水を（　）ください。",
+      "options": [
+        "飲み",
+        "飲んだ",
+        "飲んで",
+        "飲む"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "〜てください adalah permintaan sopan.",
+        "en": "〜てください is a polite request."
+      }
+    },
+    {
+      "id": "n5exp019",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "いっしょに 昼ごはんを（　）か。",
+      "options": [
+        "食べるでした",
+        "食べません",
+        "食べました",
+        "食べないでした"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "〜ませんか dipakai untuk mengajak.",
+        "en": "〜ませんか can be used to invite someone."
+      }
+    },
+    {
+      "id": "n5exp020",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "今日は 雨です。（　）、出かけません。",
+      "options": [
+        "だから",
+        "でも",
+        "そして",
+        "それから"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "だから menunjukkan alasan atau akibat.",
+        "en": "だから introduces a consequence."
+      }
+    },
+    {
+      "id": "n5exp021",
+      "level": "N5",
+      "type": "vocabulary",
+      "prompt": "「大きい」の 反対は 何ですか。",
+      "options": [
+        "長い",
+        "新しい",
+        "高い",
+        "小さい"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "小さい berarti kecil, lawan dari besar.",
+        "en": "小さい means small, the opposite of big."
+      }
+    },
+    {
+      "id": "n5exp022",
+      "level": "N5",
+      "type": "vocabulary",
+      "prompt": "「あたらしい」を 漢字で 書くと？",
+      "options": [
+        "楽しい",
+        "安い",
+        "新しい",
+        "古い"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "新しい berarti baru.",
+        "en": "新しい means new."
+      }
+    },
+    {
+      "id": "n5exp023",
+      "level": "N5",
+      "type": "vocabulary",
+      "prompt": "「月曜日」の 読み方は？",
+      "options": [
+        "にちようび",
+        "げつようび",
+        "かようび",
+        "すいようび"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "月曜日 dibaca げつようび.",
+        "en": "月曜日 is read げつようび."
+      }
+    },
+    {
+      "id": "n5exp024",
+      "level": "N5",
+      "type": "vocabulary",
+      "prompt": "「先生」の 読み方は？",
+      "options": [
+        "せんせい",
+        "せいせん",
+        "がくせい",
+        "せんしゅう"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "先生 dibaca せんせい.",
+        "en": "先生 is read せんせい."
+      }
+    },
+    {
+      "id": "n5exp025",
+      "level": "N5",
+      "type": "vocabulary",
+      "prompt": "「水」は どれですか。",
+      "options": [
+        "やま",
+        "かわ",
+        "そら",
+        "みず"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "みず berarti air.",
+        "en": "みず means water."
+      }
+    },
+    {
+      "id": "n5exp026",
+      "level": "N5",
+      "type": "vocabulary",
+      "prompt": "「駅」は どれですか。",
+      "options": [
+        "みせ",
+        "へや",
+        "えき",
+        "いえ"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "駅 dibaca えき, stasiun.",
+        "en": "駅 is read えき, station."
+      }
+    },
+    {
+      "id": "n5exp027",
+      "level": "N5",
+      "type": "vocabulary",
+      "prompt": "「午前八時」は いつですか。",
+      "options": [
+        "午後の八時",
+        "朝の八時",
+        "夜の八時",
+        "昼の十二時"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "午前八時 berarti pukul delapan pagi.",
+        "en": "午前八時 means 8 a.m."
+      }
+    },
+    {
+      "id": "n5exp028",
+      "level": "N5",
+      "type": "vocabulary",
+      "prompt": "「一週間」は どのくらいですか。",
+      "options": [
+        "七日",
+        "三日",
+        "十日",
+        "一か月"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "一週間 adalah tujuh hari.",
+        "en": "一週間 is seven days."
+      }
+    },
+    {
+      "id": "n5exp029",
+      "level": "N5",
+      "type": "vocabulary",
+      "prompt": "「百円」は いくらですか。",
+      "options": [
+        "10円",
+        "1000円",
+        "500円",
+        "100円"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "百 berarti seratus.",
+        "en": "百 means one hundred."
+      }
+    },
+    {
+      "id": "n5exp030",
+      "level": "N5",
+      "type": "vocabulary",
+      "prompt": "「きのう」の 次の 日は？",
+      "options": [
+        "あさって",
+        "せんしゅう",
+        "きょう",
+        "おととい"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Hari setelah kemarin adalah hari ini.",
+        "en": "The day after yesterday is today."
+      }
+    },
+    {
+      "id": "n5exp031",
+      "level": "N5",
+      "type": "reading",
+      "prompt": "山田さんは 何時に 起きますか。",
+      "options": [
+        "七時半",
+        "六時半",
+        "六時",
+        "七時"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Teks menyebut bangun pukul 6.30.",
+        "en": "The passage says 6:30."
+      },
+      "passage": "山田さんは 毎朝 六時半に 起きます。七時に 朝ごはんを 食べて、七時半に 家を 出ます。"
+    },
+    {
+      "id": "n5exp032",
+      "level": "N5",
+      "type": "reading",
+      "prompt": "山田さんは 何時に 家を 出ますか。",
+      "options": [
+        "七時半",
+        "六時半",
+        "七時",
+        "八時半"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Teks menyebut berangkat dari rumah pukul 7.30.",
+        "en": "The passage says he leaves home at 7:30."
+      },
+      "passage": "山田さんは 毎朝 六時半に 起きます。七時に 朝ごはんを 食べて、七時半に 家を 出ます。"
+    },
+    {
+      "id": "n5exp033",
+      "level": "N5",
+      "type": "reading",
+      "prompt": "図書館は いつ 休みですか。",
+      "options": [
+        "月曜日と火曜日",
+        "水曜日",
+        "金曜日",
+        "土曜日と日曜日"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "Perpustakaan tutup Sabtu dan Minggu.",
+        "en": "The library is closed Saturday and Sunday."
+      },
+      "passage": "学校の 図書館は 月曜日から 金曜日まで 開いています。土曜日と 日曜日は 休みです。"
+    },
+    {
+      "id": "n5exp034",
+      "level": "N5",
+      "type": "reading",
+      "prompt": "図書館は 木曜日に 開いていますか。",
+      "options": [
+        "午後だけです",
+        "わかりません",
+        "はい、開いています",
+        "いいえ、休みです"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Kamis termasuk hari Senin sampai Jumat.",
+        "en": "Thursday is between Monday and Friday."
+      },
+      "passage": "学校の 図書館は 月曜日から 金曜日まで 開いています。土曜日と 日曜日は 休みです。"
+    },
+    {
+      "id": "n5exp035",
+      "level": "N5",
+      "type": "reading",
+      "prompt": "家族は 何人ですか。",
+      "options": [
+        "五人",
+        "四人",
+        "二人",
+        "三人"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Keluarganya berjumlah empat orang.",
+        "en": "There are four family members."
+      },
+      "passage": "わたしの 家族は 四人です。父と 母と 弟と わたしです。弟は 十歳です。"
+    },
+    {
+      "id": "n5exp036",
+      "level": "N5",
+      "type": "reading",
+      "prompt": "弟は 何歳ですか。",
+      "options": [
+        "十歳",
+        "八歳",
+        "十二歳",
+        "二十歳"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Adiknya berumur sepuluh tahun.",
+        "en": "The younger brother is ten."
+      },
+      "passage": "わたしの 家族は 四人です。父と 母と 弟と わたしです。弟は 十歳です。"
+    },
+    {
+      "id": "n5exp037",
+      "level": "N5",
+      "type": "reading",
+      "prompt": "朝、何を しましたか。",
+      "options": [
+        "本を読みました",
+        "買い物をしました",
+        "料理をしました",
+        "テニスをしました"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "Pagi hari bermain tenis.",
+        "en": "They played tennis in the morning."
+      },
+      "passage": "きょうは 日曜日です。朝、友だちと 公園で テニスを しました。午後は 家で 本を 読みました。"
+    },
+    {
+      "id": "n5exp038",
+      "level": "N5",
+      "type": "reading",
+      "prompt": "午後は どこに いましたか。",
+      "options": [
+        "公園",
+        "駅",
+        "家",
+        "学校"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Sore hari membaca di rumah.",
+        "en": "In the afternoon the speaker was at home."
+      },
+      "passage": "きょうは 日曜日です。朝、友だちと 公園で テニスを しました。午後は 家で 本を 読みました。"
+    },
+    {
+      "id": "n5exp039",
+      "level": "N5",
+      "type": "reading",
+      "prompt": "パンを 三つ 買うと いくらですか。",
+      "options": [
+        "360円",
+        "300円",
+        "120円",
+        "240円"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Tiga roti berharga 300 yen.",
+        "en": "Three breads cost 300 yen."
+      },
+      "passage": "パン屋の お知らせ：パンは 一つ 120円です。三つ 買うと 300円です。店は 午前九時から 午後六時までです。"
+    },
+    {
+      "id": "n5exp040",
+      "level": "N5",
+      "type": "reading",
+      "prompt": "店は 何時に 閉まりますか。",
+      "options": [
+        "午後六時",
+        "午前六時",
+        "午前九時",
+        "午後九時"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Toko tutup pukul 18.00.",
+        "en": "The shop closes at 6 p.m."
+      },
+      "passage": "パン屋の お知らせ：パンは 一つ 120円です。三つ 買うと 300円です。店は 午前九時から 午後六時までです。"
+    },
+    {
+      "id": "n5exp041",
+      "level": "N5",
+      "type": "reading",
+      "prompt": "何時に 会いますか。",
+      "options": [
+        "午後二時",
+        "午前一時半",
+        "午後三時",
+        "午後一時半"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "Janji bertemu pukul 13.30.",
+        "en": "The meeting time is 1:30 p.m."
+      },
+      "passage": "メール：さくらさん、あしたの 映画は 午後二時からです。駅の 前で 午後一時半に 会いましょう。まい"
+    },
+    {
+      "id": "n5exp042",
+      "level": "N5",
+      "type": "reading",
+      "prompt": "どこで 会いますか。",
+      "options": [
+        "学校の前",
+        "公園",
+        "駅の前",
+        "映画館の中"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Mereka bertemu di depan stasiun.",
+        "en": "They meet in front of the station."
+      },
+      "passage": "メール：さくらさん、あしたの 映画は 午後二時からです。駅の 前で 午後一時半に 会いましょう。まい"
+    },
+    {
+      "id": "n5exp043",
+      "level": "N5",
+      "type": "reading",
+      "prompt": "雨の 日は 何で 学校へ 行きますか。",
+      "options": [
+        "歩いて",
+        "バス",
+        "自転車",
+        "電車"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Saat hujan naik bus.",
+        "en": "On rainy days the speaker takes a bus."
+      },
+      "passage": "わたしは 毎日 自転車で 学校へ 行きます。でも、雨の 日は バスで 行きます。"
+    },
+    {
+      "id": "n5exp044",
+      "level": "N5",
+      "type": "reading",
+      "prompt": "ふつうは 何で 学校へ 行きますか。",
+      "options": [
+        "自転車",
+        "バス",
+        "車",
+        "電車"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Biasanya pergi dengan sepeda.",
+        "en": "The speaker usually cycles."
+      },
+      "passage": "わたしは 毎日 自転車で 学校へ 行きます。でも、雨の 日は バスで 行きます。"
+    },
+    {
+      "id": "n5exp045",
+      "level": "N5",
+      "type": "reading",
+      "prompt": "うどんは いくらですか。",
+      "options": [
+        "700円",
+        "100円",
+        "0円",
+        "500円"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "Udon harganya 500 yen.",
+        "en": "Udon costs 500 yen."
+      },
+      "passage": "レストラン：カレーは 700円、うどんは 500円です。水は ただです。"
+    },
+    {
+      "id": "n5exp046",
+      "level": "N5",
+      "type": "reading",
+      "prompt": "お金が いらない 飲み物は 何ですか。",
+      "options": [
+        "うどん",
+        "ジュース",
+        "水",
+        "カレー"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Air disediakan gratis.",
+        "en": "Water is free."
+      },
+      "passage": "レストラン：カレーは 700円、うどんは 500円です。水は ただです。"
+    },
+    {
+      "id": "n5exp047",
+      "level": "N5",
+      "type": "reading",
+      "prompt": "いすは いくつ ありますか。",
+      "options": [
+        "ありません",
+        "二つ",
+        "一つ",
+        "三つ"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Ada dua kursi.",
+        "en": "There are two chairs."
+      },
+      "passage": "わたしの 部屋には 机が 一つと いすが 二つ あります。ベッドは ありません。"
+    },
+    {
+      "id": "n5exp048",
+      "level": "N5",
+      "type": "reading",
+      "prompt": "部屋に ない ものは 何ですか。",
+      "options": [
+        "ベッド",
+        "机",
+        "いす",
+        "本"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Tidak ada tempat tidur.",
+        "en": "There is no bed."
+      },
+      "passage": "わたしの 部屋には 机が 一つと いすが 二つ あります。ベッドは ありません。"
+    },
+    {
+      "id": "n5exp049",
+      "level": "N5",
+      "type": "reading",
+      "prompt": "あしたは 何の 日ですか。",
+      "options": [
+        "わたしの誕生日",
+        "学校の休み",
+        "母の日",
+        "友だちの誕生日"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "Besok ulang tahun teman.",
+        "en": "Tomorrow is the friend’s birthday."
+      },
+      "passage": "あしたは 友だちの 誕生日です。わたしは 花を 買って、友だちの 家へ 行きます。"
+    },
+    {
+      "id": "n5exp050",
+      "level": "N5",
+      "type": "reading",
+      "prompt": "何を 買いますか。",
+      "options": [
+        "ケーキ",
+        "時計",
+        "花",
+        "本"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Pembicara akan membeli bunga.",
+        "en": "The speaker will buy flowers."
+      },
+      "passage": "あしたは 友だちの 誕生日です。わたしは 花を 買って、友だちの 家へ 行きます。"
     }
   ]
 }
