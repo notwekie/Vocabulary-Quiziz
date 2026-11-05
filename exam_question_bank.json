@@ -1337,6 +1337,866 @@
         "en": "The speaker will buy flowers."
       },
       "passage": "あしたは 友だちの 誕生日です。わたしは 花を 買って、友だちの 家へ 行きます。"
+    },
+    {
+      "id": "n5q2001",
+      "level": "N5",
+      "type": "vocabulary",
+      "prompt": "「古い」の反対の意味はどれですか。",
+      "options": [
+        "新しい",
+        "小さい",
+        "短い",
+        "少ない"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "新しい berarti baru, lawan dari lama.",
+        "en": "新しい means new, opposite of old."
+      }
+    },
+    {
+      "id": "n5q2002",
+      "level": "N5",
+      "type": "vocabulary",
+      "prompt": "「安い」の反対の意味はどれですか。",
+      "options": [
+        "重い",
+        "高い",
+        "低い",
+        "広い"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "高い berarti mahal, lawan dari murah.",
+        "en": "高い means expensive, opposite of cheap."
+      }
+    },
+    {
+      "id": "n5q2003",
+      "level": "N5",
+      "type": "vocabulary",
+      "prompt": "「早い」の反対の意味はどれですか。",
+      "options": [
+        "細い",
+        "軽い",
+        "遅い",
+        "近い"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "遅い berarti terlambat, lawan dari awal.",
+        "en": "遅い means late or slow, opposite of early."
+      }
+    },
+    {
+      "id": "n5q2004",
+      "level": "N5",
+      "type": "vocabulary",
+      "prompt": "「南」の読み方はどれですか。",
+      "options": [
+        "きた",
+        "ひがし",
+        "にし",
+        "みなみ"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "南 dibaca みなみ (selatan).",
+        "en": "南 is read みなみ (south)."
+      }
+    },
+    {
+      "id": "n5q2005",
+      "level": "N5",
+      "type": "vocabulary",
+      "prompt": "「北」の読み方はどれですか。",
+      "options": [
+        "きた",
+        "みなみ",
+        "にし",
+        "ひがし"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "北 dibaca きた (utara).",
+        "en": "北 is read きた (north)."
+      }
+    },
+    {
+      "id": "n5q2006",
+      "level": "N5",
+      "type": "vocabulary",
+      "prompt": "「毎週」の読み方はどれですか。",
+      "options": [
+        "らいしゅう",
+        "まいしゅう",
+        "まいにち",
+        "まいつき"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "毎週 dibaca まいしゅう (setiap minggu).",
+        "en": "毎週 is read まいしゅう (every week)."
+      }
+    },
+    {
+      "id": "n5q2007",
+      "level": "N5",
+      "type": "vocabulary",
+      "prompt": "「電車」の読み方はどれですか。",
+      "options": [
+        "でんわ",
+        "くるま",
+        "でんしゃ",
+        "じてんしゃ"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "電車 dibaca でんしゃ (kereta).",
+        "en": "電車 is read でんしゃ (train)."
+      }
+    },
+    {
+      "id": "n5q2008",
+      "level": "N5",
+      "type": "vocabulary",
+      "prompt": "「友達」の読み方はどれですか。",
+      "options": [
+        "かぞく",
+        "きょうだい",
+        "せんせい",
+        "ともだち"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "友達 dibaca ともだち (teman).",
+        "en": "友達 is read ともだち (friend)."
+      }
+    },
+    {
+      "id": "n5q2009",
+      "level": "N5",
+      "type": "vocabulary",
+      "prompt": "「入口」はどこですか。",
+      "options": [
+        "入るところ",
+        "出るところ",
+        "食べるところ",
+        "寝るところ"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "入口 berarti pintu masuk.",
+        "en": "入口 means entrance, the place to enter."
+      }
+    },
+    {
+      "id": "n5q2010",
+      "level": "N5",
+      "type": "vocabulary",
+      "prompt": "「出口」はどこですか。",
+      "options": [
+        "座るところ",
+        "出るところ",
+        "入るところ",
+        "買うところ"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "出口 berarti pintu keluar.",
+        "en": "出口 means exit, the place to leave."
+      }
+    },
+    {
+      "id": "n5q2011",
+      "level": "N5",
+      "type": "vocabulary",
+      "prompt": "「赤い」は何の色ですか。",
+      "options": [
+        "しろ",
+        "くろ",
+        "あか",
+        "あお"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "赤い adalah warna merah.",
+        "en": "赤い is the color red."
+      }
+    },
+    {
+      "id": "n5q2012",
+      "level": "N5",
+      "type": "vocabulary",
+      "prompt": "「白い」は何の色ですか。",
+      "options": [
+        "あか",
+        "くろ",
+        "きいろ",
+        "しろ"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "白い adalah warna putih.",
+        "en": "白い is the color white."
+      }
+    },
+    {
+      "id": "n5q2013",
+      "level": "N5",
+      "type": "vocabulary",
+      "prompt": "「来月」の意味はどれですか。",
+      "options": [
+        "次の月",
+        "先月",
+        "今月",
+        "来年"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "来月 berarti bulan depan.",
+        "en": "来月 means next month."
+      }
+    },
+    {
+      "id": "n5q2014",
+      "level": "N5",
+      "type": "vocabulary",
+      "prompt": "「昨日」の読み方はどれですか。",
+      "options": [
+        "おととい",
+        "きのう",
+        "きょう",
+        "あした"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "昨日 dibaca きのう (kemarin).",
+        "en": "昨日 is read きのう (yesterday)."
+      }
+    },
+    {
+      "id": "n5q2015",
+      "level": "N5",
+      "type": "vocabulary",
+      "prompt": "「料理」の読み方はどれですか。",
+      "options": [
+        "りゆう",
+        "りょうしん",
+        "りょうり",
+        "りょこう"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "料理 dibaca りょうり (masakan).",
+        "en": "料理 is read りょうり (cooking or cuisine)."
+      }
+    },
+    {
+      "id": "n5q2016",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "わたしは バス（　）学校へ 行きます。",
+      "options": [
+        "に",
+        "を",
+        "が",
+        "で"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "で menunjukkan alat transportasi.",
+        "en": "で marks the means of transportation."
+      }
+    },
+    {
+      "id": "n5q2017",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "母（　）電話を かけます。",
+      "options": [
+        "に",
+        "を",
+        "で",
+        "が"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "に menandai orang yang ditelepon.",
+        "en": "に marks the person receiving the call."
+      }
+    },
+    {
+      "id": "n5q2018",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "ここ（　）名前を 書いてください。",
+      "options": [
+        "へ",
+        "に",
+        "を",
+        "が"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "に menunjukkan tempat menulis.",
+        "en": "に indicates the place where something is written."
+      }
+    },
+    {
+      "id": "n5q2019",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "わたしは 兄（　）います。",
+      "options": [
+        "に",
+        "で",
+        "が",
+        "を"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "が menandai keberadaan seseorang.",
+        "en": "が marks the person whose existence is stated."
+      }
+    },
+    {
+      "id": "n5q2020",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "コーヒー（　）お茶、どちらが 好きですか。",
+      "options": [
+        "に",
+        "を",
+        "が",
+        "と"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "と menghubungkan dua pilihan.",
+        "en": "と connects the two choices."
+      }
+    },
+    {
+      "id": "n5q2021",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "日曜日は どこ（　）行きませんでした。",
+      "options": [
+        "へも",
+        "がも",
+        "をも",
+        "でも"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "どこへも bersama bentuk negatif berarti tidak pergi ke mana pun.",
+        "en": "どこへも with a negative verb means nowhere."
+      }
+    },
+    {
+      "id": "n5q2022",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "わたしは りんごを 二つ（　）。",
+      "options": [
+        "買ってでした",
+        "買いました",
+        "買いますでした",
+        "買うました"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "買いました adalah bentuk sopan lampau dari 買う.",
+        "en": "買いました is the polite past of 買う."
+      }
+    },
+    {
+      "id": "n5q2023",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "この かばんは あまり（　）。",
+      "options": [
+        "重かったです",
+        "重いでした",
+        "重くないです",
+        "重いです"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "あまり biasanya digunakan dengan bentuk negatif.",
+        "en": "あまり usually pairs with a negative expression."
+      }
+    },
+    {
+      "id": "n5q2024",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "昨日は 学校へ（　）。",
+      "options": [
+        "行きませんです",
+        "行かないでした",
+        "行くませんでした",
+        "行きませんでした"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "行きませんでした adalah bentuk sopan negatif lampau.",
+        "en": "行きませんでした is the polite past negative of 行く."
+      }
+    },
+    {
+      "id": "n5q2025",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "いま 雪が（　）。",
+      "options": [
+        "降っています",
+        "降りましたでした",
+        "降るです",
+        "降ってです"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "降っています menunjukkan salju sedang turun.",
+        "en": "降っています describes snow falling now."
+      }
+    },
+    {
+      "id": "n5q2026",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "この 料理は（　）おいしいです。",
+      "options": [
+        "どこ",
+        "とても",
+        "あまり",
+        "ぜんぜん"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "とても berarti sangat.",
+        "en": "とても means very and modifies おいしい."
+      }
+    },
+    {
+      "id": "n5q2027",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "わたしは 日本語が 少し（　）。",
+      "options": [
+        "わかるます",
+        "わかってますです",
+        "わかります",
+        "わかりです"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "わかります adalah bentuk kata kerja sopan yang benar.",
+        "en": "わかります is the correct polite verb form."
+      }
+    },
+    {
+      "id": "n5q2028",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "駅まで 歩いて 十分（　）。",
+      "options": [
+        "あります",
+        "います",
+        "します",
+        "かかります"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "かかります menunjukkan waktu yang diperlukan.",
+        "en": "かかります expresses the time required."
+      }
+    },
+    {
+      "id": "n5q2029",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "先生に 質問を（　）ください。",
+      "options": [
+        "して",
+        "する",
+        "した",
+        "します"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "〜てください menggunakan bentuk て yaitu して.",
+        "en": "〜てください takes the て-form して."
+      }
+    },
+    {
+      "id": "n5q2030",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "この 本を 読んだ（　）が あります。",
+      "options": [
+        "ひと",
+        "こと",
+        "もの",
+        "ところ"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "〜たことがある menyatakan pengalaman sebelumnya.",
+        "en": "〜たことがある describes past experience."
+      }
+    },
+    {
+      "id": "n5q2031",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "正しい文はどれですか。（わたし／毎日／勉強します／日本語を）",
+      "options": [
+        "日本語を 毎日 わたしが です。",
+        "わたしは 勉強しますを 日本語。",
+        "わたしは 毎日 日本語を 勉強します。",
+        "毎日は わたし 日本語を 勉強します。"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Objek 日本語を diletakkan sebelum kata kerja 勉強します.",
+        "en": "The object 日本語を precedes the verb 勉強します."
+      }
+    },
+    {
+      "id": "n5q2032",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "正しい文はどれですか。（きのう／友だち／映画／見ました）",
+      "options": [
+        "きのう 友だちに 映画が 見ました。",
+        "きのう 友だちを 映画と 見ました。",
+        "きのう 友だちで 映画に 見ました。",
+        "きのう 友だちと 映画を 見ました。"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "と menandai teman, を menandai film yang ditonton.",
+        "en": "と marks the companion and を marks the movie watched."
+      }
+    },
+    {
+      "id": "n5q2033",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "正しい文はどれですか。（机／下／ねこ／います）",
+      "options": [
+        "机の 下に ねこが います。",
+        "机を 下で ねこに います。",
+        "机が 下を ねこで います。",
+        "机に 下が ねこを います。"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "の menghubungkan lokasi, に menunjukkan tempat, が menandai kucing.",
+        "en": "の connects the location, に marks it, and が marks the cat."
+      }
+    },
+    {
+      "id": "n5q2034",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "正しい文はどれですか。（七時／起きます／毎朝）",
+      "options": [
+        "毎朝 七時が 起きます。",
+        "毎朝 七時に 起きます。",
+        "毎朝 七時を 起きます。",
+        "毎朝 七時で 起きます。"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Waktu tertentu menggunakan partikel に.",
+        "en": "A specific time uses に."
+      }
+    },
+    {
+      "id": "n5q2035",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "正しい文はどれですか。（スーパー／野菜／買います）",
+      "options": [
+        "スーパーを 野菜で 買います。",
+        "スーパーが 野菜に 買います。",
+        "スーパーで 野菜を 買います。",
+        "スーパーに 野菜が 買います。"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "で menandai tempat kegiatan dan を menandai objek.",
+        "en": "で marks the action location and を the object."
+      }
+    },
+    {
+      "id": "n5q2036",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "正しい文はどれですか。（日本／行きたい）",
+      "options": [
+        "日本を 行きたいです。",
+        "日本が 行きたいへ。",
+        "日本で 行きたいを。",
+        "日本へ 行きたいです。"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "へ menunjukkan tujuan pergi.",
+        "en": "へ indicates the destination of going."
+      }
+    },
+    {
+      "id": "n5q2037",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "正しい文はどれですか。（わたし／弟／二人）",
+      "options": [
+        "わたしには 弟が 二人 います。",
+        "わたしを 弟に 二人 います。",
+        "わたしが 弟を 二人 あります。",
+        "わたしで 弟が 二人 あります。"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "います digunakan untuk manusia; が menandai adik laki-laki.",
+        "en": "います is used for people; が marks the younger brothers."
+      }
+    },
+    {
+      "id": "n5q2038",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "正しい文はどれですか。（この／本／おもしろい）",
+      "options": [
+        "この 本に おもしろいを。",
+        "この 本は おもしろいです。",
+        "この 本が おもしろいでした。",
+        "この 本を おもしろいです。"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Kata sifat-i dapat langsung diikuti です.",
+        "en": "An i-adjective can be followed directly by です."
+      }
+    },
+    {
+      "id": "n5q2039",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "正しい文はどれですか。（明日／雨／降る）",
+      "options": [
+        "明日は 雨に 降るでしょう。",
+        "明日は 雨で 降るでしょう。",
+        "明日は 雨が 降るでしょう。",
+        "明日は 雨を 降るでしょう。"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "が menandai subjek kata kerja 降る.",
+        "en": "が marks the subject of 降る."
+      }
+    },
+    {
+      "id": "n5q2040",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "正しい文はどれですか。（ここ／座る／いい）",
+      "options": [
+        "ここを 座るも いいですか。",
+        "ここが 座りも いいですか。",
+        "ここで 座ったも いいですか。",
+        "ここに 座っても いいですか。"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "〜てもいいですか meminta izin; 座る menjadi 座って.",
+        "en": "〜てもいいですか asks permission; 座る becomes 座って."
+      }
+    },
+    {
+      "id": "n5q2041",
+      "level": "N5",
+      "type": "reading",
+      "prompt": "今日は 何曜日ですか。",
+      "options": [
+        "火曜日",
+        "月曜日",
+        "水曜日",
+        "木曜日"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Pengumuman menyebut hari ini Selasa.",
+        "en": "The notice states 今日は火曜日."
+      },
+      "passage": "学校の お知らせ：今日は 火曜日です。明日は 水曜日です。"
+    },
+    {
+      "id": "n5q2042",
+      "level": "N5",
+      "type": "reading",
+      "prompt": "明日は 何曜日ですか。",
+      "options": [
+        "日曜日",
+        "水曜日",
+        "火曜日",
+        "金曜日"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Hari setelah Selasa adalah Rabu.",
+        "en": "The day after Tuesday is Wednesday."
+      },
+      "passage": "学校の お知らせ：今日は 火曜日です。明日は 水曜日です。"
+    },
+    {
+      "id": "n5q2043",
+      "level": "N5",
+      "type": "reading",
+      "prompt": "田中さんは 何を 飲みましたか。",
+      "options": [
+        "お茶",
+        "ジュース",
+        "牛乳",
+        "水"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Teks menyebut minum susu.",
+        "en": "The passage says 牛乳を飲みました."
+      },
+      "passage": "田中さんは 朝、パンを 食べて、牛乳を 飲みました。そのあと 学校へ 行きました。"
+    },
+    {
+      "id": "n5q2044",
+      "level": "N5",
+      "type": "reading",
+      "prompt": "田中さんは 食事の あと どこへ 行きましたか。",
+      "options": [
+        "病院",
+        "駅",
+        "公園",
+        "学校"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "Setelah makan, Tanaka pergi ke sekolah.",
+        "en": "After eating, Tanaka went to school."
+      },
+      "passage": "田中さんは 朝、パンを 食べて、牛乳を 飲みました。そのあと 学校へ 行きました。"
+    },
+    {
+      "id": "n5q2045",
+      "level": "N5",
+      "type": "reading",
+      "prompt": "店は 何時に 開きますか。",
+      "options": [
+        "午前十時",
+        "午前九時",
+        "午後十時",
+        "午後五時"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Toko buka pukul 10 pagi.",
+        "en": "The store opens at 10 a.m."
+      },
+      "passage": "花屋：午前十時から 午後五時まで。月曜日は 休みです。"
+    },
+    {
+      "id": "n5q2046",
+      "level": "N5",
+      "type": "reading",
+      "prompt": "店が 休みの 日は いつですか。",
+      "options": [
+        "日曜日",
+        "月曜日",
+        "火曜日",
+        "土曜日"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Toko bunga tutup hari Senin.",
+        "en": "The flower shop is closed Monday."
+      },
+      "passage": "花屋：午前十時から 午後五時まで。月曜日は 休みです。"
+    },
+    {
+      "id": "n5q2047",
+      "level": "N5",
+      "type": "reading",
+      "prompt": "ゆきさんは 何を 買いますか。",
+      "options": [
+        "かばん",
+        "本",
+        "ノート",
+        "えんぴつ"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Yuki akan membeli buku catatan.",
+        "en": "Yuki says she will buy a notebook."
+      },
+      "passage": "ゆき：あした 学校で テストが あります。今日、ノートを 買います。"
+    },
+    {
+      "id": "n5q2048",
+      "level": "N5",
+      "type": "reading",
+      "prompt": "テストは いつ ありますか。",
+      "options": [
+        "きょう",
+        "きのう",
+        "来週",
+        "あした"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "Ujian berlangsung besok.",
+        "en": "The test is tomorrow."
+      },
+      "passage": "ゆき：あした 学校で テストが あります。今日、ノートを 買います。"
+    },
+    {
+      "id": "n5q2049",
+      "level": "N5",
+      "type": "reading",
+      "prompt": "だれが 料理を しますか。",
+      "options": [
+        "父",
+        "母",
+        "兄",
+        "わたし"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Ayah memasak makan malam.",
+        "en": "The father cooks dinner."
+      },
+      "passage": "日曜日は 家族で 家に います。父は 晩ごはんを 作ります。母は テレビを 見ます。"
+    },
+    {
+      "id": "n5q2050",
+      "level": "N5",
+      "type": "reading",
+      "prompt": "母は 何を しますか。",
+      "options": [
+        "本を 読みます",
+        "テレビを 見ます",
+        "晩ごはんを 作ります",
+        "買い物に 行きます"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Ibu menonton televisi.",
+        "en": "The mother watches television."
+      },
+      "passage": "日曜日は 家族で 家に います。父は 晩ごはんを 作ります。母は テレビを 見ます。"
     }
   ]
 }
