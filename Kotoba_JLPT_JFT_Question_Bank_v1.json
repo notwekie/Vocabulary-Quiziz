@@ -1,0 +1,472 @@
+{
+  "schema_version": "1.0",
+  "title": "Kotoba Exam Practice — Original JLPT/JFT-style Starter Bank",
+  "notice": "Original educational practice items; not official JLPT or JFT questions. JLPT and JFT-Basic do not assess free writing. Listening items require recorded audio_url for reliable playback.",
+  "questions": [
+    {
+      "id": "ex001",
+      "level": "N5",
+      "type": "grammar",
+      "prompt": "わたしは 毎朝 七時（　）起きます。",
+      "options": [
+        "に",
+        "を",
+        "が",
+        "で"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jam tertentu menggunakan partikel に.",
+        "en": "A specific time takes the particle に."
+      }
+    },
+    {
+      "id": "ex002",
+      "level": "N5",
+      "type": "reading",
+      "prompt": "田中さんは何を買いましたか。",
+      "options": [
+        "パンと牛乳",
+        "パンとりんご",
+        "牛乳と卵",
+        "りんごと水"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Ia membeli roti dan apel.",
+        "en": "He bought bread and apples."
+      },
+      "passage": "田中さんは日曜日にスーパーへ行きました。パンを一つとりんごを三つ買いました。"
+    },
+    {
+      "id": "ex003",
+      "level": "N5",
+      "type": "reading",
+      "prompt": "田中さんはいつスーパーへ行きましたか。",
+      "options": [
+        "土曜日",
+        "月曜日",
+        "日曜日",
+        "金曜日"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "日曜日 berarti Minggu.",
+        "en": "日曜日 means Sunday."
+      },
+      "passage": "田中さんは日曜日にスーパーへ行きました。パンを一つとりんごを三つ買いました。"
+    },
+    {
+      "id": "ex004",
+      "level": "N5",
+      "type": "listening",
+      "prompt": "女の人は何時に駅へ行きますか。",
+      "options": [
+        "七時",
+        "八時",
+        "九時",
+        "十時"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Wanita mengatakan akan pergi ke stasiun pukul delapan.",
+        "en": "The woman says she will go to the station at eight. "
+      },
+      "audio_script": "男：明日、何時に駅へ行きますか。女：八時に行きます。",
+      "audio_url": null
+    },
+    {
+      "id": "ex005",
+      "level": "N4",
+      "type": "grammar",
+      "prompt": "雨が（　）、出かけません。",
+      "options": [
+        "降ったら",
+        "降るのに",
+        "降るまでに",
+        "降りながら"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "〜たら menyatakan syarat: jika hujan.",
+        "en": "〜たら expresses a condition: if it rains."
+      }
+    },
+    {
+      "id": "ex006",
+      "level": "N4",
+      "type": "reading",
+      "prompt": "図書館は何時に閉まりますか。",
+      "options": [
+        "午後四時",
+        "午後五時",
+        "午後六時",
+        "午後七時"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Pengumuman menyebut pukul 18.00.",
+        "en": "The notice says 18:00."
+      },
+      "passage": "お知らせ：図書館は月曜日から金曜日まで午前九時から午後六時まで開いています。土曜日は午後五時までです。今日は水曜日です。"
+    },
+    {
+      "id": "ex007",
+      "level": "N4",
+      "type": "reading",
+      "prompt": "土曜日は何時に閉まりますか。",
+      "options": [
+        "午後三時",
+        "午後五時",
+        "午後六時",
+        "午後八時"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Hari Sabtu tutup pukul lima sore.",
+        "en": "On Saturdays it closes at 5 p.m."
+      },
+      "passage": "お知らせ：図書館は月曜日から金曜日まで午前九時から午後六時まで開いています。土曜日は午後五時までです。今日は水曜日です。"
+    },
+    {
+      "id": "ex008",
+      "level": "N4",
+      "type": "listening",
+      "prompt": "男の人は何を持っていきますか。",
+      "options": [
+        "傘",
+        "本",
+        "かばん",
+        "お弁当"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Ia mengatakan akan membawa payung.",
+        "en": "He says he will bring an umbrella."
+      },
+      "audio_script": "女：午後は雨が降るそうですよ。男：そうですか。じゃあ、傘を持っていきます。",
+      "audio_url": null
+    },
+    {
+      "id": "ex009",
+      "level": "N3",
+      "type": "grammar",
+      "prompt": "毎日練習した（　）、日本語が上手になりました。",
+      "options": [
+        "おかげで",
+        "せいで",
+        "ところで",
+        "かわりに"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "おかげで menunjukkan penyebab positif.",
+        "en": "おかげで marks a beneficial cause."
+      }
+    },
+    {
+      "id": "ex010",
+      "level": "N3",
+      "type": "reading",
+      "prompt": "佐藤さんが会議に遅れる理由は何ですか。",
+      "options": [
+        "電車が遅れている",
+        "会議が中止になった",
+        "病院に行く",
+        "資料を忘れた"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Email menyatakan kereta terlambat.",
+        "en": "The email says the train is delayed."
+      },
+      "passage": "山田様\nおはようございます。電車が遅れているため、十時の会議に十五分ほど遅れそうです。先に始めていただけますか。資料は共有フォルダーに入れてあります。\n佐藤"
+    },
+    {
+      "id": "ex011",
+      "level": "N3",
+      "type": "reading",
+      "prompt": "資料はどこにありますか。",
+      "options": [
+        "佐藤さんの家",
+        "会議室",
+        "共有フォルダー",
+        "駅"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Dokumen ada di folder bersama.",
+        "en": "The documents are in the shared folder."
+      },
+      "passage": "山田様\nおはようございます。電車が遅れているため、十時の会議に十五分ほど遅れそうです。先に始めていただけますか。資料は共有フォルダーに入れてあります。\n佐藤"
+    },
+    {
+      "id": "ex012",
+      "level": "N3",
+      "type": "listening",
+      "prompt": "会議は何時からになりましたか。",
+      "options": [
+        "二時",
+        "二時半",
+        "三時",
+        "四時"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Waktu rapat diubah menjadi 14.30.",
+        "en": "The meeting was moved to 2:30 p.m."
+      },
+      "audio_script": "女：今日の会議は二時からでしたよね。男：いいえ、三十分遅くなって、二時半からです。",
+      "audio_url": null
+    },
+    {
+      "id": "ex013",
+      "level": "N2",
+      "type": "grammar",
+      "prompt": "彼の説明は詳しい（　）、肝心な点がわかりにくい。",
+      "options": [
+        "ものの",
+        "ばかりに",
+        "ことから",
+        "に際して"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "ものの menunjukkan kontras: walaupun rinci.",
+        "en": "ものの signals contrast: although detailed."
+      }
+    },
+    {
+      "id": "ex014",
+      "level": "N2",
+      "type": "reading",
+      "prompt": "筆者が最も伝えたいことは何ですか。",
+      "options": [
+        "効率だけを優先するべきだ",
+        "休憩は必ず長く取るべきだ",
+        "短い休憩にも意味がある",
+        "集中力は努力と関係がない"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Teks menekankan manfaat istirahat singkat.",
+        "en": "The passage emphasizes the value of short breaks."
+      },
+      "passage": "仕事の効率を上げるには、長時間集中し続けることが大切だと思われがちだ。しかし、短い休憩を適切に取ることで、かえって集中力を維持しやすくなる。重要なのは休まず働くことではなく、自分に合った働き方を見つけることだ。"
+    },
+    {
+      "id": "ex015",
+      "level": "N2",
+      "type": "listening",
+      "prompt": "男の人は何を優先しますか。",
+      "options": [
+        "価格",
+        "納期",
+        "色",
+        "大きさ"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Ia memilih ketepatan waktu pengiriman.",
+        "en": "He prioritizes the delivery deadline."
+      },
+      "audio_script": "女：こちらは安いですが、届くまで一週間かかります。男：今回は急いでいるので、少し高くても明日届くほうにします。",
+      "audio_url": null
+    },
+    {
+      "id": "ex016",
+      "level": "N1",
+      "type": "grammar",
+      "prompt": "彼女の努力は、賞賛に（　）。",
+      "options": [
+        "値する",
+        "耐えない",
+        "及ばない",
+        "限らない"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "〜に値する berarti layak mendapat.",
+        "en": "〜に値する means worthy of."
+      }
+    },
+    {
+      "id": "ex017",
+      "level": "N1",
+      "type": "reading",
+      "prompt": "筆者が警戒していることは何ですか。",
+      "options": [
+        "技術の普及そのもの",
+        "数字を一切使わないこと",
+        "指標が目的に取って代わること",
+        "評価の透明性が高まること"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Penulis mengkritik ketika indikator menjadi tujuan itu sendiri.",
+        "en": "The author warns against metrics replacing the original goal."
+      },
+      "passage": "評価の透明性を高めるために数値目標を導入する組織は多い。確かに指標は比較を容易にするが、数値の達成自体が目的化すると、本来重視すべき質が見落とされかねない。指標は判断を助ける道具であって、判断そのものではない。"
+    },
+    {
+      "id": "ex018",
+      "level": "N1",
+      "type": "listening",
+      "prompt": "話し手が最も懸念していることは何ですか。",
+      "options": [
+        "費用の増加",
+        "目的と手段の逆転",
+        "人員の不足",
+        "情報の公開"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Kekhawatirannya adalah alat berubah menjadi tujuan.",
+        "en": "The concern is that a means becomes an end."
+      },
+      "audio_script": "数字で成果を測るのは便利です。ただ、数字を達成することばかりに気を取られ、本来の目的を忘れてしまっては本末転倒です。",
+      "audio_url": null
+    },
+    {
+      "id": "ex019",
+      "level": "JFT_A1",
+      "type": "grammar",
+      "prompt": "すみません。トイレは（　）ですか。",
+      "options": [
+        "どこ",
+        "だれ",
+        "いつ",
+        "いくつ"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "どこ digunakan untuk menanyakan lokasi.",
+        "en": "どこ asks about location."
+      }
+    },
+    {
+      "id": "ex020",
+      "level": "JFT_A1",
+      "type": "reading",
+      "prompt": "店は何時に開きますか。",
+      "options": [
+        "八時",
+        "九時",
+        "十時",
+        "十一時"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jam buka tertulis 9:00.",
+        "en": "The opening time is 9:00."
+      },
+      "passage": "パン屋\n営業時間：9:00〜18:00\n火曜日は休みです。"
+    },
+    {
+      "id": "ex021",
+      "level": "JFT_A1",
+      "type": "listening",
+      "prompt": "飲み物は何ですか。",
+      "options": [
+        "水",
+        "お茶",
+        "コーヒー",
+        "ジュース"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Pembicara meminta teh.",
+        "en": "The speaker asks for tea."
+      },
+      "audio_script": "店員：お飲み物は何にしますか。客：お茶をください。",
+      "audio_url": null
+    },
+    {
+      "id": "ex022",
+      "level": "JFT_A2",
+      "type": "grammar",
+      "prompt": "熱があるので、今日は仕事を（　）。",
+      "options": [
+        "休みます",
+        "始めます",
+        "続けます",
+        "探します"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Karena demam, ia tidak masuk kerja.",
+        "en": "Because of a fever, the speaker will take time off work."
+      }
+    },
+    {
+      "id": "ex023",
+      "level": "JFT_A2",
+      "type": "reading",
+      "prompt": "ごみを出せるのはいつですか。",
+      "options": [
+        "月曜日の朝",
+        "火曜日の夜",
+        "水曜日の朝",
+        "金曜日の夜"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Sampah yang dapat dibakar dikumpulkan Rabu pagi.",
+        "en": "Burnable waste is collected Wednesday morning."
+      },
+      "passage": "アパートのお知らせ\n燃えるごみ：水曜日 午前8時まで\nびん・かん：金曜日 午前8時まで\nごみは前日の夜に出さないでください。"
+    },
+    {
+      "id": "ex024",
+      "level": "JFT_A2",
+      "type": "listening",
+      "prompt": "男の人はまず何をしますか。",
+      "options": [
+        "病院に行く",
+        "店長に電話する",
+        "家に帰る",
+        "仕事を始める"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Ia akan menghubungi manajer terlebih dahulu.",
+        "en": "He will call the manager first."
+      },
+      "audio_script": "女：具合が悪そうですね。男：はい、熱があります。まず店長に電話して、今日は休むと伝えます。",
+      "audio_url": null
+    },
+    {
+      "id": "ex025",
+      "level": "N5",
+      "type": "writing",
+      "prompt": "「きのう」を使って、昨日したことを一文で書いてください。",
+      "sample_answer": "きのう、友だちと映画を見ました。",
+      "explanation": {
+        "id": "Contoh jawaban; guru perlu memeriksa tulisan.",
+        "en": "Example only; teacher review is needed."
+      }
+    },
+    {
+      "id": "ex026",
+      "level": "N3",
+      "type": "writing",
+      "prompt": "「〜ため」を使って、遅刻の理由を丁寧に書いてください。",
+      "sample_answer": "電車が遅れたため、会議に遅刻しました。",
+      "explanation": {
+        "id": "Periksa tata bahasa dan kesesuaian makna secara manual.",
+        "en": "Check grammar and meaning manually."
+      }
+    },
+    {
+      "id": "ex027",
+      "level": "N1",
+      "type": "writing",
+      "prompt": "「〜にもかかわらず」を使って、対比を表す文を書いてください。",
+      "sample_answer": "悪天候にもかかわらず、イベントは予定どおり開催された。",
+      "explanation": {
+        "id": "Periksa penggunaan pola dan kelancaran secara manual.",
+        "en": "Manually review pattern usage and naturalness."
+      }
+    }
+  ]
+}
