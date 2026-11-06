@@ -62,13 +62,94 @@
         .admin-login-form { max-width: 430px; margin: 0 auto; }
         .admin-login-form input { width:100%; padding:12px; border-radius:var(--radius); border:1px solid var(--border); background:var(--bg-color); color:var(--text); margin:8px 0 16px; }
         .admin-login-form label { display:block; font-weight:700; }
-    </style>
+\n
+/* Kotoba Themes v1 — lightweight shared design system */
+:root {
+  --bg-color:#fff6f5; --card-bg:#fffdfc; --primary:#b95c77;
+  --primary-hover:#9c4862; --secondary:#a24f6a; --text:#382d35;
+  --text-light:#685e64; --border:#edd7dc;
+  --shadow:0 8px 26px rgba(99,57,72,.07); --radius:16px;
+  --soft:#fbecef; --theme-header:#fffdfc; --theme-contrast:#fff;
+}
+[data-theme="sakura"] {
+  --bg-color:#fff6f5;--card-bg:#fffdfc;--primary:#b95c77;--primary-hover:#9c4862;
+  --secondary:#a24f6a;--text:#382d35;--text-light:#685e64;--border:#edd7dc;
+  --soft:#fbecef;--theme-header:#fffdfc;--theme-contrast:#fff;
+  --shadow:0 8px 26px rgba(99,57,72,.07);
+}
+[data-theme="matcha"] {
+  --bg-color:#f4f5e9;--card-bg:#fffef9;--primary:#527344;--primary-hover:#3e5b34;
+  --secondary:#47653c;--text:#30392d;--text-light:#626d5e;--border:#dbe2cf;
+  --soft:#eaf0df;--theme-header:#fffef9;--theme-contrast:#fff;
+  --shadow:0 8px 26px rgba(48,69,37,.07);
+}
+[data-theme="sumi"] {
+  --bg-color:#f2eee6;--card-bg:#fffdf8;--primary:#51483f;--primary-hover:#38312c;
+  --secondary:#615449;--text:#302b27;--text-light:#71675f;--border:#ded6ca;
+  --soft:#eae4da;--theme-header:#fffdf8;--theme-contrast:#fff;
+  --shadow:0 8px 26px rgba(46,40,34,.08);
+}
+html { color-scheme:light; }
+body { background:var(--bg-color); color:var(--text); }
+header { background:var(--theme-header);border-bottom:1px solid var(--border);box-shadow:none; }
+h1,h2,h3 { color:var(--text);letter-spacing:-.025em; }
+p {color:var(--text-light);opacity:1;}
+button {background:var(--primary);border:1px solid var(--primary);color:var(--theme-contrast);transition:background .15s,border-color .15s;}
+button:hover {background:var(--primary-hover);opacity:1;transform:none;}
+button.secondary {background:var(--card-bg);border-color:var(--border);color:var(--text);}
+button.secondary:hover {background:var(--soft);}
+.card,.quiz-card,.panel {background:var(--card-bg);border:1px solid var(--border);box-shadow:var(--shadow);}
+.quiz-card:hover {border-color:var(--primary);box-shadow:var(--shadow);transform:translateY(-2px);}
+.tab-btn,.option-btn,.question-box,.passage,.writing,.note {background:var(--soft);color:var(--text);border-color:var(--border);}
+.tab-btn.active {background:var(--primary);color:#fff;border-color:var(--primary);box-shadow:none;}
+.option-btn.correct,.choice.correct {background:#e6f3e7!important;color:#205b30!important;border-color:#67a777!important;}
+.option-btn.incorrect,.choice.wrong {background:#fce8e8!important;color:#872d35!important;border-color:#d98b90!important;}
+input,textarea,select,.settings-group input,.settings-group select,.admin-login-form input {
+  background:var(--card-bg);color:var(--text);border:1px solid var(--border);
+}
+input:focus,textarea:focus,select:focus,button:focus-visible,a:focus-visible {
+  outline:2px solid var(--primary);outline-offset:2px;
+}
+a {color:var(--primary);}
+.tag {color:var(--secondary);}
+.choice {background:var(--card-bg);color:var(--text);border-color:var(--border);}
+.choice.selected {outline:2px solid var(--primary);}
+#feedback p {color:var(--text-light);}
+.kotoba-theme-control {display:inline-flex;align-items:center;gap:7px;white-space:nowrap;font-size:.85rem;font-weight:700;color:var(--text);}
+.kotoba-theme-control select {min-width:110px;padding:9px 11px;border-radius:10px;background:var(--card-bg);color:var(--text);border:1px solid var(--border);font-size:.9rem;cursor:pointer;}
+.kotoba-brand-subtitle {font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--secondary);margin-top:2px;}
+.kotoba-hero {padding:1.25rem 0 .3rem;}
+.kotoba-hero-kicker {font-size:.72rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--secondary);margin-bottom:.6rem;}
+.kotoba-hero h2 {font-size:clamp(1.5rem,3vw,2.3rem);line-height:1.25;}
+.kotoba-hero p {max-width:650px;}
+.kotoba-exam-entry {background:var(--soft)!important;border-color:var(--border)!important;}
+.kotoba-exam-entry a {background:var(--primary)!important;}
+.kotoba-exam-entry a:hover {background:var(--primary-hover)!important;}
+.logo {color:var(--primary);}
+.timer-badge {color:var(--secondary);border-color:var(--border);}
+@media(max-width:650px){
+ header {padding:14px 16px;gap:12px;flex-wrap:wrap;}
+ .nav-btns {gap:8px;flex-wrap:wrap;}
+ .nav-btns button {padding:9px 11px;font-size:.83rem;}
+ .kotoba-theme-control {font-size:.8rem;}
+ .kotoba-theme-control select {min-width:105px;}
+ main {margin:1rem auto;padding:0 14px;}
+ .card,.panel {padding:1.3rem;}
+ .quiz-grid {grid-template-columns:1fr;}
+ .options-grid {grid-template-columns:1fr;}
+ .tab-menu {flex-wrap:wrap;}
+ .tab-btn {flex:1;min-width:190px;}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after {transition:none!important;animation:none!important;}
+}
+\n    </style>
 </head>
-<body data-theme="shiro">
+<body data-theme="sakura">
 
     <header>
         <div class="logo"><span>🌸</span> Kotoba Quiz Master</div>
-        <div class="nav-btns">
+        <div class="nav-btns">\n            <label class="kotoba-theme-control" for="kotoba-theme-picker">🎨 <select id="kotoba-theme-picker" aria-label="Website theme"><option value="sakura">🌸 Sakura</option><option value="matcha">🍵 Matcha</option><option value="sumi">🖌️ Sumi</option></select></label>
             <button class="secondary" onclick="switchView('student')">Mode Siswa</button>
             <button onclick="promptAdminLogin()">🔒 Panel Admin</button>
         </div>
@@ -87,10 +168,10 @@
                 </div>
 
                 <!-- JLPT / JFT exam practice entry -->
-                <div style="margin: 1rem 0 1.5rem; padding: 1.2rem; border: 1px solid var(--border); border-radius: 14px; background: var(--card-bg);">
+                <div class="kotoba-exam-entry" style="margin: 1rem 0 1.5rem; padding: 1.2rem; border: 1px solid var(--border); border-radius: 14px; background: var(--card-bg);">
                     <h3 style="margin: 0 0 .5rem;">📘 JLPT &amp; JFT — Latihan Ujian</h3>
                     <p style="margin: 0 0 1rem;">Latihan JLPT N5–N1 dan JFT A1–A2. Pilih paket kuis, mode belajar, atau mode ujian.</p>
-                    <a href="./exam_practice_integrated.html" id="exam-practice-link" style="display:inline-block; padding: .85rem 1.25rem; border-radius: 10px; background: #a74330; color: #fff; font-weight: 700; text-decoration: none;">📚 Mulai Latihan JLPT &amp; JFT →</a>
+                    <a href="./exam_practice_integrated.html" id="exam-practice-link" style="display:inline-block; padding: .85rem 1.25rem; border-radius: 10px; background: var(--primary); color: #fff; font-weight: 700; text-decoration: none;">📚 Mulai Latihan JLPT &amp; JFT →</a>
                 </div>
 
                 <div class="tab-menu">
@@ -154,7 +235,7 @@
             <div class="settings-group">
                 <label>🎨 Ubah Tema Kebudayaan Jepang:</label>
                 <select id="theme-selector" onchange="changeTheme(this.value)">
-                    <option value="shiro">🏯 1. Shiro (Istana Jepang Klasik)</option>
+                    <option value="sumi">🖌️ Sumi (Tinta Jepang)</option>
                     <option value="sakura">🌸 2. Sakura (Bunga Sakura Pink)</option>
                     <option value="matcha">🍵 3. Matcha (Hijau Teh Tradisional)</option>
                 </select>
@@ -604,7 +685,7 @@
                 renderQuizCards();
 
                 const savedTheme = localStorage.getItem('kotoba-theme');
-                if (savedTheme && ['shiro', 'sakura', 'matcha'].includes(savedTheme)) {
+                if (savedTheme && ['sumi', 'sakura', 'matcha'].includes(savedTheme)) {
                     document.body.setAttribute('data-theme', savedTheme);
                     const selector = document.getElementById('theme-selector');
                     if (selector) selector.value = savedTheme;
@@ -622,5 +703,26 @@
 
         document.addEventListener('DOMContentLoaded', initializeApp);
     </script>
-</body>
+
+<script>
+(function () {
+  const KEY = 'kotoba-theme';
+  const allowed = ['sakura','matcha','sumi'];
+  const picker = document.getElementById('kotoba-theme-picker');
+  function apply(value) {
+    const theme = allowed.includes(value) ? value : 'sakura';
+    document.body.setAttribute('data-theme', theme);
+    if (picker) picker.value = theme;
+    const admin = document.getElementById('theme-selector');
+    if (admin) admin.value = theme;
+    try { localStorage.setItem(KEY,theme); } catch (_) {}
+  }
+  const stored = (function(){try{return localStorage.getItem(KEY)}catch(_){return null}})();
+  apply(stored);
+  if (picker) picker.addEventListener('change', function(){apply(this.value)});
+  window.addEventListener('storage',function(e){if(e.key===KEY)apply(e.newValue)});
+  window.kotobaSetTheme = apply;
+})();
+</script>
+\n</body>
 </html>

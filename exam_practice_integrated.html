@@ -1,6 +1,104 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kotoba Exam Practice | JLPT & JFT</title><style>
-:root{font-family:system-ui,-apple-system,sans-serif;color-scheme:dark;--bg:#19171c;--panel:#29252c;--text:#f5f2f0;--muted:#c5bdc7;--accent:#dbad4c}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text)}header{background:#262129;border-bottom:3px solid #bd513d;padding:18px max(18px,calc((100vw - 980px)/2));display:flex;justify-content:space-between;gap:14px;align-items:center;flex-wrap:wrap}main{max-width:980px;margin:28px auto;padding:0 16px}.panel{background:var(--panel);padding:25px;border:1px solid #544a56;border-radius:15px;margin-bottom:20px}h1,h2{margin:0 0 16px}p{line-height:1.6;color:var(--muted)}button,select,input,textarea{font:inherit}button,select{border-radius:9px;padding:10px 14px;border:1px solid #a28a69;background:#a74330;color:white;cursor:pointer}button.secondary,select{background:#312b34;color:white;border-color:#6d626f}button:disabled{opacity:.45;cursor:not-allowed}label{display:block;margin:12px 0 5px;font-weight:650}input,textarea{background:#1b191e;color:white;border:1px solid #6d626f;border-radius:9px;padding:12px;width:100%}textarea{min-height:115px}.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}.row>*{flex:1;min-width:135px}.hidden{display:none!important}.passage{white-space:pre-wrap;background:#19171c;border-left:4px solid var(--accent);padding:20px;border-radius:8px;line-height:1.95;font-size:1.15rem}.choice{display:block;width:100%;text-align:left;margin:10px 0;background:#312b34;border:1px solid #6d626f}.choice.selected{outline:2px solid var(--accent)}.choice.correct{border-color:#65bb83}.choice.wrong{border-color:#f17b7b}.tag{color:var(--accent);font-weight:700}.status{min-height:24px}.note{border:1px solid #7c6946;background:#332b25;padding:12px;border-radius:9px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}a{color:#f3c86a}.small{font-size:.9rem}#feedback{margin-top:18px}#feedback p{margin:5px 0}.writing{white-space:pre-wrap;background:#1b191e;padding:12px;border-radius:8px}</style></head><body>
-<header><strong>🌸 Kotoba Exam Practice</strong><div class="row"><a href="./index.html" id="backLink">← Vocabulary Home</a><select id="lang" aria-label="Explanation language"><option value="id">Bahasa Indonesia</option><option value="en">English</option></select></div></header>
+:root{font-family:system-ui,-apple-system,sans-serif;color-scheme:dark;--bg:#19171c;--panel:#29252c;--text:#f5f2f0;--muted:#c5bdc7;--accent:#dbad4c}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text)}header{background:#262129;border-bottom:3px solid #bd513d;padding:18px max(18px,calc((100vw - 980px)/2));display:flex;justify-content:space-between;gap:14px;align-items:center;flex-wrap:wrap}main{max-width:980px;margin:28px auto;padding:0 16px}.panel{background:var(--panel);padding:25px;border:1px solid #544a56;border-radius:15px;margin-bottom:20px}h1,h2{margin:0 0 16px}p{line-height:1.6;color:var(--muted)}button,select,input,textarea{font:inherit}button,select{border-radius:9px;padding:10px 14px;border:1px solid #a28a69;background:#a74330;color:white;cursor:pointer}button.secondary,select{background:#312b34;color:white;border-color:#6d626f}button:disabled{opacity:.45;cursor:not-allowed}label{display:block;margin:12px 0 5px;font-weight:650}input,textarea{background:#1b191e;color:white;border:1px solid #6d626f;border-radius:9px;padding:12px;width:100%}textarea{min-height:115px}.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}.row>*{flex:1;min-width:135px}.hidden{display:none!important}.passage{white-space:pre-wrap;background:#19171c;border-left:4px solid var(--accent);padding:20px;border-radius:8px;line-height:1.95;font-size:1.15rem}.choice{display:block;width:100%;text-align:left;margin:10px 0;background:#312b34;border:1px solid #6d626f}.choice.selected{outline:2px solid var(--accent)}.choice.correct{border-color:#65bb83}.choice.wrong{border-color:#f17b7b}.tag{color:var(--accent);font-weight:700}.status{min-height:24px}.note{border:1px solid #7c6946;background:#332b25;padding:12px;border-radius:9px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}a{color:#f3c86a}.small{font-size:.9rem}#feedback{margin-top:18px}#feedback p{margin:5px 0}.writing{white-space:pre-wrap;background:#1b191e;padding:12px;border-radius:8px}</style><style>
+/* Kotoba Themes v1 — lightweight shared design system */
+:root {
+  --bg-color:#fff6f5; --card-bg:#fffdfc; --primary:#b95c77;
+  --primary-hover:#9c4862; --secondary:#a24f6a; --text:#382d35;
+  --text-light:#685e64; --border:#edd7dc;
+  --shadow:0 8px 26px rgba(99,57,72,.07); --radius:16px;
+  --soft:#fbecef; --theme-header:#fffdfc; --theme-contrast:#fff;
+}
+[data-theme="sakura"] {
+  --bg-color:#fff6f5;--card-bg:#fffdfc;--primary:#b95c77;--primary-hover:#9c4862;
+  --secondary:#a24f6a;--text:#382d35;--text-light:#685e64;--border:#edd7dc;
+  --soft:#fbecef;--theme-header:#fffdfc;--theme-contrast:#fff;
+  --shadow:0 8px 26px rgba(99,57,72,.07);
+}
+[data-theme="matcha"] {
+  --bg-color:#f4f5e9;--card-bg:#fffef9;--primary:#527344;--primary-hover:#3e5b34;
+  --secondary:#47653c;--text:#30392d;--text-light:#626d5e;--border:#dbe2cf;
+  --soft:#eaf0df;--theme-header:#fffef9;--theme-contrast:#fff;
+  --shadow:0 8px 26px rgba(48,69,37,.07);
+}
+[data-theme="sumi"] {
+  --bg-color:#f2eee6;--card-bg:#fffdf8;--primary:#51483f;--primary-hover:#38312c;
+  --secondary:#615449;--text:#302b27;--text-light:#71675f;--border:#ded6ca;
+  --soft:#eae4da;--theme-header:#fffdf8;--theme-contrast:#fff;
+  --shadow:0 8px 26px rgba(46,40,34,.08);
+}
+html { color-scheme:light; }
+body { background:var(--bg-color); color:var(--text); }
+header { background:var(--theme-header);border-bottom:1px solid var(--border);box-shadow:none; }
+h1,h2,h3 { color:var(--text);letter-spacing:-.025em; }
+p {color:var(--text-light);opacity:1;}
+button {background:var(--primary);border:1px solid var(--primary);color:var(--theme-contrast);transition:background .15s,border-color .15s;}
+button:hover {background:var(--primary-hover);opacity:1;transform:none;}
+button.secondary {background:var(--card-bg);border-color:var(--border);color:var(--text);}
+button.secondary:hover {background:var(--soft);}
+.card,.quiz-card,.panel {background:var(--card-bg);border:1px solid var(--border);box-shadow:var(--shadow);}
+.quiz-card:hover {border-color:var(--primary);box-shadow:var(--shadow);transform:translateY(-2px);}
+.tab-btn,.option-btn,.question-box,.passage,.writing,.note {background:var(--soft);color:var(--text);border-color:var(--border);}
+.tab-btn.active {background:var(--primary);color:#fff;border-color:var(--primary);box-shadow:none;}
+.option-btn.correct,.choice.correct {background:#e6f3e7!important;color:#205b30!important;border-color:#67a777!important;}
+.option-btn.incorrect,.choice.wrong {background:#fce8e8!important;color:#872d35!important;border-color:#d98b90!important;}
+input,textarea,select,.settings-group input,.settings-group select,.admin-login-form input {
+  background:var(--card-bg);color:var(--text);border:1px solid var(--border);
+}
+input:focus,textarea:focus,select:focus,button:focus-visible,a:focus-visible {
+  outline:2px solid var(--primary);outline-offset:2px;
+}
+a {color:var(--primary);}
+.tag {color:var(--secondary);}
+.choice {background:var(--card-bg);color:var(--text);border-color:var(--border);}
+.choice.selected {outline:2px solid var(--primary);}
+#feedback p {color:var(--text-light);}
+.kotoba-theme-control {display:inline-flex;align-items:center;gap:7px;white-space:nowrap;font-size:.85rem;font-weight:700;color:var(--text);}
+.kotoba-theme-control select {min-width:110px;padding:9px 11px;border-radius:10px;background:var(--card-bg);color:var(--text);border:1px solid var(--border);font-size:.9rem;cursor:pointer;}
+.kotoba-brand-subtitle {font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--secondary);margin-top:2px;}
+.kotoba-hero {padding:1.25rem 0 .3rem;}
+.kotoba-hero-kicker {font-size:.72rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--secondary);margin-bottom:.6rem;}
+.kotoba-hero h2 {font-size:clamp(1.5rem,3vw,2.3rem);line-height:1.25;}
+.kotoba-hero p {max-width:650px;}
+.kotoba-exam-entry {background:var(--soft)!important;border-color:var(--border)!important;}
+.kotoba-exam-entry a {background:var(--primary)!important;}
+.kotoba-exam-entry a:hover {background:var(--primary-hover)!important;}
+.logo {color:var(--primary);}
+.timer-badge {color:var(--secondary);border-color:var(--border);}
+@media(max-width:650px){
+ header {padding:14px 16px;gap:12px;flex-wrap:wrap;}
+ .nav-btns {gap:8px;flex-wrap:wrap;}
+ .nav-btns button {padding:9px 11px;font-size:.83rem;}
+ .kotoba-theme-control {font-size:.8rem;}
+ .kotoba-theme-control select {min-width:105px;}
+ main {margin:1rem auto;padding:0 14px;}
+ .card,.panel {padding:1.3rem;}
+ .quiz-grid {grid-template-columns:1fr;}
+ .options-grid {grid-template-columns:1fr;}
+ .tab-menu {flex-wrap:wrap;}
+ .tab-btn {flex:1;min-width:190px;}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after {transition:none!important;animation:none!important;}
+}
+\n
+/* Exam-only layout refinement */
+header {padding:16px max(18px,calc((100vw - 980px)/2));}
+header .row {flex:0 1 auto;gap:14px;}
+header .row > * {flex:0 0 auto;min-width:0;}
+header .row > .kotoba-theme-control {display:inline-flex;}
+header strong {font-size:1.08rem;letter-spacing:-.02em;color:var(--primary);}
+.panel {border-radius:18px;}
+.note {background:var(--soft);border:1px solid var(--border);}
+.passage {background:var(--soft);border-left:3px solid var(--primary);}
+#setupError {color:#b53c45;}
+#player {border-radius:12px;}
+@media(max-width:650px) {
+ header {padding:14px 16px;}
+ header .row {width:100%;justify-content:space-between;}
+ .panel {padding:18px;}
+}
+</style></head><body data-theme="sakura">
+<header><strong>🌸 Kotoba Exam Practice</strong><div class="row"><a href="./index.html" id="backLink">← Vocabulary Home</a><label class="kotoba-theme-control" for="kotoba-theme-picker">🎨 <select id="kotoba-theme-picker" aria-label="Website theme"><option value="sakura">🌸 Sakura</option><option value="matcha">🍵 Matcha</option><option value="sumi">🖌️ Sumi</option></select></label><select id="lang" aria-label="Explanation language"><option value="id">Bahasa Indonesia</option><option value="en">English</option></select></div></header>
 <main><section class="panel" id="setup"><h1 id="heading">JLPT & JFT Practice</h1><p id="intro"></p><div><label for="studentName">Student name / Nama siswa</label><input id="studentName" maxlength="100" required placeholder="Full name / Nama lengkap"></div><div id="quizChooser"><label id="quizLabel" for="quiz">Practice set / Paket latihan</label><select id="quiz"><option value="free">All available questions / Semua soal tersedia</option></select></div><div class="row"><div><label id="levelLabel" for="level"></label><select id="level"><option>N5</option><option>N4</option><option>N3</option><option>N2</option><option>N1</option><option>JFT_A1</option><option>JFT_A2</option></select></div><div><label id="typeLabel" for="kind"></label><select id="kind"><option value="all">All skills</option><option value="grammar">Grammar</option><option value="reading">Reading</option><option value="listening">Listening</option><option value="writing">Writing</option></select></div><div><label id="modeLabel" for="mode"></label><select id="mode"><option value="study">Study mode</option><option value="exam">Exam mode</option></select></div></div><p class="note" id="audioNotice"></p><button id="start"></button><p id="setupError" role="alert"></p></section>
 <section id="runner" class="panel hidden"><div class="row"><span class="tag" id="progress"></span><span id="clock" style="text-align:right"></span></div><h2 id="question" style="margin-top:20px"></h2><div id="passage" class="passage hidden"></div><div id="audio" class="hidden"><p id="audioHelp"></p><audio id="player" controls preload="none" style="width:100%"></audio><button id="tts" class="secondary hidden"></button><button id="showTranscript" class="secondary hidden"></button><div id="transcript" class="passage hidden"></div></div><div id="answers"></div><div id="feedback" class="hidden" aria-live="polite"></div><div class="actions"><button id="check"></button><button id="next" class="secondary"></button><button id="quit" class="secondary"></button></div></section>
 <section id="results" class="panel hidden"><h2 id="resultTitle"></h2><p id="score"></p><p id="saveStatus" role="status"></p><button id="retrySave" class="secondary hidden">Retry save / Coba simpan lagi</button><div id="review"></div><button id="again"></button></section>
@@ -18,4 +116,25 @@ function next(){if(pos+1<items.length){pos++;render(true)}else finish()}
 async function saveExamResult(){if(!pendingResult||saving||saved)return;saving=true;$('saveStatus').textContent='Saving / Menyimpan...';$('retrySave').classList.add('hidden');try{let r=await fetch(SUPABASE_URL+'/functions/v1/submit-quiz-result',{method:'POST',headers:{'Content-Type':'application/json','apikey':SUPABASE_KEY},body:JSON.stringify(pendingResult)});let d=await r.json().catch(()=>({}));if(!r.ok||d.success!==true)throw Error(d.error||'HTTP '+r.status);saved=true;$('saveStatus').textContent='✓ Saved to monitoring / Tersimpan di monitoring';}catch(e){console.error(e);$('saveStatus').textContent='Save failed / Gagal menyimpan: '+e.message;$('retrySave').classList.remove('hidden')}finally{saving=false}}
 function finish(){clearInterval(clockHandle);if('speechSynthesis'in window)speechSynthesis.cancel();$('runner').classList.add('hidden');$('results').classList.remove('hidden');$('score').textContent=`${t('score')}: ${correct} / ${graded} · ${t('ungraded')}: ${written}`;const selectedQuiz=/^(?:n[1-5]|jfta[12])-(\d+)$/.exec($('quiz').value);const quizNo=selectedQuiz?Number(selectedQuiz[1]):null;const quizLevel=$('level').value;const quizDescriptor=quizNo!==null?'quiz-'+quizNo:$('kind').value;pendingResult={student_name:$('studentName').value.trim(),quiz_id:(quizLevel+'-'+quizDescriptor+'-'+$('mode').value).toLowerCase(),quiz_title:quizLevel+' '+(quizNo!==null?'Quiz '+quizNo:$('kind').value+' Practice')+' '+$('mode').value,level:quizLevel,quiz_type:quizLevel.startsWith('JFT_')?'jft':'jlpt',exam_level:quizLevel.startsWith('JFT_')?quizLevel.slice(4):quizLevel,score:correct,total_questions:graded,duration_seconds:Math.max(0,Math.floor((Date.now()-startTime)/1000)),answers:sessionAnswers.map(a=>({question_id:a.q.id,selected:a.chosen,type:a.q.type}))};saved=false;if(graded>0){saveExamResult()}else{$('saveStatus').textContent='Writing practice requires teacher review; no automatic score was saved.'}$('review').replaceChildren();for(const {q,chosen} of sessionAnswers){let p=document.createElement('p');p.textContent=(q.type==='writing'?'✎ ':chosen===q.answer?'✓ ':'✗ ')+q.prompt+' — '+q.explanation[$('lang').value];$('review').append(p)}}
 $('studentName').value=sessionStorage.getItem('kotoba-exam-student-name')||'';$('retrySave').onclick=saveExamResult;$('start').onclick=start;$('check').onclick=check;$('next').onclick=next;$('quit').onclick=()=>{clearInterval(clockHandle);if('speechSynthesis'in window)speechSynthesis.cancel();$('runner').classList.add('hidden');$('setup').classList.remove('hidden')};$('again').onclick=()=>{$('results').classList.add('hidden');$('setup').classList.remove('hidden')};$('showTranscript').onclick=()=>$('transcript').classList.toggle('hidden');$('tts').onclick=()=>{let q=items[pos];if(!('speechSynthesis'in window)){alert(t('voiceUnavailable'));return}let voices=speechSynthesis.getVoices(),ja=voices.find(v=>v.lang.toLowerCase().startsWith('ja'));if(!ja){alert(t('voiceUnavailable'));return}speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(q.audio_script||'');u.lang='ja-JP';u.voice=ja;u.rate=.9;speechSynthesis.speak(u)};localize();updateQuizChooser();load();
-</script></body></html>
+</script>
+<script>
+(function () {
+  const KEY = 'kotoba-theme';
+  const allowed = ['sakura','matcha','sumi'];
+  const picker = document.getElementById('kotoba-theme-picker');
+  function apply(value) {
+    const theme = allowed.includes(value) ? value : 'sakura';
+    document.body.setAttribute('data-theme', theme);
+    if (picker) picker.value = theme;
+    const admin = document.getElementById('theme-selector');
+    if (admin) admin.value = theme;
+    try { localStorage.setItem(KEY,theme); } catch (_) {}
+  }
+  const stored = (function(){try{return localStorage.getItem(KEY)}catch(_){return null}})();
+  apply(stored);
+  if (picker) picker.addEventListener('change', function(){apply(this.value)});
+  window.addEventListener('storage',function(e){if(e.key===KEY)apply(e.newValue)});
+  window.kotobaSetTheme = apply;
+})();
+</script>
+</body></html>
