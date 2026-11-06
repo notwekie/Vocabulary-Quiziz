@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "title": "Kotoba Exam Practice — Original JLPT/JFT-style Starter Bank",
-  "notice": "Original educational practice items; not official JLPT or JFT questions. JLPT and JFT-Basic do not assess free writing. Listening items require recorded audio_url for reliable playback. JLPT N4 Quiz 1–25 additions are generated draft practice items; grammar and distractors require editorial review before high-stakes use. JLPT N3/N2 Quiz 1–25 additions are generated drafts: repeated templates, limited passage variety, and distractors require editorial review; no recorded listening audio is included. N1 and JFT A1/A2 numbered quizzes are generated draft practice items, with extensive repeated templates and limited passage variety. They are NOT individually vetted, do not replicate official exam specifications, and include no listening recordings. Automated audit report included separately.",
+  "notice": "Original educational practice items; not official JLPT or JFT questions. JLPT and JFT-Basic do not assess free writing. Listening items require recorded audio_url for reliable playback. JLPT N4 Quiz 1–25 additions are generated draft practice items; grammar and distractors require editorial review before high-stakes use. JLPT N3/N2 Quiz 1–25 additions are generated drafts: repeated templates, limited passage variety, and distractors require editorial review; no recorded listening audio is included. N1 and JFT A1/A2 numbered quizzes are generated draft practice items, with extensive repeated templates and limited passage variety. They are NOT individually vetted, do not replicate official exam specifications, and include no listening recordings. Automated audit report included separately. Added 175 ORIGINAL DRAFT listening questions, 25 per level, with generated speech scripts. These are supplemental practice materials, NOT official exam items. Questions and Japanese phrasing require human editorial review. New audio URLs will work only after matching MP3 files are generated and uploaded.",
   "questions": [
     {
       "id": "ex001",
@@ -73,7 +73,7 @@
         "en": "The woman says she will go to the station at eight. "
       },
       "audio_script": "男：明日、何時に駅へ行きますか。女：八時に行きます。",
-      "audio_url": null
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/ex004.mp3"
     },
     {
       "id": "ex005",
@@ -145,7 +145,7 @@
         "en": "He says he will bring an umbrella."
       },
       "audio_script": "女：午後は雨が降るそうですよ。男：そうですか。じゃあ、傘を持っていきます。",
-      "audio_url": null
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/ex008.mp3"
     },
     {
       "id": "ex009",
@@ -217,7 +217,7 @@
         "en": "The meeting was moved to 2:30 p.m."
       },
       "audio_script": "女：今日の会議は二時からでしたよね。男：いいえ、三十分遅くなって、二時半からです。",
-      "audio_url": null
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/ex012.mp3"
     },
     {
       "id": "ex013",
@@ -271,7 +271,7 @@
         "en": "He prioritizes the delivery deadline."
       },
       "audio_script": "女：こちらは安いですが、届くまで一週間かかります。男：今回は急いでいるので、少し高くても明日届くほうにします。",
-      "audio_url": null
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/ex015.mp3"
     },
     {
       "id": "ex016",
@@ -325,7 +325,7 @@
         "en": "The concern is that a means becomes an end."
       },
       "audio_script": "数字で成果を測るのは便利です。ただ、数字を達成することばかりに気を取られ、本来の目的を忘れてしまっては本末転倒です。",
-      "audio_url": null
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/ex018.mp3"
     },
     {
       "id": "ex019",
@@ -379,7 +379,7 @@
         "en": "The speaker asks for tea."
       },
       "audio_script": "店員：お飲み物は何にしますか。客：お茶をください。",
-      "audio_url": null
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/ex021.mp3"
     },
     {
       "id": "ex022",
@@ -433,7 +433,7 @@
         "en": "He will call the manager first."
       },
       "audio_script": "女：具合が悪そうですね。男：はい、熱があります。まず店長に電話して、今日は休むと伝えます。",
-      "audio_url": null
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/ex024.mp3"
     },
     {
       "id": "ex025",
@@ -150977,6 +150977,3506 @@
         "id": "Dokumen harus dikirim hari ini."
       },
       "passage": "会社からの連絡：明日の会議は午後二時から三時に変更されました。資料は今日中にメールで送ってください。"
+    },
+    {
+      "id": "listen_n5_001",
+      "level": "N5",
+      "type": "listening",
+      "prompt": "何時に行きますか。",
+      "options": [
+        "八時",
+        "十時",
+        "九時",
+        "七時"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 八時. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 八時."
+      },
+      "audio_script": "女：駅について教えてください。男：明日は駅へ八時に行きます。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n5_001.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n5_002",
+      "level": "N5",
+      "type": "listening",
+      "prompt": "どこにありますか。",
+      "options": [
+        "二階",
+        "地下",
+        "三階",
+        "一階"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 二階. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 二階."
+      },
+      "audio_script": "女：図書館について教えてください。男：図書館は二階にあります。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n5_002.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n5_003",
+      "level": "N5",
+      "type": "listening",
+      "prompt": "何曜日に行きますか。",
+      "options": [
+        "金曜日",
+        "木曜日",
+        "月曜日",
+        "水曜日"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 水曜日. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 水曜日."
+      },
+      "audio_script": "女：病院について教えてください。男：病院へ行くのは水曜日です。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n5_003.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n5_004",
+      "level": "N5",
+      "type": "listening",
+      "prompt": "いくらですか。",
+      "options": [
+        "千二百円",
+        "八百円",
+        "千五百円",
+        "千円"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 千二百円. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 千二百円."
+      },
+      "audio_script": "女：切符について教えてください。男：切符は千二百円です。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n5_004.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n5_005",
+      "level": "N5",
+      "type": "listening",
+      "prompt": "何で行きますか。",
+      "options": [
+        "電車",
+        "バス",
+        "徒歩",
+        "自転車"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah バス. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: バス."
+      },
+      "audio_script": "女：学校について教えてください。男：学校へはバスで行きます。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n5_005.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n5_006",
+      "level": "N5",
+      "type": "listening",
+      "prompt": "何を食べますか。",
+      "options": [
+        "カレー",
+        "うどん",
+        "そば",
+        "ラーメン"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah うどん. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: うどん."
+      },
+      "audio_script": "女：昼ごはんについて教えてください。男：今日の昼ごはんはうどんにします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n5_006.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n5_007",
+      "level": "N5",
+      "type": "listening",
+      "prompt": "明日の天気はどうですか。",
+      "options": [
+        "雨",
+        "くもり",
+        "晴れ",
+        "雪"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 雨. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 雨."
+      },
+      "audio_script": "女：明日について教えてください。男：明日の天気は雨です。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n5_007.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n5_008",
+      "level": "N5",
+      "type": "listening",
+      "prompt": "何を持っていきますか。",
+      "options": [
+        "鍵",
+        "傘",
+        "資料",
+        "かばん"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 資料. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 資料."
+      },
+      "audio_script": "女：会議について教えてください。男：会議には資料を持っていきます。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n5_008.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n5_009",
+      "level": "N5",
+      "type": "listening",
+      "prompt": "だれに聞きますか。",
+      "options": [
+        "田中さん",
+        "鈴木さん",
+        "山田さん",
+        "佐藤さん"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 田中さん. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 田中さん."
+      },
+      "audio_script": "女：受付について教えてください。男：受付では田中さんに聞いてください。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n5_009.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n5_010",
+      "level": "N5",
+      "type": "listening",
+      "prompt": "どのくらいかかりますか。",
+      "options": [
+        "二時間",
+        "三十分",
+        "一時間",
+        "十分"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 三十分. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 三十分."
+      },
+      "audio_script": "女：作業について教えてください。男：作業には三十分かかります。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n5_010.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n5_011",
+      "level": "N5",
+      "type": "listening",
+      "prompt": "何時から始まりますか。",
+      "options": [
+        "十一時",
+        "九時",
+        "十時",
+        "九時半"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 九時半. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 九時半."
+      },
+      "audio_script": "皆さん、授業についてお知らせします。授業は九時半から始まります。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n5_011.mp3",
+      "listening_style": "announcement"
+    },
+    {
+      "id": "listen_n5_012",
+      "level": "N5",
+      "type": "listening",
+      "prompt": "どうして遅れましたか。",
+      "options": [
+        "寝坊したから",
+        "道に迷ったから",
+        "電車が遅れたから",
+        "雨が降ったから"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 電車が遅れたから. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 電車が遅れたから."
+      },
+      "audio_script": "皆さん、遅刻についてお知らせします。電車が遅れたから、遅刻しました。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n5_012.mp3",
+      "listening_style": "announcement"
+    },
+    {
+      "id": "listen_n5_013",
+      "level": "N5",
+      "type": "listening",
+      "prompt": "帰ってから何をしますか。",
+      "options": [
+        "料理をする",
+        "買い物をする",
+        "勉強する",
+        "掃除する"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 買い物をする. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 買い物をする."
+      },
+      "audio_script": "皆さん、帰宅後についてお知らせします。家に帰ったら、買い物をするつもりです。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n5_013.mp3",
+      "listening_style": "announcement"
+    },
+    {
+      "id": "listen_n5_014",
+      "level": "N5",
+      "type": "listening",
+      "prompt": "どこで会いますか。",
+      "options": [
+        "駅の南口",
+        "公園の入口",
+        "駅の北口",
+        "店の前"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 駅の南口. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 駅の南口."
+      },
+      "audio_script": "皆さん、待ち合わせについてお知らせします。待ち合わせは駅の南口にしましょう。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n5_014.mp3",
+      "listening_style": "announcement"
+    },
+    {
+      "id": "listen_n5_015",
+      "level": "N5",
+      "type": "listening",
+      "prompt": "いくつ注文しますか。",
+      "options": [
+        "三つ",
+        "一つ",
+        "四つ",
+        "二つ"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 三つ. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 三つ."
+      },
+      "audio_script": "皆さん、注文についてお知らせします。三つ注文してください。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n5_015.mp3",
+      "listening_style": "announcement"
+    },
+    {
+      "id": "listen_n5_016",
+      "level": "N5",
+      "type": "listening",
+      "prompt": "いつまでに出しますか。",
+      "options": [
+        "金曜日まで",
+        "木曜日まで",
+        "月曜日まで",
+        "水曜日まで"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 金曜日まで. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 金曜日まで."
+      },
+      "audio_script": "提出について説明します。提出は金曜日までにお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n5_016.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n5_017",
+      "level": "N5",
+      "type": "listening",
+      "prompt": "何時に変更になりましたか。",
+      "options": [
+        "午後一時",
+        "午後四時",
+        "午後三時",
+        "午後二時"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 午後三時. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 午後三時."
+      },
+      "audio_script": "予約について説明します。予約の時間は午後三時になりました。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n5_017.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n5_018",
+      "level": "N5",
+      "type": "listening",
+      "prompt": "何を一番大切にしますか。",
+      "options": [
+        "色",
+        "品質",
+        "大きさ",
+        "値段"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 品質. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 品質."
+      },
+      "audio_script": "買い物について説明します。買い物では品質を重視します。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n5_018.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n5_019",
+      "level": "N5",
+      "type": "listening",
+      "prompt": "何が問題ですか。",
+      "options": [
+        "音が出ない",
+        "電源が入らない",
+        "ネットにつながらない",
+        "画面が動かない"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 画面が動かない. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 画面が動かない."
+      },
+      "audio_script": "パソコンについて説明します。パソコンは画面が動かないので困っています。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n5_019.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n5_020",
+      "level": "N5",
+      "type": "listening",
+      "prompt": "忘れ物をどうしますか。",
+      "options": [
+        "友達に渡す",
+        "家に戻る",
+        "捨てる",
+        "受付に届ける"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 受付に届ける. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 受付に届ける."
+      },
+      "audio_script": "忘れ物について説明します。忘れ物は受付に届けることにします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n5_020.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n5_021",
+      "level": "N5",
+      "type": "listening",
+      "prompt": "どうして日本語を勉強していますか。",
+      "options": [
+        "旅行のため",
+        "試験のため",
+        "友達と話すため",
+        "仕事で使うため"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 仕事で使うため. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 仕事で使うため."
+      },
+      "audio_script": "日本語の勉強について説明します。仕事で使うため、日本語を勉強しています。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n5_021.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n5_022",
+      "level": "N5",
+      "type": "listening",
+      "prompt": "どちらが早いですか。",
+      "options": [
+        "バスのほうが早い",
+        "歩くほうが早い",
+        "自転車のほうが早い",
+        "電車のほうが早い"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 電車のほうが早い. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 電車のほうが早い."
+      },
+      "audio_script": "通勤について説明します。通勤には電車のほうが早いです。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n5_022.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n5_023",
+      "level": "N5",
+      "type": "listening",
+      "prompt": "出かける前に、まず何をしますか。",
+      "options": [
+        "窓を閉める",
+        "鍵を探す",
+        "電話をする",
+        "電気を消す"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 窓を閉める. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 窓を閉める."
+      },
+      "audio_script": "出発前について説明します。出発する前に、まず窓を閉めるつもりです。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n5_023.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n5_024",
+      "level": "N5",
+      "type": "listening",
+      "prompt": "話し手は新しい制度をどう考えていますか。",
+      "options": [
+        "難しいと思う",
+        "便利だと思う",
+        "必要ないと思う",
+        "危険だと思う"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 便利だと思う. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 便利だと思う."
+      },
+      "audio_script": "新しい制度について説明します。新しい制度については、便利だと思う。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n5_024.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n5_025",
+      "level": "N5",
+      "type": "listening",
+      "prompt": "イベントはどうなりますか。",
+      "options": [
+        "場所を変える",
+        "予定どおり開催する",
+        "延期する",
+        "中止する"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 予定どおり開催する. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 予定どおり開催する."
+      },
+      "audio_script": "イベントについて説明します。イベントは予定どおり開催することになりました。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n5_025.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n4_001",
+      "level": "N4",
+      "type": "listening",
+      "prompt": "何時に行きますか。",
+      "options": [
+        "九時",
+        "八時",
+        "十時",
+        "七時"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 八時. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 八時."
+      },
+      "audio_script": "女：駅について教えてください。男：予定を確認したいのですが、明日は駅へ八時に行きます。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n4_001.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n4_002",
+      "level": "N4",
+      "type": "listening",
+      "prompt": "どこにありますか。",
+      "options": [
+        "一階",
+        "三階",
+        "二階",
+        "地下"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 二階. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 二階."
+      },
+      "audio_script": "女：図書館について教えてください。男：予定を確認したいのですが、図書館は二階にあります。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n4_002.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n4_003",
+      "level": "N4",
+      "type": "listening",
+      "prompt": "何曜日に行きますか。",
+      "options": [
+        "水曜日",
+        "月曜日",
+        "木曜日",
+        "金曜日"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 水曜日. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 水曜日."
+      },
+      "audio_script": "女：病院について教えてください。男：予定を確認したいのですが、病院へ行くのは水曜日です。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n4_003.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n4_004",
+      "level": "N4",
+      "type": "listening",
+      "prompt": "いくらですか。",
+      "options": [
+        "千円",
+        "八百円",
+        "千二百円",
+        "千五百円"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 千二百円. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 千二百円."
+      },
+      "audio_script": "女：切符について教えてください。男：予定を確認したいのですが、切符は千二百円です。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n4_004.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n4_005",
+      "level": "N4",
+      "type": "listening",
+      "prompt": "何で行きますか。",
+      "options": [
+        "バス",
+        "自転車",
+        "徒歩",
+        "電車"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah バス. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: バス."
+      },
+      "audio_script": "女：学校について教えてください。男：予定を確認したいのですが、学校へはバスで行きます。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n4_005.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n4_006",
+      "level": "N4",
+      "type": "listening",
+      "prompt": "何を食べますか。",
+      "options": [
+        "カレー",
+        "そば",
+        "うどん",
+        "ラーメン"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Jawaban yang benar adalah うどん. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: うどん."
+      },
+      "audio_script": "女：昼ごはんについて教えてください。男：予定を確認したいのですが、今日の昼ごはんはうどんにします。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n4_006.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n4_007",
+      "level": "N4",
+      "type": "listening",
+      "prompt": "明日の天気はどうですか。",
+      "options": [
+        "くもり",
+        "雪",
+        "晴れ",
+        "雨"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 雨. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 雨."
+      },
+      "audio_script": "女：明日について教えてください。男：予定を確認したいのですが、明日の天気は雨です。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n4_007.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n4_008",
+      "level": "N4",
+      "type": "listening",
+      "prompt": "何を持っていきますか。",
+      "options": [
+        "かばん",
+        "鍵",
+        "資料",
+        "傘"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 資料. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 資料."
+      },
+      "audio_script": "女：会議について教えてください。男：予定を確認したいのですが、会議には資料を持っていきます。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n4_008.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n4_009",
+      "level": "N4",
+      "type": "listening",
+      "prompt": "だれに聞きますか。",
+      "options": [
+        "田中さん",
+        "山田さん",
+        "佐藤さん",
+        "鈴木さん"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 田中さん. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 田中さん."
+      },
+      "audio_script": "女：受付について教えてください。男：予定を確認したいのですが、受付では田中さんに聞いてください。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n4_009.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n4_010",
+      "level": "N4",
+      "type": "listening",
+      "prompt": "どのくらいかかりますか。",
+      "options": [
+        "二時間",
+        "十分",
+        "三十分",
+        "一時間"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 三十分. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 三十分."
+      },
+      "audio_script": "女：作業について教えてください。男：予定を確認したいのですが、作業には三十分かかります。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n4_010.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n4_011",
+      "level": "N4",
+      "type": "listening",
+      "prompt": "何時から始まりますか。",
+      "options": [
+        "九時半",
+        "十時",
+        "十一時",
+        "九時"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 九時半. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 九時半."
+      },
+      "audio_script": "皆さん、授業についてお知らせします。お知らせします。授業は九時半から始まります。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n4_011.mp3",
+      "listening_style": "announcement"
+    },
+    {
+      "id": "listen_n4_012",
+      "level": "N4",
+      "type": "listening",
+      "prompt": "どうして遅れましたか。",
+      "options": [
+        "雨が降ったから",
+        "寝坊したから",
+        "電車が遅れたから",
+        "道に迷ったから"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 電車が遅れたから. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 電車が遅れたから."
+      },
+      "audio_script": "皆さん、遅刻についてお知らせします。お知らせします。電車が遅れたから、遅刻しました。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n4_012.mp3",
+      "listening_style": "announcement"
+    },
+    {
+      "id": "listen_n4_013",
+      "level": "N4",
+      "type": "listening",
+      "prompt": "帰ってから何をしますか。",
+      "options": [
+        "買い物をする",
+        "料理をする",
+        "掃除する",
+        "勉強する"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 買い物をする. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 買い物をする."
+      },
+      "audio_script": "皆さん、帰宅後についてお知らせします。お知らせします。家に帰ったら、買い物をするつもりです。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n4_013.mp3",
+      "listening_style": "announcement"
+    },
+    {
+      "id": "listen_n4_014",
+      "level": "N4",
+      "type": "listening",
+      "prompt": "どこで会いますか。",
+      "options": [
+        "駅の南口",
+        "駅の北口",
+        "公園の入口",
+        "店の前"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 駅の南口. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 駅の南口."
+      },
+      "audio_script": "皆さん、待ち合わせについてお知らせします。お知らせします。待ち合わせは駅の南口にしましょう。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n4_014.mp3",
+      "listening_style": "announcement"
+    },
+    {
+      "id": "listen_n4_015",
+      "level": "N4",
+      "type": "listening",
+      "prompt": "いくつ注文しますか。",
+      "options": [
+        "一つ",
+        "三つ",
+        "四つ",
+        "二つ"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 三つ. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 三つ."
+      },
+      "audio_script": "皆さん、注文についてお知らせします。お知らせします。三つ注文してください。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n4_015.mp3",
+      "listening_style": "announcement"
+    },
+    {
+      "id": "listen_n4_016",
+      "level": "N4",
+      "type": "listening",
+      "prompt": "いつまでに出しますか。",
+      "options": [
+        "水曜日まで",
+        "木曜日まで",
+        "月曜日まで",
+        "金曜日まで"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 金曜日まで. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 金曜日まで."
+      },
+      "audio_script": "提出について説明します。お知らせします。提出は金曜日までにお願いします。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n4_016.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n4_017",
+      "level": "N4",
+      "type": "listening",
+      "prompt": "何時に変更になりましたか。",
+      "options": [
+        "午後一時",
+        "午後二時",
+        "午後三時",
+        "午後四時"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 午後三時. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 午後三時."
+      },
+      "audio_script": "予約について説明します。お知らせします。予約の時間は午後三時になりました。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n4_017.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n4_018",
+      "level": "N4",
+      "type": "listening",
+      "prompt": "何を一番大切にしますか。",
+      "options": [
+        "色",
+        "大きさ",
+        "値段",
+        "品質"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 品質. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 品質."
+      },
+      "audio_script": "買い物について説明します。お知らせします。買い物では品質を重視します。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n4_018.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n4_019",
+      "level": "N4",
+      "type": "listening",
+      "prompt": "何が問題ですか。",
+      "options": [
+        "音が出ない",
+        "ネットにつながらない",
+        "電源が入らない",
+        "画面が動かない"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 画面が動かない. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 画面が動かない."
+      },
+      "audio_script": "パソコンについて説明します。お知らせします。パソコンは画面が動かないので困っています。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n4_019.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n4_020",
+      "level": "N4",
+      "type": "listening",
+      "prompt": "忘れ物をどうしますか。",
+      "options": [
+        "受付に届ける",
+        "家に戻る",
+        "捨てる",
+        "友達に渡す"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 受付に届ける. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 受付に届ける."
+      },
+      "audio_script": "忘れ物について説明します。お知らせします。忘れ物は受付に届けることにします。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n4_020.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n4_021",
+      "level": "N4",
+      "type": "listening",
+      "prompt": "どうして日本語を勉強していますか。",
+      "options": [
+        "旅行のため",
+        "仕事で使うため",
+        "友達と話すため",
+        "試験のため"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 仕事で使うため. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 仕事で使うため."
+      },
+      "audio_script": "日本語の勉強について説明します。お知らせします。仕事で使うため、日本語を勉強しています。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n4_021.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n4_022",
+      "level": "N4",
+      "type": "listening",
+      "prompt": "どちらが早いですか。",
+      "options": [
+        "バスのほうが早い",
+        "電車のほうが早い",
+        "自転車のほうが早い",
+        "歩くほうが早い"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 電車のほうが早い. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 電車のほうが早い."
+      },
+      "audio_script": "通勤について説明します。お知らせします。通勤には電車のほうが早いです。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n4_022.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n4_023",
+      "level": "N4",
+      "type": "listening",
+      "prompt": "出かける前に、まず何をしますか。",
+      "options": [
+        "鍵を探す",
+        "電話をする",
+        "窓を閉める",
+        "電気を消す"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 窓を閉める. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 窓を閉める."
+      },
+      "audio_script": "出発前について説明します。お知らせします。出発する前に、まず窓を閉めるつもりです。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n4_023.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n4_024",
+      "level": "N4",
+      "type": "listening",
+      "prompt": "話し手は新しい制度をどう考えていますか。",
+      "options": [
+        "必要ないと思う",
+        "危険だと思う",
+        "便利だと思う",
+        "難しいと思う"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 便利だと思う. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 便利だと思う."
+      },
+      "audio_script": "新しい制度について説明します。お知らせします。新しい制度については、便利だと思う。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n4_024.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n4_025",
+      "level": "N4",
+      "type": "listening",
+      "prompt": "イベントはどうなりますか。",
+      "options": [
+        "中止する",
+        "延期する",
+        "場所を変える",
+        "予定どおり開催する"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 予定どおり開催する. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 予定どおり開催する."
+      },
+      "audio_script": "イベントについて説明します。お知らせします。イベントは予定どおり開催することになりました。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n4_025.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n3_001",
+      "level": "N3",
+      "type": "listening",
+      "prompt": "何時に行きますか。",
+      "options": [
+        "八時",
+        "七時",
+        "十時",
+        "九時"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 八時. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 八時."
+      },
+      "audio_script": "女：駅について教えてください。男：念のため確認しておきたいのですが、明日は駅へ八時に行きます。間違えないようにお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n3_001.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n3_002",
+      "level": "N3",
+      "type": "listening",
+      "prompt": "どこにありますか。",
+      "options": [
+        "地下",
+        "一階",
+        "二階",
+        "三階"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 二階. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 二階."
+      },
+      "audio_script": "女：図書館について教えてください。男：念のため確認しておきたいのですが、図書館は二階にあります。間違えないようにお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n3_002.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n3_003",
+      "level": "N3",
+      "type": "listening",
+      "prompt": "何曜日に行きますか。",
+      "options": [
+        "月曜日",
+        "水曜日",
+        "木曜日",
+        "金曜日"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 水曜日. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 水曜日."
+      },
+      "audio_script": "女：病院について教えてください。男：念のため確認しておきたいのですが、病院へ行くのは水曜日です。間違えないようにお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n3_003.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n3_004",
+      "level": "N3",
+      "type": "listening",
+      "prompt": "いくらですか。",
+      "options": [
+        "千円",
+        "八百円",
+        "千二百円",
+        "千五百円"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 千二百円. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 千二百円."
+      },
+      "audio_script": "女：切符について教えてください。男：念のため確認しておきたいのですが、切符は千二百円です。間違えないようにお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n3_004.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n3_005",
+      "level": "N3",
+      "type": "listening",
+      "prompt": "何で行きますか。",
+      "options": [
+        "自転車",
+        "バス",
+        "電車",
+        "徒歩"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah バス. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: バス."
+      },
+      "audio_script": "女：学校について教えてください。男：念のため確認しておきたいのですが、学校へはバスで行きます。間違えないようにお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n3_005.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n3_006",
+      "level": "N3",
+      "type": "listening",
+      "prompt": "何を食べますか。",
+      "options": [
+        "カレー",
+        "うどん",
+        "そば",
+        "ラーメン"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah うどん. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: うどん."
+      },
+      "audio_script": "女：昼ごはんについて教えてください。男：念のため確認しておきたいのですが、今日の昼ごはんはうどんにします。間違えないようにお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n3_006.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n3_007",
+      "level": "N3",
+      "type": "listening",
+      "prompt": "明日の天気はどうですか。",
+      "options": [
+        "雨",
+        "晴れ",
+        "くもり",
+        "雪"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 雨. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 雨."
+      },
+      "audio_script": "女：明日について教えてください。男：念のため確認しておきたいのですが、明日の天気は雨です。間違えないようにお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n3_007.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n3_008",
+      "level": "N3",
+      "type": "listening",
+      "prompt": "何を持っていきますか。",
+      "options": [
+        "傘",
+        "かばん",
+        "資料",
+        "鍵"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 資料. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 資料."
+      },
+      "audio_script": "女：会議について教えてください。男：念のため確認しておきたいのですが、会議には資料を持っていきます。間違えないようにお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n3_008.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n3_009",
+      "level": "N3",
+      "type": "listening",
+      "prompt": "だれに聞きますか。",
+      "options": [
+        "山田さん",
+        "佐藤さん",
+        "鈴木さん",
+        "田中さん"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 田中さん. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 田中さん."
+      },
+      "audio_script": "女：受付について教えてください。男：念のため確認しておきたいのですが、受付では田中さんに聞いてください。間違えないようにお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n3_009.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n3_010",
+      "level": "N3",
+      "type": "listening",
+      "prompt": "どのくらいかかりますか。",
+      "options": [
+        "十分",
+        "二時間",
+        "一時間",
+        "三十分"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 三十分. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 三十分."
+      },
+      "audio_script": "女：作業について教えてください。男：念のため確認しておきたいのですが、作業には三十分かかります。間違えないようにお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n3_010.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n3_011",
+      "level": "N3",
+      "type": "listening",
+      "prompt": "何時から始まりますか。",
+      "options": [
+        "九時",
+        "十時",
+        "十一時",
+        "九時半"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 九時半. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 九時半."
+      },
+      "audio_script": "皆さん、授業についてお知らせします。関係者の皆さんにお知らせします。授業は九時半から始まります。間違えないようにお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n3_011.mp3",
+      "listening_style": "announcement"
+    },
+    {
+      "id": "listen_n3_012",
+      "level": "N3",
+      "type": "listening",
+      "prompt": "どうして遅れましたか。",
+      "options": [
+        "道に迷ったから",
+        "電車が遅れたから",
+        "寝坊したから",
+        "雨が降ったから"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 電車が遅れたから. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 電車が遅れたから."
+      },
+      "audio_script": "皆さん、遅刻についてお知らせします。関係者の皆さんにお知らせします。電車が遅れたから、遅刻しました。間違えないようにお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n3_012.mp3",
+      "listening_style": "announcement"
+    },
+    {
+      "id": "listen_n3_013",
+      "level": "N3",
+      "type": "listening",
+      "prompt": "帰ってから何をしますか。",
+      "options": [
+        "料理をする",
+        "掃除する",
+        "勉強する",
+        "買い物をする"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 買い物をする. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 買い物をする."
+      },
+      "audio_script": "皆さん、帰宅後についてお知らせします。関係者の皆さんにお知らせします。家に帰ったら、買い物をするつもりです。間違えないようにお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n3_013.mp3",
+      "listening_style": "announcement"
+    },
+    {
+      "id": "listen_n3_014",
+      "level": "N3",
+      "type": "listening",
+      "prompt": "どこで会いますか。",
+      "options": [
+        "公園の入口",
+        "駅の北口",
+        "店の前",
+        "駅の南口"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 駅の南口. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 駅の南口."
+      },
+      "audio_script": "皆さん、待ち合わせについてお知らせします。関係者の皆さんにお知らせします。待ち合わせは駅の南口にしましょう。間違えないようにお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n3_014.mp3",
+      "listening_style": "announcement"
+    },
+    {
+      "id": "listen_n3_015",
+      "level": "N3",
+      "type": "listening",
+      "prompt": "いくつ注文しますか。",
+      "options": [
+        "一つ",
+        "三つ",
+        "四つ",
+        "二つ"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 三つ. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 三つ."
+      },
+      "audio_script": "皆さん、注文についてお知らせします。関係者の皆さんにお知らせします。三つ注文してください。間違えないようにお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n3_015.mp3",
+      "listening_style": "announcement"
+    },
+    {
+      "id": "listen_n3_016",
+      "level": "N3",
+      "type": "listening",
+      "prompt": "いつまでに出しますか。",
+      "options": [
+        "金曜日まで",
+        "木曜日まで",
+        "水曜日まで",
+        "月曜日まで"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 金曜日まで. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 金曜日まで."
+      },
+      "audio_script": "提出について説明します。関係者の皆さんにお知らせします。提出は金曜日までにお願いします。間違えないようにお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n3_016.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n3_017",
+      "level": "N3",
+      "type": "listening",
+      "prompt": "何時に変更になりましたか。",
+      "options": [
+        "午後一時",
+        "午後四時",
+        "午後二時",
+        "午後三時"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 午後三時. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 午後三時."
+      },
+      "audio_script": "予約について説明します。関係者の皆さんにお知らせします。予約の時間は午後三時になりました。間違えないようにお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n3_017.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n3_018",
+      "level": "N3",
+      "type": "listening",
+      "prompt": "何を一番大切にしますか。",
+      "options": [
+        "大きさ",
+        "品質",
+        "値段",
+        "色"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 品質. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 品質."
+      },
+      "audio_script": "買い物について説明します。関係者の皆さんにお知らせします。買い物では品質を重視します。間違えないようにお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n3_018.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n3_019",
+      "level": "N3",
+      "type": "listening",
+      "prompt": "何が問題ですか。",
+      "options": [
+        "ネットにつながらない",
+        "音が出ない",
+        "画面が動かない",
+        "電源が入らない"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 画面が動かない. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 画面が動かない."
+      },
+      "audio_script": "パソコンについて説明します。関係者の皆さんにお知らせします。パソコンは画面が動かないので困っています。間違えないようにお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n3_019.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n3_020",
+      "level": "N3",
+      "type": "listening",
+      "prompt": "忘れ物をどうしますか。",
+      "options": [
+        "友達に渡す",
+        "受付に届ける",
+        "捨てる",
+        "家に戻る"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 受付に届ける. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 受付に届ける."
+      },
+      "audio_script": "忘れ物について説明します。関係者の皆さんにお知らせします。忘れ物は受付に届けることにします。間違えないようにお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n3_020.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n3_021",
+      "level": "N3",
+      "type": "listening",
+      "prompt": "どうして日本語を勉強していますか。",
+      "options": [
+        "試験のため",
+        "仕事で使うため",
+        "友達と話すため",
+        "旅行のため"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 仕事で使うため. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 仕事で使うため."
+      },
+      "audio_script": "日本語の勉強について説明します。関係者の皆さんにお知らせします。仕事で使うため、日本語を勉強しています。間違えないようにお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n3_021.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n3_022",
+      "level": "N3",
+      "type": "listening",
+      "prompt": "どちらが早いですか。",
+      "options": [
+        "自転車のほうが早い",
+        "歩くほうが早い",
+        "電車のほうが早い",
+        "バスのほうが早い"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 電車のほうが早い. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 電車のほうが早い."
+      },
+      "audio_script": "通勤について説明します。関係者の皆さんにお知らせします。通勤には電車のほうが早いです。間違えないようにお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n3_022.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n3_023",
+      "level": "N3",
+      "type": "listening",
+      "prompt": "出かける前に、まず何をしますか。",
+      "options": [
+        "電話をする",
+        "窓を閉める",
+        "鍵を探す",
+        "電気を消す"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 窓を閉める. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 窓を閉める."
+      },
+      "audio_script": "出発前について説明します。関係者の皆さんにお知らせします。出発する前に、まず窓を閉めるつもりです。間違えないようにお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n3_023.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n3_024",
+      "level": "N3",
+      "type": "listening",
+      "prompt": "話し手は新しい制度をどう考えていますか。",
+      "options": [
+        "便利だと思う",
+        "難しいと思う",
+        "危険だと思う",
+        "必要ないと思う"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 便利だと思う. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 便利だと思う."
+      },
+      "audio_script": "新しい制度について説明します。関係者の皆さんにお知らせします。新しい制度については、便利だと思う。間違えないようにお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n3_024.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n3_025",
+      "level": "N3",
+      "type": "listening",
+      "prompt": "イベントはどうなりますか。",
+      "options": [
+        "場所を変える",
+        "中止する",
+        "延期する",
+        "予定どおり開催する"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 予定どおり開催する. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 予定どおり開催する."
+      },
+      "audio_script": "イベントについて説明します。関係者の皆さんにお知らせします。イベントは予定どおり開催することになりました。間違えないようにお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n3_025.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n2_001",
+      "level": "N2",
+      "type": "listening",
+      "prompt": "何時に行きますか。",
+      "options": [
+        "七時",
+        "八時",
+        "十時",
+        "九時"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 八時. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 八時."
+      },
+      "audio_script": "女：駅について教えてください。男：先ほどの案内と異なるかもしれませんが、確認したところ、明日は駅へ八時に行きます。以前の情報と混同しないよう、ご注意ください。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n2_001.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n2_002",
+      "level": "N2",
+      "type": "listening",
+      "prompt": "どこにありますか。",
+      "options": [
+        "三階",
+        "地下",
+        "二階",
+        "一階"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 二階. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 二階."
+      },
+      "audio_script": "女：図書館について教えてください。男：先ほどの案内と異なるかもしれませんが、確認したところ、図書館は二階にあります。以前の情報と混同しないよう、ご注意ください。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n2_002.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n2_003",
+      "level": "N2",
+      "type": "listening",
+      "prompt": "何曜日に行きますか。",
+      "options": [
+        "金曜日",
+        "木曜日",
+        "水曜日",
+        "月曜日"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 水曜日. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 水曜日."
+      },
+      "audio_script": "女：病院について教えてください。男：先ほどの案内と異なるかもしれませんが、確認したところ、病院へ行くのは水曜日です。以前の情報と混同しないよう、ご注意ください。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n2_003.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n2_004",
+      "level": "N2",
+      "type": "listening",
+      "prompt": "いくらですか。",
+      "options": [
+        "千二百円",
+        "八百円",
+        "千円",
+        "千五百円"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 千二百円. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 千二百円."
+      },
+      "audio_script": "女：切符について教えてください。男：先ほどの案内と異なるかもしれませんが、確認したところ、切符は千二百円です。以前の情報と混同しないよう、ご注意ください。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n2_004.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n2_005",
+      "level": "N2",
+      "type": "listening",
+      "prompt": "何で行きますか。",
+      "options": [
+        "バス",
+        "徒歩",
+        "電車",
+        "自転車"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah バス. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: バス."
+      },
+      "audio_script": "女：学校について教えてください。男：先ほどの案内と異なるかもしれませんが、確認したところ、学校へはバスで行きます。以前の情報と混同しないよう、ご注意ください。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n2_005.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n2_006",
+      "level": "N2",
+      "type": "listening",
+      "prompt": "何を食べますか。",
+      "options": [
+        "そば",
+        "うどん",
+        "カレー",
+        "ラーメン"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah うどん. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: うどん."
+      },
+      "audio_script": "女：昼ごはんについて教えてください。男：先ほどの案内と異なるかもしれませんが、確認したところ、今日の昼ごはんはうどんにします。以前の情報と混同しないよう、ご注意ください。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n2_006.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n2_007",
+      "level": "N2",
+      "type": "listening",
+      "prompt": "明日の天気はどうですか。",
+      "options": [
+        "雪",
+        "晴れ",
+        "雨",
+        "くもり"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 雨. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 雨."
+      },
+      "audio_script": "女：明日について教えてください。男：先ほどの案内と異なるかもしれませんが、確認したところ、明日の天気は雨です。以前の情報と混同しないよう、ご注意ください。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n2_007.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n2_008",
+      "level": "N2",
+      "type": "listening",
+      "prompt": "何を持っていきますか。",
+      "options": [
+        "鍵",
+        "かばん",
+        "資料",
+        "傘"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 資料. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 資料."
+      },
+      "audio_script": "女：会議について教えてください。男：先ほどの案内と異なるかもしれませんが、確認したところ、会議には資料を持っていきます。以前の情報と混同しないよう、ご注意ください。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n2_008.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n2_009",
+      "level": "N2",
+      "type": "listening",
+      "prompt": "だれに聞きますか。",
+      "options": [
+        "鈴木さん",
+        "山田さん",
+        "田中さん",
+        "佐藤さん"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 田中さん. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 田中さん."
+      },
+      "audio_script": "女：受付について教えてください。男：先ほどの案内と異なるかもしれませんが、確認したところ、受付では田中さんに聞いてください。以前の情報と混同しないよう、ご注意ください。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n2_009.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n2_010",
+      "level": "N2",
+      "type": "listening",
+      "prompt": "どのくらいかかりますか。",
+      "options": [
+        "二時間",
+        "三十分",
+        "十分",
+        "一時間"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 三十分. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 三十分."
+      },
+      "audio_script": "女：作業について教えてください。男：先ほどの案内と異なるかもしれませんが、確認したところ、作業には三十分かかります。以前の情報と混同しないよう、ご注意ください。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n2_010.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n2_011",
+      "level": "N2",
+      "type": "listening",
+      "prompt": "何時から始まりますか。",
+      "options": [
+        "十一時",
+        "九時半",
+        "九時",
+        "十時"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 九時半. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 九時半."
+      },
+      "audio_script": "皆さん、授業についてお知らせします。変更点について、あらためてご案内いたします。授業は九時半から始まります。以前の情報と混同しないよう、ご注意ください。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n2_011.mp3",
+      "listening_style": "announcement"
+    },
+    {
+      "id": "listen_n2_012",
+      "level": "N2",
+      "type": "listening",
+      "prompt": "どうして遅れましたか。",
+      "options": [
+        "道に迷ったから",
+        "電車が遅れたから",
+        "雨が降ったから",
+        "寝坊したから"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 電車が遅れたから. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 電車が遅れたから."
+      },
+      "audio_script": "皆さん、遅刻についてお知らせします。変更点について、あらためてご案内いたします。電車が遅れたから、遅刻しました。以前の情報と混同しないよう、ご注意ください。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n2_012.mp3",
+      "listening_style": "announcement"
+    },
+    {
+      "id": "listen_n2_013",
+      "level": "N2",
+      "type": "listening",
+      "prompt": "帰ってから何をしますか。",
+      "options": [
+        "料理をする",
+        "掃除する",
+        "買い物をする",
+        "勉強する"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 買い物をする. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 買い物をする."
+      },
+      "audio_script": "皆さん、帰宅後についてお知らせします。変更点について、あらためてご案内いたします。家に帰ったら、買い物をするつもりです。以前の情報と混同しないよう、ご注意ください。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n2_013.mp3",
+      "listening_style": "announcement"
+    },
+    {
+      "id": "listen_n2_014",
+      "level": "N2",
+      "type": "listening",
+      "prompt": "どこで会いますか。",
+      "options": [
+        "駅の南口",
+        "駅の北口",
+        "店の前",
+        "公園の入口"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 駅の南口. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 駅の南口."
+      },
+      "audio_script": "皆さん、待ち合わせについてお知らせします。変更点について、あらためてご案内いたします。待ち合わせは駅の南口にしましょう。以前の情報と混同しないよう、ご注意ください。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n2_014.mp3",
+      "listening_style": "announcement"
+    },
+    {
+      "id": "listen_n2_015",
+      "level": "N2",
+      "type": "listening",
+      "prompt": "いくつ注文しますか。",
+      "options": [
+        "一つ",
+        "三つ",
+        "二つ",
+        "四つ"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 三つ. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 三つ."
+      },
+      "audio_script": "皆さん、注文についてお知らせします。変更点について、あらためてご案内いたします。三つ注文してください。以前の情報と混同しないよう、ご注意ください。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n2_015.mp3",
+      "listening_style": "announcement"
+    },
+    {
+      "id": "listen_n2_016",
+      "level": "N2",
+      "type": "listening",
+      "prompt": "いつまでに出しますか。",
+      "options": [
+        "月曜日まで",
+        "水曜日まで",
+        "木曜日まで",
+        "金曜日まで"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 金曜日まで. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 金曜日まで."
+      },
+      "audio_script": "提出について説明します。変更点について、あらためてご案内いたします。提出は金曜日までにお願いします。以前の情報と混同しないよう、ご注意ください。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n2_016.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n2_017",
+      "level": "N2",
+      "type": "listening",
+      "prompt": "何時に変更になりましたか。",
+      "options": [
+        "午後二時",
+        "午後三時",
+        "午後四時",
+        "午後一時"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 午後三時. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 午後三時."
+      },
+      "audio_script": "予約について説明します。変更点について、あらためてご案内いたします。予約の時間は午後三時になりました。以前の情報と混同しないよう、ご注意ください。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n2_017.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n2_018",
+      "level": "N2",
+      "type": "listening",
+      "prompt": "何を一番大切にしますか。",
+      "options": [
+        "大きさ",
+        "品質",
+        "色",
+        "値段"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 品質. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 品質."
+      },
+      "audio_script": "買い物について説明します。変更点について、あらためてご案内いたします。買い物では品質を重視します。以前の情報と混同しないよう、ご注意ください。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n2_018.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n2_019",
+      "level": "N2",
+      "type": "listening",
+      "prompt": "何が問題ですか。",
+      "options": [
+        "画面が動かない",
+        "音が出ない",
+        "電源が入らない",
+        "ネットにつながらない"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 画面が動かない. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 画面が動かない."
+      },
+      "audio_script": "パソコンについて説明します。変更点について、あらためてご案内いたします。パソコンは画面が動かないので困っています。以前の情報と混同しないよう、ご注意ください。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n2_019.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n2_020",
+      "level": "N2",
+      "type": "listening",
+      "prompt": "忘れ物をどうしますか。",
+      "options": [
+        "友達に渡す",
+        "受付に届ける",
+        "家に戻る",
+        "捨てる"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 受付に届ける. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 受付に届ける."
+      },
+      "audio_script": "忘れ物について説明します。変更点について、あらためてご案内いたします。忘れ物は受付に届けることにします。以前の情報と混同しないよう、ご注意ください。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n2_020.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n2_021",
+      "level": "N2",
+      "type": "listening",
+      "prompt": "どうして日本語を勉強していますか。",
+      "options": [
+        "旅行のため",
+        "友達と話すため",
+        "試験のため",
+        "仕事で使うため"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 仕事で使うため. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 仕事で使うため."
+      },
+      "audio_script": "日本語の勉強について説明します。変更点について、あらためてご案内いたします。仕事で使うため、日本語を勉強しています。以前の情報と混同しないよう、ご注意ください。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n2_021.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n2_022",
+      "level": "N2",
+      "type": "listening",
+      "prompt": "どちらが早いですか。",
+      "options": [
+        "バスのほうが早い",
+        "歩くほうが早い",
+        "電車のほうが早い",
+        "自転車のほうが早い"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 電車のほうが早い. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 電車のほうが早い."
+      },
+      "audio_script": "通勤について説明します。変更点について、あらためてご案内いたします。通勤には電車のほうが早いです。以前の情報と混同しないよう、ご注意ください。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n2_022.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n2_023",
+      "level": "N2",
+      "type": "listening",
+      "prompt": "出かける前に、まず何をしますか。",
+      "options": [
+        "窓を閉める",
+        "鍵を探す",
+        "電気を消す",
+        "電話をする"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 窓を閉める. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 窓を閉める."
+      },
+      "audio_script": "出発前について説明します。変更点について、あらためてご案内いたします。出発する前に、まず窓を閉めるつもりです。以前の情報と混同しないよう、ご注意ください。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n2_023.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n2_024",
+      "level": "N2",
+      "type": "listening",
+      "prompt": "話し手は新しい制度をどう考えていますか。",
+      "options": [
+        "難しいと思う",
+        "便利だと思う",
+        "危険だと思う",
+        "必要ないと思う"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 便利だと思う. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 便利だと思う."
+      },
+      "audio_script": "新しい制度について説明します。変更点について、あらためてご案内いたします。新しい制度については、便利だと思う。以前の情報と混同しないよう、ご注意ください。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n2_024.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n2_025",
+      "level": "N2",
+      "type": "listening",
+      "prompt": "イベントはどうなりますか。",
+      "options": [
+        "中止する",
+        "予定どおり開催する",
+        "場所を変える",
+        "延期する"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 予定どおり開催する. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 予定どおり開催する."
+      },
+      "audio_script": "イベントについて説明します。変更点について、あらためてご案内いたします。イベントは予定どおり開催することになりました。以前の情報と混同しないよう、ご注意ください。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n2_025.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n1_001",
+      "level": "N1",
+      "type": "listening",
+      "prompt": "何時に行きますか。",
+      "options": [
+        "七時",
+        "十時",
+        "九時",
+        "八時"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 八時. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 八時."
+      },
+      "audio_script": "女：駅について教えてください。男：いろいろな事情を踏まえて検討した結果、明日は駅へ八時に行きます。従来の認識にとらわれず、最新の案内に基づいてご判断くださいますようお願いいたします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n1_001.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n1_002",
+      "level": "N1",
+      "type": "listening",
+      "prompt": "どこにありますか。",
+      "options": [
+        "二階",
+        "地下",
+        "一階",
+        "三階"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 二階. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 二階."
+      },
+      "audio_script": "女：図書館について教えてください。男：いろいろな事情を踏まえて検討した結果、図書館は二階にあります。従来の認識にとらわれず、最新の案内に基づいてご判断くださいますようお願いいたします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n1_002.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n1_003",
+      "level": "N1",
+      "type": "listening",
+      "prompt": "何曜日に行きますか。",
+      "options": [
+        "水曜日",
+        "月曜日",
+        "木曜日",
+        "金曜日"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 水曜日. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 水曜日."
+      },
+      "audio_script": "女：病院について教えてください。男：いろいろな事情を踏まえて検討した結果、病院へ行くのは水曜日です。従来の認識にとらわれず、最新の案内に基づいてご判断くださいますようお願いいたします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n1_003.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n1_004",
+      "level": "N1",
+      "type": "listening",
+      "prompt": "いくらですか。",
+      "options": [
+        "千五百円",
+        "八百円",
+        "千二百円",
+        "千円"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 千二百円. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 千二百円."
+      },
+      "audio_script": "女：切符について教えてください。男：いろいろな事情を踏まえて検討した結果、切符は千二百円です。従来の認識にとらわれず、最新の案内に基づいてご判断くださいますようお願いいたします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n1_004.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n1_005",
+      "level": "N1",
+      "type": "listening",
+      "prompt": "何で行きますか。",
+      "options": [
+        "自転車",
+        "バス",
+        "徒歩",
+        "電車"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah バス. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: バス."
+      },
+      "audio_script": "女：学校について教えてください。男：いろいろな事情を踏まえて検討した結果、学校へはバスで行きます。従来の認識にとらわれず、最新の案内に基づいてご判断くださいますようお願いいたします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n1_005.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n1_006",
+      "level": "N1",
+      "type": "listening",
+      "prompt": "何を食べますか。",
+      "options": [
+        "カレー",
+        "ラーメン",
+        "そば",
+        "うどん"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "Jawaban yang benar adalah うどん. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: うどん."
+      },
+      "audio_script": "女：昼ごはんについて教えてください。男：いろいろな事情を踏まえて検討した結果、今日の昼ごはんはうどんにします。従来の認識にとらわれず、最新の案内に基づいてご判断くださいますようお願いいたします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n1_006.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n1_007",
+      "level": "N1",
+      "type": "listening",
+      "prompt": "明日の天気はどうですか。",
+      "options": [
+        "雪",
+        "くもり",
+        "晴れ",
+        "雨"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 雨. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 雨."
+      },
+      "audio_script": "女：明日について教えてください。男：いろいろな事情を踏まえて検討した結果、明日の天気は雨です。従来の認識にとらわれず、最新の案内に基づいてご判断くださいますようお願いいたします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n1_007.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n1_008",
+      "level": "N1",
+      "type": "listening",
+      "prompt": "何を持っていきますか。",
+      "options": [
+        "傘",
+        "かばん",
+        "資料",
+        "鍵"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 資料. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 資料."
+      },
+      "audio_script": "女：会議について教えてください。男：いろいろな事情を踏まえて検討した結果、会議には資料を持っていきます。従来の認識にとらわれず、最新の案内に基づいてご判断くださいますようお願いいたします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n1_008.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n1_009",
+      "level": "N1",
+      "type": "listening",
+      "prompt": "だれに聞きますか。",
+      "options": [
+        "佐藤さん",
+        "田中さん",
+        "山田さん",
+        "鈴木さん"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 田中さん. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 田中さん."
+      },
+      "audio_script": "女：受付について教えてください。男：いろいろな事情を踏まえて検討した結果、受付では田中さんに聞いてください。従来の認識にとらわれず、最新の案内に基づいてご判断くださいますようお願いいたします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n1_009.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n1_010",
+      "level": "N1",
+      "type": "listening",
+      "prompt": "どのくらいかかりますか。",
+      "options": [
+        "三十分",
+        "一時間",
+        "十分",
+        "二時間"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 三十分. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 三十分."
+      },
+      "audio_script": "女：作業について教えてください。男：いろいろな事情を踏まえて検討した結果、作業には三十分かかります。従来の認識にとらわれず、最新の案内に基づいてご判断くださいますようお願いいたします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n1_010.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_n1_011",
+      "level": "N1",
+      "type": "listening",
+      "prompt": "何時から始まりますか。",
+      "options": [
+        "十時",
+        "九時半",
+        "十一時",
+        "九時"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 九時半. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 九時半."
+      },
+      "audio_script": "皆さん、授業についてお知らせします。関係各位にご連絡申し上げます。諸般の事情を総合的に勘案した結果、授業は九時半から始まります。従来の認識にとらわれず、最新の案内に基づいてご判断くださいますようお願いいたします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n1_011.mp3",
+      "listening_style": "announcement"
+    },
+    {
+      "id": "listen_n1_012",
+      "level": "N1",
+      "type": "listening",
+      "prompt": "どうして遅れましたか。",
+      "options": [
+        "電車が遅れたから",
+        "寝坊したから",
+        "道に迷ったから",
+        "雨が降ったから"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 電車が遅れたから. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 電車が遅れたから."
+      },
+      "audio_script": "皆さん、遅刻についてお知らせします。関係各位にご連絡申し上げます。諸般の事情を総合的に勘案した結果、電車が遅れたから、遅刻しました。従来の認識にとらわれず、最新の案内に基づいてご判断くださいますようお願いいたします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n1_012.mp3",
+      "listening_style": "announcement"
+    },
+    {
+      "id": "listen_n1_013",
+      "level": "N1",
+      "type": "listening",
+      "prompt": "帰ってから何をしますか。",
+      "options": [
+        "掃除する",
+        "買い物をする",
+        "料理をする",
+        "勉強する"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 買い物をする. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 買い物をする."
+      },
+      "audio_script": "皆さん、帰宅後についてお知らせします。関係各位にご連絡申し上げます。諸般の事情を総合的に勘案した結果、家に帰ったら、買い物をするつもりです。従来の認識にとらわれず、最新の案内に基づいてご判断くださいますようお願いいたします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n1_013.mp3",
+      "listening_style": "announcement"
+    },
+    {
+      "id": "listen_n1_014",
+      "level": "N1",
+      "type": "listening",
+      "prompt": "どこで会いますか。",
+      "options": [
+        "駅の北口",
+        "公園の入口",
+        "駅の南口",
+        "店の前"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 駅の南口. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 駅の南口."
+      },
+      "audio_script": "皆さん、待ち合わせについてお知らせします。関係各位にご連絡申し上げます。諸般の事情を総合的に勘案した結果、待ち合わせは駅の南口にしましょう。従来の認識にとらわれず、最新の案内に基づいてご判断くださいますようお願いいたします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n1_014.mp3",
+      "listening_style": "announcement"
+    },
+    {
+      "id": "listen_n1_015",
+      "level": "N1",
+      "type": "listening",
+      "prompt": "いくつ注文しますか。",
+      "options": [
+        "四つ",
+        "三つ",
+        "二つ",
+        "一つ"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 三つ. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 三つ."
+      },
+      "audio_script": "皆さん、注文についてお知らせします。関係各位にご連絡申し上げます。諸般の事情を総合的に勘案した結果、三つ注文してください。従来の認識にとらわれず、最新の案内に基づいてご判断くださいますようお願いいたします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n1_015.mp3",
+      "listening_style": "announcement"
+    },
+    {
+      "id": "listen_n1_016",
+      "level": "N1",
+      "type": "listening",
+      "prompt": "いつまでに出しますか。",
+      "options": [
+        "木曜日まで",
+        "月曜日まで",
+        "金曜日まで",
+        "水曜日まで"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 金曜日まで. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 金曜日まで."
+      },
+      "audio_script": "提出について説明します。関係各位にご連絡申し上げます。諸般の事情を総合的に勘案した結果、提出は金曜日までにお願いします。従来の認識にとらわれず、最新の案内に基づいてご判断くださいますようお願いいたします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n1_016.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n1_017",
+      "level": "N1",
+      "type": "listening",
+      "prompt": "何時に変更になりましたか。",
+      "options": [
+        "午後四時",
+        "午後二時",
+        "午後三時",
+        "午後一時"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 午後三時. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 午後三時."
+      },
+      "audio_script": "予約について説明します。関係各位にご連絡申し上げます。諸般の事情を総合的に勘案した結果、予約の時間は午後三時になりました。従来の認識にとらわれず、最新の案内に基づいてご判断くださいますようお願いいたします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n1_017.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n1_018",
+      "level": "N1",
+      "type": "listening",
+      "prompt": "何を一番大切にしますか。",
+      "options": [
+        "品質",
+        "大きさ",
+        "色",
+        "値段"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 品質. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 品質."
+      },
+      "audio_script": "買い物について説明します。関係各位にご連絡申し上げます。諸般の事情を総合的に勘案した結果、買い物では品質を重視します。従来の認識にとらわれず、最新の案内に基づいてご判断くださいますようお願いいたします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n1_018.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n1_019",
+      "level": "N1",
+      "type": "listening",
+      "prompt": "何が問題ですか。",
+      "options": [
+        "画面が動かない",
+        "ネットにつながらない",
+        "電源が入らない",
+        "音が出ない"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 画面が動かない. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 画面が動かない."
+      },
+      "audio_script": "パソコンについて説明します。関係各位にご連絡申し上げます。諸般の事情を総合的に勘案した結果、パソコンは画面が動かないので困っています。従来の認識にとらわれず、最新の案内に基づいてご判断くださいますようお願いいたします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n1_019.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n1_020",
+      "level": "N1",
+      "type": "listening",
+      "prompt": "忘れ物をどうしますか。",
+      "options": [
+        "家に戻る",
+        "捨てる",
+        "友達に渡す",
+        "受付に届ける"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 受付に届ける. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 受付に届ける."
+      },
+      "audio_script": "忘れ物について説明します。関係各位にご連絡申し上げます。諸般の事情を総合的に勘案した結果、忘れ物は受付に届けることにします。従来の認識にとらわれず、最新の案内に基づいてご判断くださいますようお願いいたします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n1_020.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n1_021",
+      "level": "N1",
+      "type": "listening",
+      "prompt": "どうして日本語を勉強していますか。",
+      "options": [
+        "仕事で使うため",
+        "試験のため",
+        "旅行のため",
+        "友達と話すため"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 仕事で使うため. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 仕事で使うため."
+      },
+      "audio_script": "日本語の勉強について説明します。関係各位にご連絡申し上げます。諸般の事情を総合的に勘案した結果、仕事で使うため、日本語を勉強しています。従来の認識にとらわれず、最新の案内に基づいてご判断くださいますようお願いいたします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n1_021.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n1_022",
+      "level": "N1",
+      "type": "listening",
+      "prompt": "どちらが早いですか。",
+      "options": [
+        "自転車のほうが早い",
+        "バスのほうが早い",
+        "歩くほうが早い",
+        "電車のほうが早い"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 電車のほうが早い. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 電車のほうが早い."
+      },
+      "audio_script": "通勤について説明します。関係各位にご連絡申し上げます。諸般の事情を総合的に勘案した結果、通勤には電車のほうが早いです。従来の認識にとらわれず、最新の案内に基づいてご判断くださいますようお願いいたします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n1_022.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n1_023",
+      "level": "N1",
+      "type": "listening",
+      "prompt": "出かける前に、まず何をしますか。",
+      "options": [
+        "電気を消す",
+        "窓を閉める",
+        "鍵を探す",
+        "電話をする"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 窓を閉める. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 窓を閉める."
+      },
+      "audio_script": "出発前について説明します。関係各位にご連絡申し上げます。諸般の事情を総合的に勘案した結果、出発する前に、まず窓を閉めるつもりです。従来の認識にとらわれず、最新の案内に基づいてご判断くださいますようお願いいたします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n1_023.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n1_024",
+      "level": "N1",
+      "type": "listening",
+      "prompt": "話し手は新しい制度をどう考えていますか。",
+      "options": [
+        "危険だと思う",
+        "便利だと思う",
+        "難しいと思う",
+        "必要ないと思う"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 便利だと思う. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 便利だと思う."
+      },
+      "audio_script": "新しい制度について説明します。関係各位にご連絡申し上げます。諸般の事情を総合的に勘案した結果、新しい制度については、便利だと思う。従来の認識にとらわれず、最新の案内に基づいてご判断くださいますようお願いいたします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n1_024.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_n1_025",
+      "level": "N1",
+      "type": "listening",
+      "prompt": "イベントはどうなりますか。",
+      "options": [
+        "予定どおり開催する",
+        "中止する",
+        "延期する",
+        "場所を変える"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 予定どおり開催する. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 予定どおり開催する."
+      },
+      "audio_script": "イベントについて説明します。関係各位にご連絡申し上げます。諸般の事情を総合的に勘案した結果、イベントは予定どおり開催することになりました。従来の認識にとらわれず、最新の案内に基づいてご判断くださいますようお願いいたします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_n1_025.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_jft_a1_001",
+      "level": "JFT_A1",
+      "type": "listening",
+      "prompt": "何時に行きますか。",
+      "options": [
+        "八時",
+        "十時",
+        "七時",
+        "九時"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 八時. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 八時."
+      },
+      "audio_script": "女：駅について教えてください。男：明日は駅へ八時に行きます。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a1_001.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_jft_a1_002",
+      "level": "JFT_A1",
+      "type": "listening",
+      "prompt": "どこにありますか。",
+      "options": [
+        "一階",
+        "地下",
+        "二階",
+        "三階"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 二階. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 二階."
+      },
+      "audio_script": "女：図書館について教えてください。男：図書館は二階にあります。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a1_002.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_jft_a1_003",
+      "level": "JFT_A1",
+      "type": "listening",
+      "prompt": "何曜日に行きますか。",
+      "options": [
+        "木曜日",
+        "金曜日",
+        "水曜日",
+        "月曜日"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 水曜日. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 水曜日."
+      },
+      "audio_script": "女：病院について教えてください。男：病院へ行くのは水曜日です。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a1_003.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_jft_a1_004",
+      "level": "JFT_A1",
+      "type": "listening",
+      "prompt": "いくらですか。",
+      "options": [
+        "千五百円",
+        "千二百円",
+        "千円",
+        "八百円"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 千二百円. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 千二百円."
+      },
+      "audio_script": "女：切符について教えてください。男：切符は千二百円です。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a1_004.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_jft_a1_005",
+      "level": "JFT_A1",
+      "type": "listening",
+      "prompt": "何で行きますか。",
+      "options": [
+        "電車",
+        "徒歩",
+        "バス",
+        "自転車"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Jawaban yang benar adalah バス. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: バス."
+      },
+      "audio_script": "女：学校について教えてください。男：学校へはバスで行きます。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a1_005.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_jft_a1_006",
+      "level": "JFT_A1",
+      "type": "listening",
+      "prompt": "何を食べますか。",
+      "options": [
+        "うどん",
+        "カレー",
+        "そば",
+        "ラーメン"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah うどん. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: うどん."
+      },
+      "audio_script": "女：昼ごはんについて教えてください。男：今日の昼ごはんはうどんにします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a1_006.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_jft_a1_007",
+      "level": "JFT_A1",
+      "type": "listening",
+      "prompt": "明日の天気はどうですか。",
+      "options": [
+        "雪",
+        "晴れ",
+        "くもり",
+        "雨"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 雨. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 雨."
+      },
+      "audio_script": "女：明日について教えてください。男：明日の天気は雨です。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a1_007.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_jft_a1_008",
+      "level": "JFT_A1",
+      "type": "listening",
+      "prompt": "何を持っていきますか。",
+      "options": [
+        "資料",
+        "かばん",
+        "傘",
+        "鍵"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 資料. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 資料."
+      },
+      "audio_script": "女：会議について教えてください。男：会議には資料を持っていきます。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a1_008.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_jft_a1_009",
+      "level": "JFT_A1",
+      "type": "listening",
+      "prompt": "だれに聞きますか。",
+      "options": [
+        "鈴木さん",
+        "山田さん",
+        "佐藤さん",
+        "田中さん"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 田中さん. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 田中さん."
+      },
+      "audio_script": "女：受付について教えてください。男：受付では田中さんに聞いてください。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a1_009.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_jft_a1_010",
+      "level": "JFT_A1",
+      "type": "listening",
+      "prompt": "どのくらいかかりますか。",
+      "options": [
+        "十分",
+        "二時間",
+        "一時間",
+        "三十分"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 三十分. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 三十分."
+      },
+      "audio_script": "女：作業について教えてください。男：作業には三十分かかります。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a1_010.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_jft_a1_011",
+      "level": "JFT_A1",
+      "type": "listening",
+      "prompt": "何時から始まりますか。",
+      "options": [
+        "十一時",
+        "九時半",
+        "九時",
+        "十時"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 九時半. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 九時半."
+      },
+      "audio_script": "皆さん、授業についてお知らせします。授業は九時半から始まります。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a1_011.mp3",
+      "listening_style": "announcement"
+    },
+    {
+      "id": "listen_jft_a1_012",
+      "level": "JFT_A1",
+      "type": "listening",
+      "prompt": "どうして遅れましたか。",
+      "options": [
+        "雨が降ったから",
+        "寝坊したから",
+        "電車が遅れたから",
+        "道に迷ったから"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 電車が遅れたから. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 電車が遅れたから."
+      },
+      "audio_script": "皆さん、遅刻についてお知らせします。電車が遅れたから、遅刻しました。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a1_012.mp3",
+      "listening_style": "announcement"
+    },
+    {
+      "id": "listen_jft_a1_013",
+      "level": "JFT_A1",
+      "type": "listening",
+      "prompt": "帰ってから何をしますか。",
+      "options": [
+        "料理をする",
+        "掃除する",
+        "勉強する",
+        "買い物をする"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 買い物をする. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 買い物をする."
+      },
+      "audio_script": "皆さん、帰宅後についてお知らせします。家に帰ったら、買い物をするつもりです。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a1_013.mp3",
+      "listening_style": "announcement"
+    },
+    {
+      "id": "listen_jft_a1_014",
+      "level": "JFT_A1",
+      "type": "listening",
+      "prompt": "どこで会いますか。",
+      "options": [
+        "公園の入口",
+        "店の前",
+        "駅の南口",
+        "駅の北口"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 駅の南口. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 駅の南口."
+      },
+      "audio_script": "皆さん、待ち合わせについてお知らせします。待ち合わせは駅の南口にしましょう。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a1_014.mp3",
+      "listening_style": "announcement"
+    },
+    {
+      "id": "listen_jft_a1_015",
+      "level": "JFT_A1",
+      "type": "listening",
+      "prompt": "いくつ注文しますか。",
+      "options": [
+        "三つ",
+        "二つ",
+        "四つ",
+        "一つ"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 三つ. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 三つ."
+      },
+      "audio_script": "皆さん、注文についてお知らせします。三つ注文してください。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a1_015.mp3",
+      "listening_style": "announcement"
+    },
+    {
+      "id": "listen_jft_a1_016",
+      "level": "JFT_A1",
+      "type": "listening",
+      "prompt": "いつまでに出しますか。",
+      "options": [
+        "木曜日まで",
+        "月曜日まで",
+        "金曜日まで",
+        "水曜日まで"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 金曜日まで. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 金曜日まで."
+      },
+      "audio_script": "提出について説明します。提出は金曜日までにお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a1_016.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_jft_a1_017",
+      "level": "JFT_A1",
+      "type": "listening",
+      "prompt": "何時に変更になりましたか。",
+      "options": [
+        "午後三時",
+        "午後四時",
+        "午後一時",
+        "午後二時"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 午後三時. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 午後三時."
+      },
+      "audio_script": "予約について説明します。予約の時間は午後三時になりました。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a1_017.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_jft_a1_018",
+      "level": "JFT_A1",
+      "type": "listening",
+      "prompt": "何を一番大切にしますか。",
+      "options": [
+        "品質",
+        "値段",
+        "色",
+        "大きさ"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 品質. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 品質."
+      },
+      "audio_script": "買い物について説明します。買い物では品質を重視します。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a1_018.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_jft_a1_019",
+      "level": "JFT_A1",
+      "type": "listening",
+      "prompt": "何が問題ですか。",
+      "options": [
+        "電源が入らない",
+        "音が出ない",
+        "画面が動かない",
+        "ネットにつながらない"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 画面が動かない. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 画面が動かない."
+      },
+      "audio_script": "パソコンについて説明します。パソコンは画面が動かないので困っています。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a1_019.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_jft_a1_020",
+      "level": "JFT_A1",
+      "type": "listening",
+      "prompt": "忘れ物をどうしますか。",
+      "options": [
+        "友達に渡す",
+        "捨てる",
+        "受付に届ける",
+        "家に戻る"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 受付に届ける. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 受付に届ける."
+      },
+      "audio_script": "忘れ物について説明します。忘れ物は受付に届けることにします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a1_020.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_jft_a1_021",
+      "level": "JFT_A1",
+      "type": "listening",
+      "prompt": "どうして日本語を勉強していますか。",
+      "options": [
+        "旅行のため",
+        "友達と話すため",
+        "仕事で使うため",
+        "試験のため"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 仕事で使うため. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 仕事で使うため."
+      },
+      "audio_script": "日本語の勉強について説明します。仕事で使うため、日本語を勉強しています。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a1_021.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_jft_a1_022",
+      "level": "JFT_A1",
+      "type": "listening",
+      "prompt": "どちらが早いですか。",
+      "options": [
+        "電車のほうが早い",
+        "自転車のほうが早い",
+        "バスのほうが早い",
+        "歩くほうが早い"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 電車のほうが早い. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 電車のほうが早い."
+      },
+      "audio_script": "通勤について説明します。通勤には電車のほうが早いです。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a1_022.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_jft_a1_023",
+      "level": "JFT_A1",
+      "type": "listening",
+      "prompt": "出かける前に、まず何をしますか。",
+      "options": [
+        "電話をする",
+        "電気を消す",
+        "窓を閉める",
+        "鍵を探す"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 窓を閉める. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 窓を閉める."
+      },
+      "audio_script": "出発前について説明します。出発する前に、まず窓を閉めるつもりです。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a1_023.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_jft_a1_024",
+      "level": "JFT_A1",
+      "type": "listening",
+      "prompt": "話し手は新しい制度をどう考えていますか。",
+      "options": [
+        "難しいと思う",
+        "危険だと思う",
+        "必要ないと思う",
+        "便利だと思う"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 便利だと思う. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 便利だと思う."
+      },
+      "audio_script": "新しい制度について説明します。新しい制度については、便利だと思う。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a1_024.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_jft_a1_025",
+      "level": "JFT_A1",
+      "type": "listening",
+      "prompt": "イベントはどうなりますか。",
+      "options": [
+        "予定どおり開催する",
+        "延期する",
+        "中止する",
+        "場所を変える"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 予定どおり開催する. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 予定どおり開催する."
+      },
+      "audio_script": "イベントについて説明します。イベントは予定どおり開催することになりました。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a1_025.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_jft_a2_001",
+      "level": "JFT_A2",
+      "type": "listening",
+      "prompt": "何時に行きますか。",
+      "options": [
+        "十時",
+        "九時",
+        "八時",
+        "七時"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 八時. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 八時."
+      },
+      "audio_script": "女：駅について教えてください。男：予定を確認したいのですが、明日は駅へ八時に行きます。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a2_001.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_jft_a2_002",
+      "level": "JFT_A2",
+      "type": "listening",
+      "prompt": "どこにありますか。",
+      "options": [
+        "二階",
+        "地下",
+        "一階",
+        "三階"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 二階. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 二階."
+      },
+      "audio_script": "女：図書館について教えてください。男：予定を確認したいのですが、図書館は二階にあります。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a2_002.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_jft_a2_003",
+      "level": "JFT_A2",
+      "type": "listening",
+      "prompt": "何曜日に行きますか。",
+      "options": [
+        "水曜日",
+        "木曜日",
+        "月曜日",
+        "金曜日"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 水曜日. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 水曜日."
+      },
+      "audio_script": "女：病院について教えてください。男：予定を確認したいのですが、病院へ行くのは水曜日です。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a2_003.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_jft_a2_004",
+      "level": "JFT_A2",
+      "type": "listening",
+      "prompt": "いくらですか。",
+      "options": [
+        "千円",
+        "千二百円",
+        "八百円",
+        "千五百円"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 千二百円. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 千二百円."
+      },
+      "audio_script": "女：切符について教えてください。男：予定を確認したいのですが、切符は千二百円です。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a2_004.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_jft_a2_005",
+      "level": "JFT_A2",
+      "type": "listening",
+      "prompt": "何で行きますか。",
+      "options": [
+        "自転車",
+        "バス",
+        "徒歩",
+        "電車"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah バス. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: バス."
+      },
+      "audio_script": "女：学校について教えてください。男：予定を確認したいのですが、学校へはバスで行きます。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a2_005.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_jft_a2_006",
+      "level": "JFT_A2",
+      "type": "listening",
+      "prompt": "何を食べますか。",
+      "options": [
+        "うどん",
+        "カレー",
+        "ラーメン",
+        "そば"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah うどん. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: うどん."
+      },
+      "audio_script": "女：昼ごはんについて教えてください。男：予定を確認したいのですが、今日の昼ごはんはうどんにします。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a2_006.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_jft_a2_007",
+      "level": "JFT_A2",
+      "type": "listening",
+      "prompt": "明日の天気はどうですか。",
+      "options": [
+        "くもり",
+        "雨",
+        "晴れ",
+        "雪"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 雨. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 雨."
+      },
+      "audio_script": "女：明日について教えてください。男：予定を確認したいのですが、明日の天気は雨です。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a2_007.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_jft_a2_008",
+      "level": "JFT_A2",
+      "type": "listening",
+      "prompt": "何を持っていきますか。",
+      "options": [
+        "傘",
+        "鍵",
+        "資料",
+        "かばん"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 資料. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 資料."
+      },
+      "audio_script": "女：会議について教えてください。男：予定を確認したいのですが、会議には資料を持っていきます。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a2_008.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_jft_a2_009",
+      "level": "JFT_A2",
+      "type": "listening",
+      "prompt": "だれに聞きますか。",
+      "options": [
+        "田中さん",
+        "山田さん",
+        "鈴木さん",
+        "佐藤さん"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 田中さん. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 田中さん."
+      },
+      "audio_script": "女：受付について教えてください。男：予定を確認したいのですが、受付では田中さんに聞いてください。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a2_009.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_jft_a2_010",
+      "level": "JFT_A2",
+      "type": "listening",
+      "prompt": "どのくらいかかりますか。",
+      "options": [
+        "三十分",
+        "一時間",
+        "二時間",
+        "十分"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 三十分. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 三十分."
+      },
+      "audio_script": "女：作業について教えてください。男：予定を確認したいのですが、作業には三十分かかります。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a2_010.mp3",
+      "listening_style": "dialogue"
+    },
+    {
+      "id": "listen_jft_a2_011",
+      "level": "JFT_A2",
+      "type": "listening",
+      "prompt": "何時から始まりますか。",
+      "options": [
+        "十一時",
+        "九時",
+        "十時",
+        "九時半"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 九時半. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 九時半."
+      },
+      "audio_script": "皆さん、授業についてお知らせします。お知らせします。授業は九時半から始まります。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a2_011.mp3",
+      "listening_style": "announcement"
+    },
+    {
+      "id": "listen_jft_a2_012",
+      "level": "JFT_A2",
+      "type": "listening",
+      "prompt": "どうして遅れましたか。",
+      "options": [
+        "道に迷ったから",
+        "雨が降ったから",
+        "寝坊したから",
+        "電車が遅れたから"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 電車が遅れたから. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 電車が遅れたから."
+      },
+      "audio_script": "皆さん、遅刻についてお知らせします。お知らせします。電車が遅れたから、遅刻しました。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a2_012.mp3",
+      "listening_style": "announcement"
+    },
+    {
+      "id": "listen_jft_a2_013",
+      "level": "JFT_A2",
+      "type": "listening",
+      "prompt": "帰ってから何をしますか。",
+      "options": [
+        "料理をする",
+        "掃除する",
+        "勉強する",
+        "買い物をする"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 買い物をする. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 買い物をする."
+      },
+      "audio_script": "皆さん、帰宅後についてお知らせします。お知らせします。家に帰ったら、買い物をするつもりです。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a2_013.mp3",
+      "listening_style": "announcement"
+    },
+    {
+      "id": "listen_jft_a2_014",
+      "level": "JFT_A2",
+      "type": "listening",
+      "prompt": "どこで会いますか。",
+      "options": [
+        "駅の南口",
+        "店の前",
+        "公園の入口",
+        "駅の北口"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 駅の南口. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 駅の南口."
+      },
+      "audio_script": "皆さん、待ち合わせについてお知らせします。お知らせします。待ち合わせは駅の南口にしましょう。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a2_014.mp3",
+      "listening_style": "announcement"
+    },
+    {
+      "id": "listen_jft_a2_015",
+      "level": "JFT_A2",
+      "type": "listening",
+      "prompt": "いくつ注文しますか。",
+      "options": [
+        "二つ",
+        "一つ",
+        "四つ",
+        "三つ"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 三つ. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 三つ."
+      },
+      "audio_script": "皆さん、注文についてお知らせします。お知らせします。三つ注文してください。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a2_015.mp3",
+      "listening_style": "announcement"
+    },
+    {
+      "id": "listen_jft_a2_016",
+      "level": "JFT_A2",
+      "type": "listening",
+      "prompt": "いつまでに出しますか。",
+      "options": [
+        "水曜日まで",
+        "月曜日まで",
+        "金曜日まで",
+        "木曜日まで"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 金曜日まで. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 金曜日まで."
+      },
+      "audio_script": "提出について説明します。お知らせします。提出は金曜日までにお願いします。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a2_016.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_jft_a2_017",
+      "level": "JFT_A2",
+      "type": "listening",
+      "prompt": "何時に変更になりましたか。",
+      "options": [
+        "午後三時",
+        "午後一時",
+        "午後二時",
+        "午後四時"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 午後三時. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 午後三時."
+      },
+      "audio_script": "予約について説明します。お知らせします。予約の時間は午後三時になりました。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a2_017.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_jft_a2_018",
+      "level": "JFT_A2",
+      "type": "listening",
+      "prompt": "何を一番大切にしますか。",
+      "options": [
+        "大きさ",
+        "品質",
+        "色",
+        "値段"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 品質. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 品質."
+      },
+      "audio_script": "買い物について説明します。お知らせします。買い物では品質を重視します。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a2_018.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_jft_a2_019",
+      "level": "JFT_A2",
+      "type": "listening",
+      "prompt": "何が問題ですか。",
+      "options": [
+        "ネットにつながらない",
+        "画面が動かない",
+        "電源が入らない",
+        "音が出ない"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 画面が動かない. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 画面が動かない."
+      },
+      "audio_script": "パソコンについて説明します。お知らせします。パソコンは画面が動かないので困っています。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a2_019.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_jft_a2_020",
+      "level": "JFT_A2",
+      "type": "listening",
+      "prompt": "忘れ物をどうしますか。",
+      "options": [
+        "受付に届ける",
+        "友達に渡す",
+        "捨てる",
+        "家に戻る"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 受付に届ける. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 受付に届ける."
+      },
+      "audio_script": "忘れ物について説明します。お知らせします。忘れ物は受付に届けることにします。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a2_020.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_jft_a2_021",
+      "level": "JFT_A2",
+      "type": "listening",
+      "prompt": "どうして日本語を勉強していますか。",
+      "options": [
+        "仕事で使うため",
+        "試験のため",
+        "友達と話すため",
+        "旅行のため"
+      ],
+      "answer": 0,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 仕事で使うため. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 仕事で使うため."
+      },
+      "audio_script": "日本語の勉強について説明します。お知らせします。仕事で使うため、日本語を勉強しています。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a2_021.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_jft_a2_022",
+      "level": "JFT_A2",
+      "type": "listening",
+      "prompt": "どちらが早いですか。",
+      "options": [
+        "バスのほうが早い",
+        "歩くほうが早い",
+        "自転車のほうが早い",
+        "電車のほうが早い"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 電車のほうが早い. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 電車のほうが早い."
+      },
+      "audio_script": "通勤について説明します。お知らせします。通勤には電車のほうが早いです。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a2_022.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_jft_a2_023",
+      "level": "JFT_A2",
+      "type": "listening",
+      "prompt": "出かける前に、まず何をしますか。",
+      "options": [
+        "電話をする",
+        "鍵を探す",
+        "窓を閉める",
+        "電気を消す"
+      ],
+      "answer": 2,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 窓を閉める. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 窓を閉める."
+      },
+      "audio_script": "出発前について説明します。お知らせします。出発する前に、まず窓を閉めるつもりです。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a2_023.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_jft_a2_024",
+      "level": "JFT_A2",
+      "type": "listening",
+      "prompt": "話し手は新しい制度をどう考えていますか。",
+      "options": [
+        "危険だと思う",
+        "便利だと思う",
+        "必要ないと思う",
+        "難しいと思う"
+      ],
+      "answer": 1,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 便利だと思う. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 便利だと思う."
+      },
+      "audio_script": "新しい制度について説明します。お知らせします。新しい制度については、便利だと思う。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a2_024.mp3",
+      "listening_style": "passage"
+    },
+    {
+      "id": "listen_jft_a2_025",
+      "level": "JFT_A2",
+      "type": "listening",
+      "prompt": "イベントはどうなりますか。",
+      "options": [
+        "中止する",
+        "場所を変える",
+        "延期する",
+        "予定どおり開催する"
+      ],
+      "answer": 3,
+      "explanation": {
+        "id": "Jawaban yang benar adalah 予定どおり開催する. Informasi ini disebutkan dalam rekaman.",
+        "en": "The recording explicitly states: 予定どおり開催する."
+      },
+      "audio_script": "イベントについて説明します。お知らせします。イベントは予定どおり開催することになりました。よろしくお願いします。",
+      "audio_url": "https://hrvhoplwsxsxncpghqog.supabase.co/storage/v1/object/public/listening-audio/listen_jft_a2_025.mp3",
+      "listening_style": "passage"
     }
   ]
 }
