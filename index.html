@@ -143,13 +143,30 @@ a {color:var(--primary);}
 @media(prefers-reduced-motion:reduce){
  *,*::before,*::after {transition:none!important;animation:none!important;}
 }
-\n    </style>
+\n    
+/* Illustrated theme hero: self-contained SVGs, no network image requests. */
+.kotoba-illustrated-hero{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px, .92fr);align-items:center;gap:18px;padding:28px 30px;min-height:285px;overflow:hidden;background:var(--soft);border:1px solid var(--border);border-radius:20px;margin-bottom:23px;isolation:isolate}
+.kotoba-illustrated-hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 75% 10%,var(--card-bg),transparent 60%);opacity:.55;z-index:-1}
+.kotoba-hero-content{position:relative;z-index:1}
+.kotoba-hero-content h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(2rem,4vw,3.3rem);line-height:1.08;margin:8px 0 14px;letter-spacing:-.035em;color:var(--text)}
+.kotoba-hero-content p{font-size:.98rem;line-height:1.6;max-width:37ch;margin:0;color:var(--text-light)}
+.kotoba-hero-eyebrow{font-size:.72rem;letter-spacing:.17em;font-weight:800;text-transform:uppercase;color:var(--secondary)}
+.kotoba-hero-jp{display:inline-block;font-size:1.05rem;letter-spacing:.15em;color:var(--primary);margin-top:15px}
+.kotoba-art{width:100%;max-width:500px;justify-self:end;align-self:center}
+.kotoba-scene{display:none;width:100%;height:auto;max-height:275px;overflow:visible}
+[data-theme="sakura"] .kotoba-sakura,[data-theme="matcha"] .kotoba-matcha,[data-theme="sumi"] .kotoba-sumi{display:block}
+[data-theme="sumi"] .kotoba-illustrated-hero{background:#eae5dc}
+[data-theme="matcha"] .kotoba-illustrated-hero{background:#eaf0df}
+.kotoba-illustrated-hero + .card{margin-top:0}
+@media(max-width:700px){.kotoba-illustrated-hero{grid-template-columns:1fr;padding:23px 20px;gap:0}.kotoba-art{max-width:350px;justify-self:center}.kotoba-scene{max-height:185px}.kotoba-hero-content h1{font-size:2.1rem}}
+</style>
 </head>
 <body data-theme="sakura">
 
     <header>
         <div class="logo"><span>🌸</span> Kotoba Quiz Master</div>
-        <div class="nav-btns">\n            <label class="kotoba-theme-control" for="kotoba-theme-picker">🎨 <select id="kotoba-theme-picker" aria-label="Website theme"><option value="sakura">🌸 Sakura</option><option value="matcha">🍵 Matcha</option><option value="sumi">🖌️ Sumi</option></select></label>
+        <div class="nav-btns">
+            <label class="kotoba-theme-control" for="kotoba-theme-picker">🎨 <select id="kotoba-theme-picker" aria-label="Website theme"><option value="sakura">🌸 Sakura</option><option value="matcha">🍵 Matcha</option><option value="sumi">🖌️ Sumi</option></select></label>
             <button class="secondary" onclick="switchView('student')">Mode Siswa</button>
             <button onclick="promptAdminLogin()">🔒 Panel Admin</button>
         </div>
@@ -158,6 +175,11 @@ a {color:var(--primary);}
     <main>
         <!-- STUDENT VIEW -->
         <div id="student-view">
+<section class="kotoba-illustrated-hero" aria-label="Japanese-inspired learning design"><div class="kotoba-hero-content"><span class="kotoba-hero-eyebrow">日本語を学ぼう · Japanese learning</span><h1>Kotoba Quiz<br>Master.</h1><p>Belajar bahasa Jepang, satu langkah setiap hari. Vocabulary, JLPT &amp; JFT practice in one place.</p><span class="kotoba-hero-jp">ことば · 学ぶ · 成長する</span></div><div class="kotoba-art" aria-hidden="true">
+<svg class="kotoba-scene kotoba-sakura" viewBox="0 0 540 290" role="img"><defs><linearGradient id="sunPink" x2="0" y2="1"><stop stop-color="#e18e98"/><stop offset="1" stop-color="#f4c6c8"/></linearGradient></defs><circle cx="365" cy="139" r="104" fill="url(#sunPink)" opacity=".87"/><path d="M0 245 Q120 205 250 247 T540 232V290H0Z" fill="#f7e0e3"/><path d="M45 -8 Q90 64 174 88 Q226 109 290 90 M133 58 Q157 23 155 0 M187 88 Q225 53 240 19" stroke="#75535a" stroke-width="9" fill="none" stroke-linecap="round"/><g fill="#f7b8c4" stroke="#d98da0" stroke-width="1.5"><path d="M90 54q-22-30-29 0q-29-6-15 17q-18 22 11 24q8 29 26 7q30 10 25-18q22-18-7-27Z"/><path d="M166 84q-20-26-28 0q-25-4-13 17q-15 19 10 21q8 24 23 6q25 8 21-16q20-16-6-24Z"/><path d="M241 60q-18-25-26 0q-25-3-12 17q-16 19 10 21q7 25 23 6q26 8 21-16q20-16-6-24Z"/></g><g fill="#a95770"><circle cx="79" cy="78" r="5"/><circle cx="154" cy="106" r="4"/><circle cx="229" cy="82" r="4"/></g><g fill="#db9ba7"><circle cx="290" cy="195" r="4"/><circle cx="315" cy="217" r="3"/><circle cx="459" cy="229" r="4"/><circle cx="475" cy="206" r="3"/></g></svg>
+<svg class="kotoba-scene kotoba-matcha" viewBox="0 0 540 290" role="img"><circle cx="375" cy="135" r="108" fill="#dce6c4"/><path d="M0 252 Q180 225 325 250 T540 245V290H0Z" fill="#e4e9d5"/><g fill="none" stroke="#789467" stroke-width="5" stroke-linecap="round"><path d="M95 266Q83 162 120 67"/><path d="M108 177Q47 142 52 89Q113 93 108 177" fill="#aec49a"/><path d="M112 133Q155 97 157 46Q105 70 112 133" fill="#8fac78"/><path d="M95 227Q45 204 32 162Q93 163 95 227" fill="#a8bd8b"/></g><ellipse cx="370" cy="215" rx="120" ry="22" fill="#b4c5a3" opacity=".55"/><path d="M266 155 Q274 248 370 249 Q466 248 474 155Z" fill="#547348"/><ellipse cx="370" cy="155" rx="104" ry="35" fill="#344d32"/><ellipse cx="370" cy="153" rx="93" ry="27" fill="#9dbd77"/><path d="M320 147Q352 126 382 149T430 148" fill="none" stroke="#dbe8b8" stroke-width="5" opacity=".8"/><g stroke="#a78c63" stroke-width="6" stroke-linecap="round"><path d="M231 62L278 162"/><path d="M223 71L264 168"/></g><g stroke="#ad956d" stroke-width="2"><path d="M278 162l-28 23m28-23-15 29m15-29 0 31m0-31 15 27m-15-27 28 18"/></g></svg>
+<svg class="kotoba-scene kotoba-sumi" viewBox="0 0 540 290" role="img"><circle cx="375" cy="118" r="92" fill="#d8d1c5" opacity=".8"/><g fill="none" stroke="#4c4640" stroke-linejoin="round" stroke-linecap="round"><path d="M188 227L192 147L369 147L373 227" stroke-width="10"/><path d="M164 151L278 87L393 151Q278 134 164 151Z" fill="#514b43" stroke-width="5"/><path d="M198 115L278 58L358 115" stroke-width="10"/><path d="M215 149L215 221M340 149L340 221" stroke-width="9"/><path d="M249 227V174H307V227" stroke-width="7"/><path d="M158 231H400" stroke-width="8"/><path d="M205 194H350" stroke-width="3"/><path d="M44 252Q120 210 182 247T333 245T527 238" stroke-width="6" opacity=".55"/><path d="M28 280Q100 250 165 271T320 269T525 259" stroke-width="4" opacity=".3"/></g><g fill="#716b61" opacity=".45"><circle cx="89" cy="100" r="3"/><circle cx="102" cy="110" r="5"/><circle cx="75" cy="115" r="2"/><circle cx="435" cy="54" r="4"/><circle cx="449" cy="66" r="2"/></g><path d="M448 235q-19-48-3-98m-3 98q-39-28-40-56m40 56q24-33 41-42" fill="none" stroke="#4c4640" stroke-width="5" stroke-linecap="round"/></svg>
+</div></section>
             <div class="card">
                 <h2>🌸 Portal Kuis Kosakata Bahasa Jepang (語彙クイズ)</h2>
                 <p>Pilih kategori level di bawah ini (*Minna no Nihongo 1* atau *Minna no Nihongo 2*). Setiap kuis menyajikan soal acak yang variatif.</p>
