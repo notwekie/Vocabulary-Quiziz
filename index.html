@@ -316,11 +316,11 @@ a {color:var(--primary);}
             <!-- CHUUKYUU PRIVATE LIBRARY MEMBERSHIP MANAGEMENT -->
             <section id="chuukyuu-admin" style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);">
                 <h3>🔐 Akses Minna no Nihongo Chūkyū I</h3>
-                <p>Kelola izin siswa untuk perpustakaan privat. Gunakan User UID dari Supabase Authentication → Users. Akun harus sudah ada sebelum diberi akses.</p>
+                <p>Kelola izin siswa untuk perpustakaan privat. Gunakan email akun siswa yang sudah terdaftar di Supabase Authentication. Tidak perlu menyalin User UID.</p>
                 <form id="chuukyuu-member-form" style="display:flex;gap:10px;align-items:end;flex-wrap:wrap;margin:1rem 0;">
                     <div class="settings-group" style="flex:1 1 300px;margin:0;">
-                        <label for="chuukyuu-user-id">Supabase User UID</label>
-                        <input id="chuukyuu-user-id" type="text" required placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" autocomplete="off" spellcheck="false" style="width:100%;padding:12px;border-radius:10px;border:1px solid var(--border);background:var(--card-bg);color:var(--text);" />
+                        <label for="chuukyuu-user-id">Email Siswa</label>
+                        <input id="chuukyuu-user-id" type="email" required placeholder="siswa@example.com" autocomplete="off" spellcheck="false" style="width:100%;padding:12px;border-radius:10px;border:1px solid var(--border);background:var(--card-bg);color:var(--text);" />
                     </div>
                     <button type="submit" id="chuukyuu-approve-button">✓ Setujui Akses</button>
                 </form>
@@ -328,11 +328,11 @@ a {color:var(--primary);}
                 <button type="button" class="secondary" id="chuukyuu-refresh-button">🔄 Refresh Daftar Akses</button>
                 <div style="overflow-x:auto;margin-top:1rem;">
                     <table>
-                        <thead><tr><th>User UID</th><th>Status</th><th>Tindakan</th></tr></thead>
+                        <thead><tr><th>Email Siswa</th><th>Status</th><th>Tindakan</th></tr></thead>
                         <tbody id="chuukyuu-member-rows"><tr><td colspan="3">Klik Refresh Daftar Akses untuk memuat data.</td></tr></tbody>
                     </table>
                 </div>
-                <p style="font-size:.85rem;margin-top:1rem;">Catatan: User UID bukan nama atau email. Data email tersedia di Authentication → Users. Perubahan akses berlaku pada permintaan file berikutnya.</p>
+                <p style="font-size:.85rem;margin-top:1rem;">Masukkan email akun Supabase Auth yang sudah ada. Perubahan akses berlaku pada permintaan file berikutnya.</p>
             </section>
         </div>
     </main>
@@ -564,7 +564,6 @@ a {color:var(--primary);}
 
         // Chūkyū library management uses the same authenticated quiz-admin role.
         // All authorization decisions are enforced by Supabase RLS, not this UI.
-        const CHUUKYUU_UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
         function chuukyuuStatus(message) {
             document.getElementById('chuukyuu-member-status').textContent = message;
         }
@@ -581,10 +580,7 @@ a {color:var(--primary);}
             chuukyuuStatus('Memuat daftar akses...');
             try {
                 await requireChuukyuuAdmin();
-                const {data, error} = await supabaseClient
-                    .from('kotoba_library_members')
-                    .select('user_id,approved,created_at')
-                    .order('created_at', {ascending: false});
+                const {data, error} = await supabaseClient.rpc('kotoba_list_library_members');
                 if (error) throw error;
                 if (!data || !data.length) {
                     const tr = document.createElement('tr');
@@ -597,7 +593,7 @@ a {color:var(--primary);}
                 for (const member of (data || [])) {
                     const tr = document.createElement('tr');
                     const uid = document.createElement('td');
-                    uid.textContent = member.user_id;
+                    uid.textContent = member.email || '(email tidak tersedia)';
                     uid.style.overflowWrap = 'anywhere';
                     const state = document.createElement('td');
                     state.textContent = member.approved ? '✓ Disetujui' : 'Tidak disetujui';
@@ -640,22 +636,17 @@ a {color:var(--primary);}
             event.preventDefault();
             const field = document.getElementById('chuukyuu-user-id');
             const button = document.getElementById('chuukyuu-approve-button');
-            const userId = field.value.trim();
-            if (!CHUUKYUU_UUID_RE.test(userId)) {
-                chuukyuuStatus('User UID tidak valid. Salin UID dari Authentication → Users.');
+            const email = field.value.trim().toLowerCase();
+            if (!email || !field.checkValidity()) {
+                chuukyuuStatus('Masukkan alamat email siswa yang valid.');
                 return;
             }
             button.disabled = true;
             try {
                 await requireChuukyuuAdmin();
-                const {data: existing,error: lookupError} = await supabaseClient
-                    .from('kotoba_library_members').select('user_id').eq('user_id',userId).maybeSingle();
-                if (lookupError) throw lookupError;
-                const result = existing
-                    ? await supabaseClient.from('kotoba_library_members').update({approved:true}).eq('user_id',userId).select('user_id')
-                    : await supabaseClient.from('kotoba_library_members').insert({user_id:userId,approved:true}).select('user_id');
-                if (result.error) throw result.error;
-                if (!result.data || result.data.length !== 1) throw new Error('Persetujuan tidak tersimpan. Periksa kebijakan RLS dan User UID.');
+                const {data,error} = await supabaseClient.rpc('kotoba_approve_library_email', {p_email: email});
+                if (error) throw error;
+                if (data !== true) throw new Error('Akun tidak ditemukan atau persetujuan gagal. Pastikan siswa sudah terdaftar di Authentication → Users.');
                 field.value = '';
                 await loadChuukyuuMembers();
                 chuukyuuStatus('Akun berhasil disetujui.');
