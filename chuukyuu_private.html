@@ -1,5 +1,45 @@
 <!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Chūkyū I · Private Library</title><style>
-:root{font-family:system-ui,sans-serif;color:#302b27;background:#f2eee6}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:20px;box-sizing:border-box}.card{width:min(100%,460px);background:#fffdf8;border:1px solid #ded6ca;border-radius:18px;padding:28px;box-shadow:0 8px 26px #302b2712}h1{font-size:1.55rem}p{line-height:1.6;color:#655c54}label{display:block;font-weight:650;margin:14px 0 6px}input{display:block;width:100%;padding:12px;border-radius:9px;border:1px solid #b8ada1;box-sizing:border-box;font-size:1rem}button{background:#51483f;color:white;border:0;border-radius:9px;padding:12px 18px;font-weight:700;cursor:pointer;margin-top:18px}button:disabled{opacity:.6}a{color:#51483f}#message{min-height:24px} .hide{display:none}</style></head><body><main class="card"><a href="./index.html">← Kotoba Quiz Master</a><h1>🔒 Minna no Nihongo Chūkyū I</h1><p>Perpustakaan belajar privat. Masuk dengan akun siswa yang sudah disetujui admin.</p><form id="login"><label for="email">Email siswa</label><input id="email" type="email" autocomplete="username" required><label for="password">Password</label><input id="password" type="password" autocomplete="current-password" required><button id="submit">Masuk</button></form><div id="member" class="hide"><p id="welcome"></p><p>✅ Akun Anda disetujui. Materi belajar sedang disiapkan di penyimpanan privat; belum tersedia untuk dibuka.</p><button id="logout">Keluar</button></div><p id="message" role="status" aria-live="polite"></p></main><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script><script>
-const client=window.supabase.createClient('https://hrvhoplwsxsxncpghqog.supabase.co','sb_publishable_herpo750W68fnwkXU2NWrA_kjm1fymz');const msg=document.getElementById('message');const form=document.getElementById('login');const member=document.getElementById('member');const submit=document.getElementById('submit');async function check(){const {data:{user},error}=await client.auth.getUser();if(error||!user){form.classList.remove('hide');member.classList.add('hide');return}const {data,error:membershipError}=await client.from('kotoba_library_members').select('approved').eq('user_id',user.id).maybeSingle();if(membershipError){msg.textContent='Gagal memeriksa izin: '+membershipError.message;return}if(data?.approved===true){form.classList.add('hide');member.classList.remove('hide');document.getElementById('welcome').textContent='Masuk sebagai '+(user.email||'siswa');msg.textContent=''}else{form.classList.remove('hide');member.classList.add('hide');msg.textContent='Akun ini belum disetujui admin untuk mengakses Chūkyū I.'}}
-form.addEventListener('submit',async e=>{e.preventDefault();submit.disabled=true;msg.textContent='Memeriksa akun...';const {error}=await client.auth.signInWithPassword({email:document.getElementById('email').value.trim(),password:document.getElementById('password').value});document.getElementById('password').value='';submit.disabled=false;if(error){msg.textContent='Login gagal: '+error.message;return}await check()});document.getElementById('logout').addEventListener('click',async()=>{await client.auth.signOut();msg.textContent='Anda telah keluar.';await check()});check();
+:root{font-family:system-ui,sans-serif;color:#302b27;background:#f2eee6}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:20px;box-sizing:border-box}body.reading{display:block;padding:12px;background:#f2eee6}.card{width:min(100%,460px);background:#fffdf8;border:1px solid #ded6ca;border-radius:18px;padding:28px;box-shadow:0 8px 26px #302b2712}h1{font-size:1.55rem}p{line-height:1.6;color:#655c54}label{display:block;font-weight:650;margin:14px 0 6px}input{display:block;width:100%;padding:12px;border-radius:9px;border:1px solid #b8ada1;box-sizing:border-box;font-size:1rem}button{background:#51483f;color:white;border:0;border-radius:9px;padding:12px 18px;font-weight:700;cursor:pointer;margin-top:18px}button:disabled{opacity:.6}a{color:#51483f}#message{min-height:24px} .hide{display:none}.reader{width:min(100%,1200px);margin:12px auto}.readerbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px}.readerbar button{margin:0}iframe{width:100%;height:calc(100vh - 115px);min-height:500px;border:1px solid #ded6ca;border-radius:14px;background:white}.card{margin:auto}body.reading .card{display:none}</style></head><body><main class="card"><a href="./index.html">← Kotoba Quiz Master</a><h1>🔒 Minna no Nihongo Chūkyū I</h1><p>Perpustakaan belajar privat. Masuk dengan akun siswa yang sudah disetujui admin.</p><form id="login"><label for="email">Email siswa</label><input id="email" type="email" autocomplete="username" required><label for="password">Password</label><input id="password" type="password" autocomplete="current-password" required><button id="submit">Masuk</button></form><div id="member" class="hide"><p id="welcome"></p><p>✅ Akun Anda disetujui. Materi dapat dibuka melalui tombol berikut.</p><button id="openLessons" type="button">📚 Buka 12 Pelajaran</button> <button id="logout" type="button">Keluar</button></div><p id="message" role="status" aria-live="polite"></p></main><section class="reader hide" id="reader"><div class="readerbar"><strong>📚 Chūkyū I · Private Study Library</strong><div><button id="closeReader" type="button">← Kembali</button> <button id="readerLogout" type="button">Keluar</button></div></div><iframe id="lessonFrame" title="Chūkyū I lessons" sandbox="allow-scripts" referrerpolicy="no-referrer"></iframe><p id="readerMessage" role="status"></p></section><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script><script>
+const client=window.supabase.createClient('https://hrvhoplwsxsxncpghqog.supabase.co','sb_publishable_herpo750W68fnwkXU2NWrA_kjm1fymz');
+const BUCKET='kotoba-private-library', FILE='chuukyuu1_study.html';
+const $=id=>document.getElementById(id);
+const msg=$('message'),form=$('login'),member=$('member'),submit=$('submit'),reader=$('reader'),frame=$('lessonFrame');
+let approvedUserId=null;
+function closeReader(){frame.removeAttribute('srcdoc');reader.classList.add('hide');document.body.classList.remove('reading');$('readerMessage').textContent='';}
+async function check(){
+ const {data:{user},error}=await client.auth.getUser();
+ if(error||!user){approvedUserId=null;closeReader();form.classList.remove('hide');member.classList.add('hide');return false;}
+ const {data,error:membershipError}=await client.from('kotoba_library_members').select('approved').eq('user_id',user.id).maybeSingle();
+ if(membershipError){approvedUserId=null;closeReader();msg.textContent='Gagal memeriksa izin: '+membershipError.message;return false;}
+ if(data?.approved===true){approvedUserId=user.id;form.classList.add('hide');member.classList.remove('hide');$('welcome').textContent='Masuk sebagai '+(user.email||'siswa');msg.textContent='';return true;}
+ approvedUserId=null;closeReader();form.classList.add('hide');member.classList.add('hide');msg.textContent='Akun ini belum disetujui admin untuk mengakses Chūkyū I. Hubungi admin untuk mendapatkan izin.';return false;
+}
+form.addEventListener('submit',async e=>{
+ e.preventDefault();submit.disabled=true;msg.textContent='Memeriksa akun...';
+ const {error}=await client.auth.signInWithPassword({email:$('email').value.trim(),password:$('password').value});
+ $('password').value='';submit.disabled=false;
+ if(error){msg.textContent='Login gagal: '+error.message;return;}
+ await check();
+});
+$('openLessons').addEventListener('click',async()=>{
+ const button=$('openLessons');button.disabled=true;msg.textContent='Memeriksa izin dan memuat materi privat...';
+ try{
+  if(!await check())return;
+  const {data,error}=await client.storage.from(BUCKET).download(FILE);
+  if(error)throw error;
+  if(!data)throw new Error('File tidak ditemukan.');
+  // The lesson HTML is never published in GitHub Pages. Download is authorized by Storage RLS.
+  const html=await data.text();
+  if(!approvedUserId)throw new Error('Sesi tidak valid.');
+  frame.srcdoc=html;
+  reader.classList.remove('hide');document.body.classList.add('reading');msg.textContent='';
+  window.scrollTo(0,0);
+ }catch(error){msg.textContent='Tidak dapat membuka materi privat: '+(error.message||'Terjadi kesalahan')+' Pastikan nama file dan Storage RLS benar.';}
+ finally{button.disabled=false;}
+});
+$('closeReader').addEventListener('click',closeReader);
+async function logout(){closeReader();approvedUserId=null;await client.auth.signOut();member.classList.add('hide');form.classList.remove('hide');msg.textContent='Anda telah keluar.';}
+$('logout').addEventListener('click',logout);$('readerLogout').addEventListener('click',logout);
+client.auth.onAuthStateChange((event)=>{if(event==='SIGNED_OUT'){approvedUserId=null;closeReader();member.classList.add('hide');form.classList.remove('hide');}});
+check();
 </script></body></html>
