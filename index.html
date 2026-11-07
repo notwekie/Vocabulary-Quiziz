@@ -312,6 +312,28 @@ a {color:var(--primary);}
                     </tbody>
                 </table>
             </div>
+
+            <!-- CHUUKYUU PRIVATE LIBRARY MEMBERSHIP MANAGEMENT -->
+            <section id="chuukyuu-admin" style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);">
+                <h3>🔐 Akses Minna no Nihongo Chūkyū I</h3>
+                <p>Kelola izin siswa untuk perpustakaan privat. Gunakan User UID dari Supabase Authentication → Users. Akun harus sudah ada sebelum diberi akses.</p>
+                <form id="chuukyuu-member-form" style="display:flex;gap:10px;align-items:end;flex-wrap:wrap;margin:1rem 0;">
+                    <div class="settings-group" style="flex:1 1 300px;margin:0;">
+                        <label for="chuukyuu-user-id">Supabase User UID</label>
+                        <input id="chuukyuu-user-id" type="text" required placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" autocomplete="off" spellcheck="false" style="width:100%;padding:12px;border-radius:10px;border:1px solid var(--border);background:var(--card-bg);color:var(--text);" />
+                    </div>
+                    <button type="submit" id="chuukyuu-approve-button">✓ Setujui Akses</button>
+                </form>
+                <p id="chuukyuu-member-status" role="status" aria-live="polite" style="font-size:.9rem;margin-bottom:1rem;"></p>
+                <button type="button" class="secondary" id="chuukyuu-refresh-button">🔄 Refresh Daftar Akses</button>
+                <div style="overflow-x:auto;margin-top:1rem;">
+                    <table>
+                        <thead><tr><th>User UID</th><th>Status</th><th>Tindakan</th></tr></thead>
+                        <tbody id="chuukyuu-member-rows"><tr><td colspan="3">Klik Refresh Daftar Akses untuk memuat data.</td></tr></tbody>
+                    </table>
+                </div>
+                <p style="font-size:.85rem;margin-top:1rem;">Catatan: User UID bukan nama atau email. Data email tersedia di Authentication → Users. Perubahan akses berlaku pada permintaan file berikutnya.</p>
+            </section>
         </div>
     </main>
 
@@ -454,6 +476,7 @@ a {color:var(--primary);}
                     adminSessionVerified = true;
                     switchView('admin');
                     await fetchSheetResults();
+                    await loadChuukyuuMembers();
                 } else {
                     adminSessionVerified = false;
                     if (session) await supabaseClient.auth.signOut();
@@ -493,6 +516,7 @@ a {color:var(--primary);}
                 message.textContent = '';
                 switchView('admin');
                 await fetchSheetResults();
+                await loadChuukyuuMembers();
             } catch (error) {
                 adminSessionVerified = false;
                 message.textContent = error.message || 'Login gagal.';
@@ -537,6 +561,112 @@ a {color:var(--primary);}
                 <td>${escapeHTML(r.duration_seconds)} detik</td>
             </tr>`).join('');
         }
+
+        // Chūkyū library management uses the same authenticated quiz-admin role.
+        // All authorization decisions are enforced by Supabase RLS, not this UI.
+        const CHUUKYUU_UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+        function chuukyuuStatus(message) {
+            document.getElementById('chuukyuu-member-status').textContent = message;
+        }
+        async function requireChuukyuuAdmin() {
+            if (!adminSessionVerified || !await checkAdmin()) {
+                adminSessionVerified = false;
+                switchView('adminLogin');
+                throw new Error('Sesi admin tidak valid. Silakan masuk kembali.');
+            }
+        }
+        async function loadChuukyuuMembers() {
+            const tbody = document.getElementById('chuukyuu-member-rows');
+            tbody.replaceChildren();
+            chuukyuuStatus('Memuat daftar akses...');
+            try {
+                await requireChuukyuuAdmin();
+                const {data, error} = await supabaseClient
+                    .from('kotoba_library_members')
+                    .select('user_id,approved,created_at')
+                    .order('created_at', {ascending: false});
+                if (error) throw error;
+                if (!data || !data.length) {
+                    const tr = document.createElement('tr');
+                    const td = document.createElement('td');
+                    td.colSpan = 3;
+                    td.textContent = 'Belum ada siswa yang terdaftar.';
+                    tr.appendChild(td);
+                    tbody.appendChild(tr);
+                }
+                for (const member of (data || [])) {
+                    const tr = document.createElement('tr');
+                    const uid = document.createElement('td');
+                    uid.textContent = member.user_id;
+                    uid.style.overflowWrap = 'anywhere';
+                    const state = document.createElement('td');
+                    state.textContent = member.approved ? '✓ Disetujui' : 'Tidak disetujui';
+                    const action = document.createElement('td');
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'secondary';
+                    btn.textContent = member.approved ? 'Cabut Akses' : 'Setujui';
+                    btn.addEventListener('click', () => changeChuukyuuApproval(member.user_id, !member.approved, btn));
+                    action.appendChild(btn);
+                    tr.append(uid,state,action);
+                    tbody.appendChild(tr);
+                }
+                chuukyuuStatus(`${(data || []).length} akun tercatat.`);
+            } catch (error) {
+                chuukyuuStatus('Gagal memuat akses: ' + (error.message || 'Kesalahan tidak diketahui'));
+            }
+        }
+        async function changeChuukyuuApproval(userId, approved, button) {
+            if (!approved && !confirm('Cabut akses Chūkyū untuk akun ini?')) return;
+            button.disabled = true;
+            try {
+                await requireChuukyuuAdmin();
+                const {data,error} = await supabaseClient
+                    .from('kotoba_library_members')
+                    .update({approved})
+                    .eq('user_id', userId)
+                    .select('user_id');
+                if (error) throw error;
+                if (!data || data.length !== 1) throw new Error('Perubahan tidak tersimpan. Periksa kebijakan RLS.');
+                await loadChuukyuuMembers();
+                chuukyuuStatus(approved ? 'Akses siswa disetujui.' : 'Akses siswa dicabut.');
+            } catch (error) {
+                chuukyuuStatus('Gagal mengubah akses: ' + error.message);
+            } finally {
+                button.disabled = false;
+            }
+        }
+        async function addChuukyuuMember(event) {
+            event.preventDefault();
+            const field = document.getElementById('chuukyuu-user-id');
+            const button = document.getElementById('chuukyuu-approve-button');
+            const userId = field.value.trim();
+            if (!CHUUKYUU_UUID_RE.test(userId)) {
+                chuukyuuStatus('User UID tidak valid. Salin UID dari Authentication → Users.');
+                return;
+            }
+            button.disabled = true;
+            try {
+                await requireChuukyuuAdmin();
+                const {data: existing,error: lookupError} = await supabaseClient
+                    .from('kotoba_library_members').select('user_id').eq('user_id',userId).maybeSingle();
+                if (lookupError) throw lookupError;
+                const result = existing
+                    ? await supabaseClient.from('kotoba_library_members').update({approved:true}).eq('user_id',userId).select('user_id')
+                    : await supabaseClient.from('kotoba_library_members').insert({user_id:userId,approved:true}).select('user_id');
+                if (result.error) throw result.error;
+                if (!result.data || result.data.length !== 1) throw new Error('Persetujuan tidak tersimpan. Periksa kebijakan RLS dan User UID.');
+                field.value = '';
+                await loadChuukyuuMembers();
+                chuukyuuStatus('Akun berhasil disetujui.');
+            } catch (error) {
+                chuukyuuStatus('Gagal menyetujui akun: ' + error.message);
+            } finally {
+                button.disabled = false;
+            }
+        }
+        document.getElementById('chuukyuu-member-form').addEventListener('submit',addChuukyuuMember);
+        document.getElementById('chuukyuu-refresh-button').addEventListener('click',loadChuukyuuMembers);
 
         document.getElementById('admin-login-form').addEventListener('submit', adminLogin);
 
