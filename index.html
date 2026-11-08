@@ -234,7 +234,7 @@ a {color:var(--primary);}
                 
                 <div class="settings-group" style="max-width: 400px; margin-bottom: 1rem;">
                     <label for="student-name-input">Email Siswa:</label>
-                    <input type="email" id="student-name-input" placeholder="Masukkan email akun Anda..." autocomplete="email" required>
+                    <input type="email" id="student-name-input" readonly placeholder="Masukkan email akun Anda..." autocomplete="email" required>
                 </div>
 
                 <!-- JLPT / JFT exam practice entry -->
@@ -263,13 +263,11 @@ a {color:var(--primary);}
 <aside id="progress-sidebar" class="card" aria-label="Progress belajar siswa">
   <h2>📊 Progres Belajar</h2>
   <div id="progress-login-panel">
-    <p style="font-size:.86rem;margin-bottom:10px">Masuk dengan email dan password akun siswa Supabase untuk menyimpan progres di semua perangkat.</p>
+    <p style="font-size:.86rem;margin-bottom:10px">Cukup masukkan email untuk mulai kuis dan melihat progres di browser ini. Tidak perlu password.</p>
     <form id="progress-login-form">
       <label for="progress-login-email">Email siswa</label>
       <input id="progress-login-email" type="email" autocomplete="username" required placeholder="siswa@example.com">
-      <label for="progress-login-password">Password</label>
-      <input id="progress-login-password" type="password" autocomplete="current-password" required>
-      <button type="submit" id="progress-login-button">Masuk &amp; Lihat Progres</button>
+      <button type="submit" id="progress-login-button">Mulai &amp; Lihat Progres</button>
     </form>
   </div>
   <div id="progress-data-panel" class="hidden">
@@ -277,8 +275,8 @@ a {color:var(--primary);}
     <div class="progress-metric"><div><small>Kuis selesai</small><strong id="progress-completed">0</strong></div><div><small>Rata-rata</small><strong id="progress-average">0%</strong></div></div>
     <div><strong>Minna no Nihongo 1</strong><div id="progress-m1-label">0 / 0 kuis</div><div class="progress-track"><div id="progress-m1-bar" class="progress-fill"></div></div></div>
     <div><strong>Minna no Nihongo 2</strong><div id="progress-m2-label">0 / 0 kuis</div><div class="progress-track"><div id="progress-m2-bar" class="progress-fill"></div></div></div>
-    <p style="font-size:.8rem;margin:0">Kuis dihitung selesai setelah semua soal dijawab. Progres kategori berdasarkan jumlah paket unik yang pernah diselesaikan.</p>
-    <button type="button" class="secondary" id="progress-logout">Keluar dari akun siswa</button>
+    <p style="font-size:.8rem;margin:0">Kuis dihitung selesai setelah semua soal dijawab. Data tersimpan di browser/perangkat ini, bukan tersinkron antarperangkat. Email bukan verifikasi identitas.</p>
+    <button type="button" class="secondary" id="progress-logout">Ganti email siswa</button>
   </div>
   <p id="progress-status" role="status" aria-live="polite"></p>
 </aside>
@@ -778,12 +776,12 @@ a {color:var(--primary);}
             }
 
             if (!progressUser) {
-                alert('Masuk ke akun siswa di panel Progres Belajar terlebih dahulu agar hasil kuis tersimpan.');
+                alert('Masukkan email di panel Progres Belajar terlebih dahulu.');
                 document.getElementById('progress-login-email').focus();
                 return;
             }
             if (studentName.toLowerCase() !== (progressUser.email || '').toLowerCase()) {
-                alert('Email kuis harus sama dengan email akun siswa yang sedang masuk.');
+                alert('Email kuis harus sama dengan email yang dipilih di panel progres.');
                 return;
             }
             currentQuizMeta = quizListConfig.find(q => q.id === quizId);
@@ -929,26 +927,26 @@ a {color:var(--primary);}
         }
 
 
-// Student progress uses Supabase Auth UID, never an unverified email as an authorization key.
+// Passwordless student profiles: local browser storage only.
+// This is not authentication and must not be used for private records.
+const KOTOBA_EMAIL_KEY = 'kotoba-progress-active-email-v1';
+const KOTOBA_RECORD_PREFIX = 'kotoba-progress-history-v1:';
 let progressUser = null;
-let progressBusy = false;
 const progressStatus = message => { document.getElementById('progress-status').textContent = message; };
+function progressHistory(email) {
+  try {
+    const parsed = JSON.parse(localStorage.getItem(KOTOBA_RECORD_PREFIX + email) || '[]');
+    return Array.isArray(parsed) ? parsed : [];
+  } catch (error) { console.warn('Cannot read progress',error); return []; }
+}
 async function refreshStudentProgress() {
-  const { data: { user }, error: authError } = await supabaseClient.auth.getUser();
-  if (authError && !String(authError.message).includes('Auth session missing')) console.warn(authError);
-  progressUser = user || null;
-  document.getElementById('progress-login-panel').classList.toggle('hidden', !!progressUser);
-  document.getElementById('progress-data-panel').classList.toggle('hidden', !progressUser);
-  if (!progressUser) { progressStatus('Masuk untuk melihat progres tersimpan.'); return; }
-  document.getElementById('progress-email').textContent = progressUser.email || '';
-  document.getElementById('student-name-input').value = progressUser.email || '';
-  progressStatus('Memuat progres...');
-  const {data, error} = await supabaseClient.from('kotoba_student_progress')
-    .select('quiz_id,category,score,total_questions,completed_at')
-    .eq('user_id', progressUser.id)
-    .order('completed_at', {ascending:false}).limit(5000);
-  if (error) { progressStatus('Gagal memuat progres: ' + error.message); return; }
-  const results = data || [];
+  const email = progressUser && progressUser.email;
+  document.getElementById('progress-login-panel').classList.toggle('hidden', !!email);
+  document.getElementById('progress-data-panel').classList.toggle('hidden', !email);
+  if (!email) { progressStatus('Masukkan email untuk melihat progres di perangkat ini.'); return; }
+  document.getElementById('progress-email').textContent = email;
+  document.getElementById('student-name-input').value = email;
+  const results = progressHistory(email);
   const unique = new Set(results.map(r => String(r.quiz_id)));
   document.getElementById('progress-completed').textContent = String(unique.size);
   const totalScore = results.reduce((a,r) => a + (r.total_questions > 0 ? 100*r.score/r.total_questions : 0),0);
@@ -959,47 +957,38 @@ async function refreshStudentProgress() {
     document.getElementById('progress-'+cat.toLowerCase()+'-label').textContent = done+' / '+total+' kuis';
     document.getElementById('progress-'+cat.toLowerCase()+'-bar').style.width = (total ? Math.min(100,100*done/total) : 0)+'%';
   }
-  progressStatus(results.length ? results.length+' percobaan kuis tersimpan.' : 'Belum ada kuis yang selesai. Mulai kuis pertama Anda!');
+  progressStatus(results.length ? results.length+' percobaan tersimpan di browser ini.' : 'Belum ada kuis selesai untuk email ini di browser ini.');
 }
 async function saveStudentProgress() {
-  if (!currentQuizMeta || !currentQuestions.length) return;
-  if (!progressUser) { progressStatus('Kuis selesai, tetapi progres belum tersimpan online. Masuk dengan akun siswa sebelum mengerjakan kuis berikutnya.'); return; }
-  const {data:{user},error:authError} = await supabaseClient.auth.getUser();
-  if (authError || !user || user.id !== progressUser.id) throw new Error('Sesi siswa berakhir. Silakan masuk kembali.');
-  const {error} = await supabaseClient.from('kotoba_student_progress').insert({
-    user_id:user.id, quiz_id:currentQuizMeta.id, category:currentQuizMeta.category,
-    quiz_title:currentQuizMeta.title, score, total_questions:currentQuestions.length,
-    duration_seconds:secondsElapsed
-  });
-  if (error) throw error;
+  if (!currentQuizMeta || !currentQuestions.length || !progressUser) return;
+  const email = progressUser.email;
+  const results = progressHistory(email);
+  results.push({quiz_id:currentQuizMeta.id,category:currentQuizMeta.category,
+    quiz_title:currentQuizMeta.title,score,total_questions:currentQuestions.length,
+    duration_seconds:secondsElapsed,completed_at:new Date().toISOString()});
+  localStorage.setItem(KOTOBA_RECORD_PREFIX + email, JSON.stringify(results));
   await refreshStudentProgress();
 }
 document.getElementById('progress-login-form').addEventListener('submit',async event=>{
   event.preventDefault();
-  if (progressBusy) return;
-  progressBusy=true;
-  const button=document.getElementById('progress-login-button'); button.disabled=true;
-  progressStatus('Memeriksa akun...');
-  try {
-    const email=document.getElementById('progress-login-email').value.trim().toLowerCase();
-    const password=document.getElementById('progress-login-password').value;
-    const {error}=await supabaseClient.auth.signInWithPassword({email,password});
-    document.getElementById('progress-login-password').value='';
-    if(error) throw error;
-    await refreshStudentProgress();
-  } catch(error) {progressStatus('Login gagal: '+error.message);}
-  finally {progressBusy=false;button.disabled=false;}
-});
-document.getElementById('progress-logout').addEventListener('click',async()=>{
-  await supabaseClient.auth.signOut();
-  progressUser=null;
-  adminSessionVerified=false;
+  const input = document.getElementById('progress-login-email');
+  if (!input.checkValidity()) { input.reportValidity(); return; }
+  const email = input.value.trim().toLowerCase();
+  progressUser = {email};
+  try { localStorage.setItem(KOTOBA_EMAIL_KEY,email); }
+  catch (error) { progressStatus('Penyimpanan browser tidak tersedia.'); }
   await refreshStudentProgress();
 });
-supabaseClient.auth.onAuthStateChange(()=>{
-  // Defer Supabase queries until the auth callback has finished.
-  setTimeout(()=>refreshStudentProgress().catch(console.error),0);
+document.getElementById('progress-logout').addEventListener('click',async()=>{
+  progressUser=null;
+  localStorage.removeItem(KOTOBA_EMAIL_KEY);
+  document.getElementById('student-name-input').value='';
+  await refreshStudentProgress();
 });
+try {
+  const savedEmail = (localStorage.getItem(KOTOBA_EMAIL_KEY)||'').trim().toLowerCase();
+  if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(savedEmail)) progressUser={email:savedEmail};
+} catch (error) { console.warn(error); }
 
         document.addEventListener('DOMContentLoaded', initializeApp);
     </script>
