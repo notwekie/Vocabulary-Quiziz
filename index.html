@@ -190,6 +190,22 @@ a {color:var(--primary);}
   .kotoba-art {width: 100%; max-width: 350px; margin-top: 8px;}
 }
 
+
+/* Student progress: responsive sidebar */
+#student-view{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:22px;align-items:start}
+#student-main{min-width:0}
+#progress-sidebar{position:sticky;top:16px;padding:20px}
+#progress-sidebar h2{font-size:1.13rem}
+.progress-metric{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+.progress-metric>div{background:var(--soft);border-radius:12px;padding:12px;min-width:0}
+.progress-metric strong{display:block;font-size:1.45rem}
+.progress-track{height:9px;border-radius:20px;background:var(--border);overflow:hidden;margin:6px 0 14px}
+.progress-fill{height:100%;width:0;background:var(--primary);transition:width .25s}
+#progress-sidebar input{width:100%;padding:10px;border:1px solid var(--border);border-radius:9px;background:var(--card-bg);color:var(--text);margin:6px 0}
+#progress-sidebar button{width:100%;margin-top:8px}
+#progress-email{overflow-wrap:anywhere;font-size:.84rem;color:var(--text-light)}
+#progress-status{font-size:.82rem;line-height:1.5;overflow-wrap:anywhere;margin:10px 0}
+@media(max-width:920px){#student-view{grid-template-columns:1fr}#progress-sidebar{position:static;grid-row:1}#student-main{grid-row:2}}
 </style>
 </head>
 <body data-theme="sakura">
@@ -206,6 +222,7 @@ a {color:var(--primary);}
     <main>
         <!-- STUDENT VIEW -->
         <div id="student-view">
+<div id="student-main">
 <section class="kotoba-illustrated-hero" aria-label="Japanese-inspired learning design"><div class="kotoba-hero-content"><span class="kotoba-hero-eyebrow">日本語を学ぼう · Japanese learning</span><h1>Kotoba Quiz<br>Master.</h1><p>Belajar bahasa Jepang, satu langkah setiap hari. Vocabulary, JLPT &amp; JFT practice in one place.</p><span class="kotoba-hero-jp">ことば · 学ぶ · 成長する</span></div><div class="kotoba-art" aria-hidden="true">
 <svg class="kotoba-scene kotoba-sakura" viewBox="0 0 540 290" role="img"><defs><linearGradient id="sunPink" x2="0" y2="1"><stop stop-color="#e18e98"/><stop offset="1" stop-color="#f4c6c8"/></linearGradient></defs><circle cx="365" cy="139" r="104" fill="url(#sunPink)" opacity=".87"/><path d="M0 245 Q120 205 250 247 T540 232V290H0Z" fill="#f7e0e3"/><path d="M45 -8 Q90 64 174 88 Q226 109 290 90 M133 58 Q157 23 155 0 M187 88 Q225 53 240 19" stroke="#75535a" stroke-width="9" fill="none" stroke-linecap="round"/><g fill="#f7b8c4" stroke="#d98da0" stroke-width="1.5"><path d="M90 54q-22-30-29 0q-29-6-15 17q-18 22 11 24q8 29 26 7q30 10 25-18q22-18-7-27Z"/><path d="M166 84q-20-26-28 0q-25-4-13 17q-15 19 10 21q8 24 23 6q25 8 21-16q20-16-6-24Z"/><path d="M241 60q-18-25-26 0q-25-3-12 17q-16 19 10 21q7 25 23 6q26 8 21-16q20-16-6-24Z"/></g><g fill="#a95770"><circle cx="79" cy="78" r="5"/><circle cx="154" cy="106" r="4"/><circle cx="229" cy="82" r="4"/></g><g fill="#db9ba7"><circle cx="290" cy="195" r="4"/><circle cx="315" cy="217" r="3"/><circle cx="459" cy="229" r="4"/><circle cx="475" cy="206" r="3"/></g></svg>
 <svg class="kotoba-scene kotoba-matcha" viewBox="0 0 540 290" role="img"><circle cx="375" cy="135" r="108" fill="#dce6c4"/><path d="M0 252 Q180 225 325 250 T540 245V290H0Z" fill="#e4e9d5"/><g fill="none" stroke="#789467" stroke-width="5" stroke-linecap="round"><path d="M95 266Q83 162 120 67"/><path d="M108 177Q47 142 52 89Q113 93 108 177" fill="#aec49a"/><path d="M112 133Q155 97 157 46Q105 70 112 133" fill="#8fac78"/><path d="M95 227Q45 204 32 162Q93 163 95 227" fill="#a8bd8b"/></g><ellipse cx="370" cy="215" rx="120" ry="22" fill="#b4c5a3" opacity=".55"/><path d="M266 155 Q274 248 370 249 Q466 248 474 155Z" fill="#547348"/><ellipse cx="370" cy="155" rx="104" ry="35" fill="#344d32"/><ellipse cx="370" cy="153" rx="93" ry="27" fill="#9dbd77"/><path d="M320 147Q352 126 382 149T430 148" fill="none" stroke="#dbe8b8" stroke-width="5" opacity=".8"/><g stroke="#a78c63" stroke-width="6" stroke-linecap="round"><path d="M231 62L278 162"/><path d="M223 71L264 168"/></g><g stroke="#ad956d" stroke-width="2"><path d="M278 162l-28 23m28-23-15 29m15-29 0 31m0-31 15 27m-15-27 28 18"/></g></svg>
@@ -216,8 +233,8 @@ a {color:var(--primary);}
                 <p>Pilih kategori level di bawah ini (*Minna no Nihongo 1* atau *Minna no Nihongo 2*). Setiap kuis menyajikan soal acak yang variatif.</p>
                 
                 <div class="settings-group" style="max-width: 400px; margin-bottom: 1rem;">
-                    <label>Nama Lengkap Siswa:</label>
-                    <input type="text" id="student-name-input" placeholder="Masukkan nama Anda..." value="Siswa">
+                    <label for="student-name-input">Email Siswa:</label>
+                    <input type="email" id="student-name-input" placeholder="Masukkan email akun Anda..." autocomplete="email" required>
                 </div>
 
                 <!-- JLPT / JFT exam practice entry -->
@@ -242,6 +259,29 @@ a {color:var(--primary);}
 
             <!-- CONTAINER DAFTAR KUIS DIPINDAHKAN KE LUAR CARD AGAR TAMPIL LUAS -->
             <div id="quiz-list" class="quiz-grid"></div>
+</div>
+<aside id="progress-sidebar" class="card" aria-label="Progress belajar siswa">
+  <h2>📊 Progres Belajar</h2>
+  <div id="progress-login-panel">
+    <p style="font-size:.86rem;margin-bottom:10px">Masuk dengan email dan password akun siswa Supabase untuk menyimpan progres di semua perangkat.</p>
+    <form id="progress-login-form">
+      <label for="progress-login-email">Email siswa</label>
+      <input id="progress-login-email" type="email" autocomplete="username" required placeholder="siswa@example.com">
+      <label for="progress-login-password">Password</label>
+      <input id="progress-login-password" type="password" autocomplete="current-password" required>
+      <button type="submit" id="progress-login-button">Masuk &amp; Lihat Progres</button>
+    </form>
+  </div>
+  <div id="progress-data-panel" class="hidden">
+    <div id="progress-email"></div>
+    <div class="progress-metric"><div><small>Kuis selesai</small><strong id="progress-completed">0</strong></div><div><small>Rata-rata</small><strong id="progress-average">0%</strong></div></div>
+    <div><strong>Minna no Nihongo 1</strong><div id="progress-m1-label">0 / 0 kuis</div><div class="progress-track"><div id="progress-m1-bar" class="progress-fill"></div></div></div>
+    <div><strong>Minna no Nihongo 2</strong><div id="progress-m2-label">0 / 0 kuis</div><div class="progress-track"><div id="progress-m2-bar" class="progress-fill"></div></div></div>
+    <p style="font-size:.8rem;margin:0">Kuis dihitung selesai setelah semua soal dijawab. Progres kategori berdasarkan jumlah paket unik yang pernah diselesaikan.</p>
+    <button type="button" class="secondary" id="progress-logout">Keluar dari akun siswa</button>
+  </div>
+  <p id="progress-status" role="status" aria-live="polite"></p>
+</aside>
         </div>
 
         <!-- QUIZ ROOM -->
@@ -731,12 +771,21 @@ a {color:var(--primary);}
 
         function startQuiz(quizId) {
             const studentName = document.getElementById('student-name-input').value.trim();
-            if (!studentName || studentName.toLowerCase() === 'siswa') {
-                alert('Silakan masukkan nama lengkap Anda terlebih dahulu!');
+            if (!studentName || !document.getElementById('student-name-input').checkValidity()) {
+                alert('Silakan masukkan email yang valid terlebih dahulu!');
                 document.getElementById('student-name-input').focus();
                 return;
             }
 
+            if (!progressUser) {
+                alert('Masuk ke akun siswa di panel Progres Belajar terlebih dahulu agar hasil kuis tersimpan.');
+                document.getElementById('progress-login-email').focus();
+                return;
+            }
+            if (studentName.toLowerCase() !== (progressUser.email || '').toLowerCase()) {
+                alert('Email kuis harus sama dengan email akun siswa yang sedang masuk.');
+                return;
+            }
             currentQuizMeta = quizListConfig.find(q => q.id === quizId);
             if (!currentQuizMeta) return;
 
@@ -821,13 +870,9 @@ a {color:var(--primary);}
             document.getElementById('quote-jp').textContent = randomQuote.jp;
             document.getElementById('quote-id').textContent = `"${randomQuote.id}"`;
 
-            // Results are not stored online yet. This will be connected after the secure backend is set up.
-            console.log('Quiz result (local only):', {
-                timestamp: new Date().toISOString(),
-                student: document.getElementById('student-name-input').value.trim(),
-                quiz: currentQuizMeta.title,
-                score: `${score}/${currentQuestions.length}`,
-                duration: timeString
+            saveStudentProgress().catch(error => {
+                console.error('Gagal menyimpan progres:', error);
+                document.getElementById('progress-status').textContent = 'Progres belum tersimpan: ' + error.message;
             });
         }
 
@@ -864,6 +909,7 @@ a {color:var(--primary);}
                 allVocabulary = database.vocabulary;
                 buildQuizConfig();
                 renderQuizCards();
+                await refreshStudentProgress();
 
                 const savedTheme = localStorage.getItem('kotoba-theme');
                 if (savedTheme && ['sumi', 'sakura', 'matcha'].includes(savedTheme)) {
@@ -881,6 +927,79 @@ a {color:var(--primary);}
                     </div>`;
             }
         }
+
+
+// Student progress uses Supabase Auth UID, never an unverified email as an authorization key.
+let progressUser = null;
+let progressBusy = false;
+const progressStatus = message => { document.getElementById('progress-status').textContent = message; };
+async function refreshStudentProgress() {
+  const { data: { user }, error: authError } = await supabaseClient.auth.getUser();
+  if (authError && !String(authError.message).includes('Auth session missing')) console.warn(authError);
+  progressUser = user || null;
+  document.getElementById('progress-login-panel').classList.toggle('hidden', !!progressUser);
+  document.getElementById('progress-data-panel').classList.toggle('hidden', !progressUser);
+  if (!progressUser) { progressStatus('Masuk untuk melihat progres tersimpan.'); return; }
+  document.getElementById('progress-email').textContent = progressUser.email || '';
+  document.getElementById('student-name-input').value = progressUser.email || '';
+  progressStatus('Memuat progres...');
+  const {data, error} = await supabaseClient.from('kotoba_student_progress')
+    .select('quiz_id,category,score,total_questions,completed_at')
+    .eq('user_id', progressUser.id)
+    .order('completed_at', {ascending:false}).limit(5000);
+  if (error) { progressStatus('Gagal memuat progres: ' + error.message); return; }
+  const results = data || [];
+  const unique = new Set(results.map(r => String(r.quiz_id)));
+  document.getElementById('progress-completed').textContent = String(unique.size);
+  const totalScore = results.reduce((a,r) => a + (r.total_questions > 0 ? 100*r.score/r.total_questions : 0),0);
+  document.getElementById('progress-average').textContent = (results.length ? Math.round(totalScore/results.length) : 0) + '%';
+  for (const cat of ['M1','M2']) {
+    const total = quizListConfig.filter(q=>q.category===cat).length;
+    const done = new Set(results.filter(r=>r.category===cat).map(r=>String(r.quiz_id))).size;
+    document.getElementById('progress-'+cat.toLowerCase()+'-label').textContent = done+' / '+total+' kuis';
+    document.getElementById('progress-'+cat.toLowerCase()+'-bar').style.width = (total ? Math.min(100,100*done/total) : 0)+'%';
+  }
+  progressStatus(results.length ? results.length+' percobaan kuis tersimpan.' : 'Belum ada kuis yang selesai. Mulai kuis pertama Anda!');
+}
+async function saveStudentProgress() {
+  if (!currentQuizMeta || !currentQuestions.length) return;
+  if (!progressUser) { progressStatus('Kuis selesai, tetapi progres belum tersimpan online. Masuk dengan akun siswa sebelum mengerjakan kuis berikutnya.'); return; }
+  const {data:{user},error:authError} = await supabaseClient.auth.getUser();
+  if (authError || !user || user.id !== progressUser.id) throw new Error('Sesi siswa berakhir. Silakan masuk kembali.');
+  const {error} = await supabaseClient.from('kotoba_student_progress').insert({
+    user_id:user.id, quiz_id:currentQuizMeta.id, category:currentQuizMeta.category,
+    quiz_title:currentQuizMeta.title, score, total_questions:currentQuestions.length,
+    duration_seconds:secondsElapsed
+  });
+  if (error) throw error;
+  await refreshStudentProgress();
+}
+document.getElementById('progress-login-form').addEventListener('submit',async event=>{
+  event.preventDefault();
+  if (progressBusy) return;
+  progressBusy=true;
+  const button=document.getElementById('progress-login-button'); button.disabled=true;
+  progressStatus('Memeriksa akun...');
+  try {
+    const email=document.getElementById('progress-login-email').value.trim().toLowerCase();
+    const password=document.getElementById('progress-login-password').value;
+    const {error}=await supabaseClient.auth.signInWithPassword({email,password});
+    document.getElementById('progress-login-password').value='';
+    if(error) throw error;
+    await refreshStudentProgress();
+  } catch(error) {progressStatus('Login gagal: '+error.message);}
+  finally {progressBusy=false;button.disabled=false;}
+});
+document.getElementById('progress-logout').addEventListener('click',async()=>{
+  await supabaseClient.auth.signOut();
+  progressUser=null;
+  adminSessionVerified=false;
+  await refreshStudentProgress();
+});
+supabaseClient.auth.onAuthStateChange(()=>{
+  // Defer Supabase queries until the auth callback has finished.
+  setTimeout(()=>refreshStudentProgress().catch(console.error),0);
+});
 
         document.addEventListener('DOMContentLoaded', initializeApp);
     </script>
