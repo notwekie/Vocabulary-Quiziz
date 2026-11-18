@@ -927,8 +927,7 @@ a {color:var(--primary);}
         }
 
 
-// Passwordless student profiles: local browser storage only.
-// This is not authentication and must not be used for private records.
+// Email-only cloud progress: public email profiles, not secure identity verification.
 const KOTOBA_EMAIL_KEY = 'kotoba-progress-active-email-v1';
 const KOTOBA_RECORD_PREFIX = 'kotoba-progress-history-v1:';
 let progressUser = null;
@@ -937,46 +936,95 @@ function progressHistory(email) {
   try {
     const parsed = JSON.parse(localStorage.getItem(KOTOBA_RECORD_PREFIX + email) || '[]');
     return Array.isArray(parsed) ? parsed : [];
-  } catch (error) { console.warn('Cannot read progress',error); return []; }
+  } catch (error) { console.warn('Cannot read local progress',error); return []; }
+}
+function persistProgressHistory(email, records) {
+  localStorage.setItem(KOTOBA_RECORD_PREFIX + email, JSON.stringify(records));
+}
+function attemptId() {
+  if (window.crypto && window.crypto.randomUUID) return window.crypto.randomUUID();
+  const bytes = new Uint8Array(16); window.crypto.getRandomValues(bytes);
+  bytes[6] = (bytes[6] & 15) | 64; bytes[8] = (bytes[8] & 63) | 128;
+  const h = Array.from(bytes, b => b.toString(16).padStart(2,'0')).join('');
+  return `${h.slice(0,8)}-${h.slice(8,12)}-${h.slice(12,16)}-${h.slice(16,20)}-${h.slice(20)}`;
+}
+async function cloudRead(email) {
+  const {data,error} = await supabaseClient.rpc('kotoba_progress_read',{p_email:email});
+  if (error) throw error;
+  return Array.isArray(data) ? data : [];
+}
+async function cloudWrite(email,r) {
+  const {error} = await supabaseClient.rpc('kotoba_progress_write',{
+    p_email:email,p_attempt_id:r.attempt_id,p_quiz_id:Number(r.quiz_id),
+    p_category:r.category,p_quiz_title:r.quiz_title,p_score:Number(r.score),
+    p_total_questions:Number(r.total_questions),p_duration_seconds:Number(r.duration_seconds)||0,
+    p_completed_at:r.completed_at || new Date().toISOString()
+  });
+  if (error) throw error;
+}
+function drawStudentProgress(email,results) {
+  document.getElementById('progress-email').textContent=email;
+  const unique=new Set(results.map(r=>String(r.quiz_id)));
+  document.getElementById('progress-completed').textContent=String(unique.size);
+  const totalScore=results.reduce((a,r)=>a+(r.total_questions>0?100*r.score/r.total_questions:0),0);
+  document.getElementById('progress-average').textContent=(results.length?Math.round(totalScore/results.length):0)+'%';
+  for(const cat of ['M1','M2']) {
+    const total=quizListConfig.filter(q=>q.category===cat).length;
+    const done=new Set(results.filter(r=>r.category===cat).map(r=>String(r.quiz_id))).size;
+    document.getElementById('progress-'+cat.toLowerCase()+'-label').textContent=done+' / '+total+' kuis';
+    document.getElementById('progress-'+cat.toLowerCase()+'-bar').style.width=(total?Math.min(100,100*done/total):0)+'%';
+  }
 }
 async function refreshStudentProgress() {
-  const email = progressUser && progressUser.email;
-  document.getElementById('progress-login-panel').classList.toggle('hidden', !!email);
-  document.getElementById('progress-data-panel').classList.toggle('hidden', !email);
-  if (!email) { progressStatus('Masukkan email untuk melihat progres di perangkat ini.'); return; }
-  document.getElementById('progress-email').textContent = email;
-  document.getElementById('student-name-input').value = email;
-  const results = progressHistory(email);
-  const unique = new Set(results.map(r => String(r.quiz_id)));
-  document.getElementById('progress-completed').textContent = String(unique.size);
-  const totalScore = results.reduce((a,r) => a + (r.total_questions > 0 ? 100*r.score/r.total_questions : 0),0);
-  document.getElementById('progress-average').textContent = (results.length ? Math.round(totalScore/results.length) : 0) + '%';
-  for (const cat of ['M1','M2']) {
-    const total = quizListConfig.filter(q=>q.category===cat).length;
-    const done = new Set(results.filter(r=>r.category===cat).map(r=>String(r.quiz_id))).size;
-    document.getElementById('progress-'+cat.toLowerCase()+'-label').textContent = done+' / '+total+' kuis';
-    document.getElementById('progress-'+cat.toLowerCase()+'-bar').style.width = (total ? Math.min(100,100*done/total) : 0)+'%';
+  const email=progressUser && progressUser.email;
+  document.getElementById('progress-login-panel').classList.toggle('hidden',!!email);
+  document.getElementById('progress-data-panel').classList.toggle('hidden',!email);
+  if(!email) {progressStatus('Masukkan email untuk melihat progres online.');return;}
+  document.getElementById('student-name-input').value=email;
+  const activeEmail=email;
+  progressStatus('Menyinkronkan progres dengan Supabase...');
+  const local=progressHistory(email);
+  try {
+    // Assign stable IDs before importing so retrying never creates duplicate attempts.
+    let changed=false;
+    for(const r of local) if(!r.attempt_id) {r.attempt_id=attemptId();changed=true;}
+    if(changed) persistProgressHistory(email,local);
+    // Upload only records that haven't been synced; old browser progress is preserved.
+    for(const r of local) {
+      if(!r.cloud_synced) {
+        await cloudWrite(email,r);
+        r.cloud_synced=true;
+        persistProgressHistory(email,local);
+      }
+    }
+    const online=await cloudRead(email);
+    if(!progressUser || progressUser.email!==activeEmail) return;
+    drawStudentProgress(email,online);
+    progressStatus(online.length+' percobaan tersimpan online dan tersinkron antar perangkat.');
+  } catch(error) {
+    console.error('Cloud progress unavailable:',error);
+    if(!progressUser || progressUser.email!==activeEmail) return;
+    drawStudentProgress(email,local);
+    progressStatus('Sinkronisasi gagal. Menampilkan data browser ini saja. Periksa setup SQL dan koneksi.');
   }
-  progressStatus(results.length ? results.length+' percobaan tersimpan di browser ini.' : 'Belum ada kuis selesai untuk email ini di browser ini.');
 }
 async function saveStudentProgress() {
-  if (!currentQuizMeta || !currentQuestions.length || !progressUser) return;
-  const email = progressUser.email;
-  const results = progressHistory(email);
-  results.push({quiz_id:currentQuizMeta.id,category:currentQuizMeta.category,
+  if(!currentQuizMeta || !currentQuestions.length || !progressUser) return;
+  const email=progressUser.email;
+  const local=progressHistory(email);
+  local.push({attempt_id:attemptId(),quiz_id:currentQuizMeta.id,category:currentQuizMeta.category,
     quiz_title:currentQuizMeta.title,score,total_questions:currentQuestions.length,
-    duration_seconds:secondsElapsed,completed_at:new Date().toISOString()});
-  localStorage.setItem(KOTOBA_RECORD_PREFIX + email, JSON.stringify(results));
+    duration_seconds:secondsElapsed,completed_at:new Date().toISOString(),cloud_synced:false});
+  persistProgressHistory(email,local);
   await refreshStudentProgress();
 }
 document.getElementById('progress-login-form').addEventListener('submit',async event=>{
   event.preventDefault();
-  const input = document.getElementById('progress-login-email');
-  if (!input.checkValidity()) { input.reportValidity(); return; }
-  const email = input.value.trim().toLowerCase();
-  progressUser = {email};
-  try { localStorage.setItem(KOTOBA_EMAIL_KEY,email); }
-  catch (error) { progressStatus('Penyimpanan browser tidak tersedia.'); }
+  const input=document.getElementById('progress-login-email');
+  if(!input.checkValidity()) {input.reportValidity();return;}
+  const email=input.value.trim().toLowerCase();
+  progressUser={email};
+  try {localStorage.setItem(KOTOBA_EMAIL_KEY,email);} catch(error){console.warn(error);}
   await refreshStudentProgress();
 });
 document.getElementById('progress-logout').addEventListener('click',async()=>{
@@ -986,9 +1034,9 @@ document.getElementById('progress-logout').addEventListener('click',async()=>{
   await refreshStudentProgress();
 });
 try {
-  const savedEmail = (localStorage.getItem(KOTOBA_EMAIL_KEY)||'').trim().toLowerCase();
-  if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(savedEmail)) progressUser={email:savedEmail};
-} catch (error) { console.warn(error); }
+  const savedEmail=(localStorage.getItem(KOTOBA_EMAIL_KEY)||'').trim().toLowerCase();
+  if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(savedEmail)) progressUser={email:savedEmail};
+} catch(error) {console.warn(error);}
 
         document.addEventListener('DOMContentLoaded', initializeApp);
     </script>
